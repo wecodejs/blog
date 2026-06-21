@@ -1,0 +1,27 @@
+{
+  "name": "myblog",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node -e \"const Hexo=require('hexo');const hexo=new Hexo(process.cwd(),{_:['generate']});hexo.env.init=true;hexo.init().then(()=>hexo.call('generate',{})).then(()=>console.log('生成完成！'));\"",
+    "clean": "rm -rf public db.json && echo '清除完成！'",
+    "deploy": "node -e \"const Hexo=require('hexo');const hexo=new Hexo(process.cwd(),{_:['deploy']});hexo.env.init=true;hexo.init().then(()=>hexo.call('deploy',{}));\"",
+    "server": "node -e \"const Hexo=require('hexo');const hexo=new Hexo(process.cwd(),{_:['server']});hexo.env.init=true;hexo.init().then(()=>hexo.call('server',{}));\""
+  },
+  "dependencies": {
+    "hexo": "^7.3.0",
+    "hexo-deployer-git": "^4.0.0",
+    "hexo-generator-index": "^4.0.0",
+    "hexo-generator-search": "^2.4.3",
+    "hexo-generator-tag": "^2.0.0",
+    "hexo-renderer-ejs": "^2.0.0",
+    "hexo-renderer-marked": "^7.0.0",
+    "hexo-renderer-stylus": "^3.0.1",
+    "hexo-server": "^3.0.0",
+    "hexo-theme-next": "^8.27.0",
+    "hexo-theme-volantis": "^6.0.4"
+  },
+  "devDependencies": {
+    "hexo-cli": "^4.3.2"
+  }
+}
