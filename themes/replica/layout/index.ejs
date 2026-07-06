@@ -1,0 +1,45 @@
+<%
+var posts = page.posts.data;
+var recentPosts = page.posts.data;
+%>
+
+<div class="container-lg">
+  <%- partial('_partial/intro') %>
+
+  <div class="blog-detail">
+    <%- partial('_partial/navbar-secondary', {nav_selected: 0}) %>
+
+    <div class="body-secondary">
+      <p class="right-title">全部文章</p>
+      <ul class="recent-post clearfix">
+        <% recentPosts.forEach(function(post){ %>
+        <li class="recent-post-item">
+          <div class="clearfix">
+            <h5 class="post-title text-ellipsis">
+              <i class="fa fa-bars"></i>
+              <a href="<%= url_for(post.path) %>"><%= post.title || 'Untitled' %></a>
+            </h5>
+            <p class="post-description desktop-only">
+              <%= post.content
+                      .replace(/<[^>]*>/ig, ' ')
+                      .substr(0, 200) %>
+            </p>
+            <p class="post-info desktop-only">
+              <span>
+                <% if(post.tags.data && post.tags.data.length > 0){ %>
+                  <% post.tags.data.forEach(function(tag){ %>
+                    <a class="tag-link" href="<%= url_for(tag.path) %>"><i class="fa fa-tag"></i> <%= tag.name %></a>
+                  <% }) %>
+                <% } else { %>
+                  <i class="fa fa-tag"></i> 未分类
+                <% } %>
+              </span>
+            </p>
+          </div>
+        </li>
+        <% }) %>
+      </ul>
+      <%- partial('_partial/calendar') %>
+    </div>
+  </div>
+</div>

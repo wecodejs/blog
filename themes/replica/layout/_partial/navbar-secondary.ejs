@@ -1,0 +1,9 @@
+<%
+var isOverview = ['tags', 'archives', 'categories'].indexOf(nav_selected) === -1
+%>
+<nav class="blog-detail-nav desktop-only" style="display: none;">
+  <ul class="clearfix">
+    <li class="<%= nav_selected === 'tags' ? 'selected' : '' %>">
+      <a href="<%= url_for(theme.tag_dir) %>">分类 <span class="counter"><%= site.tags.length %></span></a></li>
+  </ul>
+</nav>

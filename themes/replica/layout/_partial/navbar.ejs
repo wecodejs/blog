@@ -1,0 +1,43 @@
+<%
+var avatar = config.avatar || theme.avatar || 'https://avatars.githubusercontent.com/u/1371295?v=4&size=230'
+%>
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="<%= config.root %>" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <input type="text" id="local-search-input" placeholder="搜索文章..." style="padding: 2px 5px; width: 200px; border: 1px solid #ccc; border-radius: 3px;">
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        <% if(theme.menu.archives){ %>
+        <li><a clas="navbar-nav-archives" style="display: none" href="<%= url_for(config.archive_dir + '/') %>">Archives</a></li>
+        <% } %>
+        <% if(theme.menu.categories){ %>
+        <li><a clas="navbar-nav-categories" style="display: none" href="<%= url_for(config.category_dir + '/') %>">Categories</a></li>
+        <% } %>
+        <% if(theme.menu.tags){ %>
+        <li style="transform:translateX(570px)"><a href="<%= url_for(config.tag_dir + '/') %>">全部分类</a></li>
+        <% } %>
+        <% if(theme.rss_dir){ %>
+        <li clas="navbar-nav-rss desktop-only" style="display: none"><a href="<%= url_for(theme.rss_dir) %>" target="_blank">RSS</a></li>
+        <% } %>
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only" style="display: none;">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="<%= avatar %>"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
