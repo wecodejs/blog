@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    css3 的媒介(media)查询 | 我的博客
+  </title>
+  <meta name="description" content="个人技术博客">
+  
+  <meta name="keywords" content="
+  css
+  ">
+  
+  <meta name="author" content="Wecodejs">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="theme-color" content="#1e2327">
+  <link rel="apple-touch-icon" href="https://github.githubassets.com/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/apple-touch-icon-180x180.png">
+
+  <link rel="icon" type="image/x-icon" href="https://github.githubassets.com/favicon.ico">
+  <link rel="stylesheet" href="/blog/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/blog/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <input type="text" id="local-search-input" placeholder="搜索文章..." style="padding: 2px 5px; width: 200px; border: 1px solid #ccc; border-radius: 3px;">
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a clas="navbar-nav-archives" style="display: none" href="/blog/archives/">Archives</a></li>
+        
+        
+        <li><a clas="navbar-nav-categories" style="display: none" href="/blog/categories/">Categories</a></li>
+        
+        
+        <li style="transform:translateX(570px)"><a href="/blog/tags/">全部分类</a></li>
+        
+        
+        <li clas="navbar-nav-rss desktop-only" style="display: none"><a href="/blog/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only" style="display: none;">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://avatars.githubusercontent.com/u/1371295?v=4&amp;size=230"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar" style="display:none;">
+      <li class="clearfix">
+        <a href="/blog/" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/blog/"
+           class="header-toolbar-right"> 60 </a>
+      </li>
+      <li>
+        <a href="/blog/" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/blog/"
+           class="header-toolbar-right"> 4 </a>
+      </li>
+      <li>
+        <a href="/blog/" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/blog/"
+           class="header-toolbar-right"> 0 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/blog/">我的博客</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container" style="display: none">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    Wecodejs
+
+    <span class="post-date float-right" title="{{moment(1781884800000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      
+          <i class="fa fa-pencil-square-o"></i>
+      
+      {{moment(1781884800000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>css3 的媒介(media)查询</h1>
+    <h1 id="CSS3-的媒介-media-查询"><a href="#CSS3-的媒介-media-查询" class="headerlink" title="CSS3 的媒介(media)查询"></a><em>CSS3</em> 的媒介(<em>media</em>)查询</h1><h2 id="经典真题"><a href="#经典真题" class="headerlink" title="经典真题"></a>经典真题</h2><ul>
+<li>如何使用媒体查询实现视口宽度大于 <em>320px</em> 小于 <em>640px</em> 时 <em>div</em> 元素宽度变成 <em>30%</em></li>
+</ul>
+<h2 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h2><p>媒体查询英文全称 <em>Media Query</em>，顾名思义就是会查询用户所使用的媒体或者媒介。</p>
+<p>在现在，网页的浏览终端是越来越多了。用户可以通过不同的终端来浏览网页，例如：<em>PC</em>，平板电脑，手机，电视等。尽管我们无法保证一个网站在不同屏幕尺寸和不同设备上看起来一模一样，但是至少要让我们的Web页面能适配用户的终端。</p>
+<p>在 <em>CSS3</em> 中的 <em>Media Query</em> （媒体查询）模块就是用来让一个页面适应不同的终端的。</p>
+<p><strong><em>Media Type</em> 设备类型</strong></p>
+<p>首先我们来认识一下 <em>CSS</em> 中所支持的媒体类型。</p>
+<p>在 <em>CSS2</em> 中常碰到的就是 <em>all</em>（全部）、<em>screen</em>（屏幕）和 <em>print</em>（页面打印或打印预览模式）。然而媒体的类型其实远不止这 <em>3</em> 种。</p>
+<p>在 <em>W3C</em> 中共列出了 <em>10</em> 种媒体类型，如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>设备类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>All</td>
+<td>所有设备</td>
+</tr>
+<tr>
+<td>Braille</td>
+<td>盲人用点字法触觉回馈设备</td>
+</tr>
+<tr>
+<td>Embossed</td>
+<td>盲文打印机</td>
+</tr>
+<tr>
+<td>Handheld</td>
+<td>便携设备</td>
+</tr>
+<tr>
+<td>Print</td>
+<td>打印用纸或打印预览视图</td>
+</tr>
+<tr>
+<td>Projection</td>
+<td>各种投影设备</td>
+</tr>
+<tr>
+<td>Screen</td>
+<td>电脑显示器</td>
+</tr>
+<tr>
+<td>Speech</td>
+<td>语音或音频合成器</td>
+</tr>
+<tr>
+<td>Tv</td>
+<td>电视机类型设备</td>
+</tr>
+<tr>
+<td>Tty</td>
+<td>使用固定密度字母栅格的媒介，比如电传打字机和终端</td>
+</tr>
+</tbody></table>
+<p>当然，虽然上面的表列出来了这么多，但是常用的也就是 <em>all</em>（全部）、<em>screen</em>（屏幕）和 <em>print</em>（页面打印或打印预览模式）这三种媒体类型。</p>
+<p><strong>媒体类型引用方法</strong></p>
+<p>引用媒体类型的方法有和很多，常见的媒体类型引用方法有：<em>link</em> 标签、<em>xml</em> 方式、<em>@import</em> 和 <em>CSS3</em> 新增的 <em>@media</em>。</p>
+<ol>
+<li><em>link</em> 方法</li>
+</ol>
+<p><em>link</em> 方法引入媒体类型其实就是在 <em>link</em> 标签引用样式的时候，通过 <em>link</em> 标签中的 <em>media</em> 属性来指定不同的媒体类型，如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;index.css&quot;</span> <span class="attr">media</span>=<span class="string">&quot;screen&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;print.css&quot;</span> <span class="attr">media</span>=<span class="string">&quot;print&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li><em>xml</em> 方式</li>
+</ol>
+<p><em>xml</em> 方式和 <em>link</em> 方式比较相似，也是通过 <em>media</em> 属性来指定，如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;? xml-stylesheet rel=&quot;stylesheet&quot; media=&quot;screen&quot; href=&quot;style.css&quot; ?&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="3">
+<li><em>@import</em></li>
+</ol>
+<p><em>@import</em> 引入媒体类型主要有两种方式，一种是在 CSS 样式表中通过 <em>@import</em> 调用另一个样式文件，另外一种是在 <em>style</em> 标签中引入。</p>
+<blockquote>
+<p>注意：<em>IE6</em> 和 <em>IE7</em> 中不支持该方式</p>
+</blockquote>
+<p>在样式文件中引入媒体类型：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@import</span> url(<span class="string">&#x27;./index.css&#x27;</span>) screen</span><br></pre></td></tr></table></figure>
+
+<p>在 <em>style</em> 标签中引入媒体类型：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="keyword">@import</span> url(<span class="string">&#x27;./index.css&#x27;</span>) screen</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="4">
+<li><em>@meida</em> 的方式</li>
+</ol>
+<p><em>@media</em> 是 <em>CSS3</em> 中新引进的一个特性，称为媒体查询。<em>@media</em> 引入媒体也有两种方式，如下：</p>
+<p>在样式文件中引入媒体类型：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> screen&#123;</span><br><span class="line">  <span class="comment">/* 具体样式 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在 <em>style</em> 标签中引入媒体类型：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="keyword">@media</span> screen&#123;</span></span><br><span class="line"><span class="language-css">    <span class="comment">/* 具体样式 */</span></span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>虽然上面介绍了 <em>4</em> 种引入方式，但是最常见的就是第 <em>1</em> 种和第 <em>4</em> 种。</p>
+<p><strong>媒体查询具体语法</strong></p>
+<p>接下来我们来看一下媒体查询的具体语法。</p>
+<p>这里我们可以将 <em>Media Query</em> 看成一个公式：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Media Type（判断条件）+ CSS（符合条件的样式规则）</span><br></pre></td></tr></table></figure>
+
+<p>这里举例如下：</p>
+<p><em>link</em> 的方式</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">media</span>=<span class="string">&quot;screen and (max-width:600px)&quot;</span> <span class="attr">href</span>=<span class="string">&quot;style.css&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><em>@media</em> 的方式</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@meida</span> screen <span class="keyword">and</span> (<span class="attribute">max-width</span>:<span class="number">600px</span>)&#123;</span><br><span class="line">  <span class="comment">/* 具体样式 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的两个例子中都是使用 <em>width</em> 来进行的样式判断，但是实际上还有很多特性都可以被用来当作样式判断的条件。</p>
+<p>具体如下表：</p>
+<p><img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-16-085040.png" alt="image-20210916165039143"></p>
+<p>有了 <em>Media Query</em>，我们能在不同的条件下使用不同的样式，使页面在不同的终端设备下达到不同的渲染效果。</p>
+<p>这里有一个具体的公式如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> 媒体类型 <span class="keyword">and</span> (媒体特性) &#123;</span><br><span class="line">	<span class="comment">/* 具体样式 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>来看几个具体示例。</p>
+<ol>
+<li>最大宽度 <em>max-width</em></li>
+</ol>
+<p>该特性是指媒体类型小于或等于指定宽度时，样式生效，例如：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width</span>:<span class="number">480px</span>) &#123;</span><br><span class="line">	<span class="comment">/* 具体样式 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当屏幕宽度小于或等于 <em>480px</em> 时，样式生效</p>
+<ol start="2">
+<li>最小宽度 <em>min-width</em></li>
+</ol>
+<p>该特性和上面相反，及媒体类型大于或等于指定宽度时，样式生效，例如：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>:<span class="number">480px</span>) &#123;</span><br><span class="line">	<span class="comment">/* 具体样式 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当屏幕宽度大于或等于 <em>480px</em> 时，样式生效</p>
+<ol start="3">
+<li>多个媒体特性混合使用</li>
+</ol>
+<p>当需要多个媒体特性时，使用 <em>and</em> 关键字将媒体特性结合在一起，例如：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>:<span class="number">480px</span>) <span class="keyword">and</span> (<span class="attribute">max-width</span>:<span class="number">900px</span>)&#123;</span><br><span class="line">	<span class="comment">/* 具体样式 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当屏幕大于等于 <em>480px</em> 并且小于等于 <em>900px</em> 时，样式生效。</p>
+<ol start="4">
+<li>设备屏幕的输出宽度 <em>Device Width</em></li>
+</ol>
+<p>在智能设备上，例如 <em>iphone、ipad</em> 等，可以通过 <em>min-device-width</em> 和 <em>max-device-width</em> 来设置媒体特性，例如：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-device-height</span>:<span class="number">480px</span>) &#123;</span><br><span class="line">	<span class="comment">/* 具体样式 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在智能设备上，当屏幕小于等于 <em>480px</em> 时样式生效</p>
+<ol start="5">
+<li><em>not</em> 关键字</li>
+</ol>
+<p><em>not</em> 关键词可以用来排除某种制定的媒体特性，示例如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> <span class="keyword">not</span> print <span class="keyword">and</span> (<span class="attribute">max-width</span>:<span class="number">900px</span>) &#123;</span><br><span class="line">	<span class="comment">/* 具体样式 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>样式代码将被用于除了打印设备和屏幕宽度小于或等于 <em>900px</em> 的所有设备中。</p>
+<ol start="6">
+<li>未指明 <em>Media Type</em></li>
+</ol>
+<p>如果在媒体查询中没有明确的指定 <em>Media Type</em>，那么其默认值为 <em>all</em></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> (<span class="attribute">max-width</span>: <span class="number">900px</span>)&#123;</span><br><span class="line">  <span class="comment">/* 具体样式 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的样式适用于屏幕尺寸小于或等于 <em>900px</em> 的所有设备。</p>
+<p>更多关于媒体查询的内容可以参阅 <em>MDN</em>：<em><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Media_Queries/Using_media_queries">https://developer.mozilla.org/zh-CN/docs/Web/CSS/Media_Queries/Using_media_queries</a></em></p>
+<h2 id="真题解答"><a href="#真题解答" class="headerlink" title="真题解答"></a>真题解答</h2><ul>
+<li>如何使用媒体查询实现视口宽度大于 <em>320px</em> 小于 <em>640px</em> 时 <em>div</em> 元素宽度变成 <em>30%</em></li>
+</ul>
+<blockquote>
+<p>参考答案：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">320px</span>) <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">640px</span>)&#123;</span><br><span class="line">  	<span class="selector-tag">div</span>&#123;</span><br><span class="line">      <span class="attribute">width</span>: <span class="number">30%</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></blockquote>
+<p>-<em>EOF</em>-</p>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="clearfix">
+    <a href="https://wecodejs.github.io/blog" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2026 Wecodejs</li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Powered by Hexo
+    </div>
+    </div>
+    
+  </footer>
+</div>
+
+
+
+
+<script src="/blog/js/main.js"></script>
+
+
+<!-- Local Search -->
+<div id="local-search-result" style="display:none; position:fixed; top:60px; left:50%; transform:translateX(-50%); width:600px; max-height:400px; overflow-y:auto; background:#fff; border:1px solid #ddd; border-radius:3px; box-shadow:0 2px 10px rgba(0,0,0,0.1); z-index:9999;">
+  <div style="padding:10px; border-bottom:1px solid #eee;">
+    <strong>搜索结果</strong>
+    <span id="search-close" style="float:right; cursor:pointer; color:#999;">✕</span>
+  </div>
+  <div id="search-results" style="padding:10px;"></div>
+</div>
+
+<script>
+(function() {
+  var searchInput = document.getElementById('local-search-input');
+  var searchResult = document.getElementById('local-search-result');
+  var searchResults = document.getElementById('search-results');
+  var searchClose = document.getElementById('search-close');
+  var searchDataPath = '/blog/search.xml';
+  var searchEntries = [];
+
+  if (!searchInput) return;
+
+  // Load search data
+  fetch(searchDataPath)
+    .then(function(response) { return response.text(); })
+    .then(function(xml) {
+      var parser = new DOMParser();
+      var xmlDoc = parser.parseFromString(xml, 'text/xml');
+      var entries = xmlDoc.getElementsByTagName('entry');
+      for (var i = 0; i < entries.length; i++) {
+        var entry = entries[i];
+        searchEntries.push({
+          title: entry.getElementsByTagName('title')[0].textContent,
+          url: entry.getElementsByTagName('url')[0].textContent,
+          content: entry.getElementsByTagName('content')[0].textContent.replace(/<[^>]*>/g, '')
+        });
+      }
+    });
+
+  // Search function
+  searchInput.addEventListener('input', function() {
+    var keyword = this.value.trim().toLowerCase();
+    if (!keyword) {
+      searchResult.style.display = 'none';
+      return;
+    }
+
+    var results = [];
+    for (var i = 0; i < searchEntries.length; i++) {
+      var entry = searchEntries[i];
+      if (entry.title.toLowerCase().indexOf(keyword) !== -1 || entry.content.toLowerCase().indexOf(keyword) !== -1) {
+        results.push(entry);
+      }
+    }
+
+    if (results.length === 0) {
+      searchResults.innerHTML = '<p style="color:#999;">没有找到结果</p>';
+    } else {
+      var html = '<ul style="list-style:none; padding:0; margin:0;">';
+      for (var i = 0; i < results.length; i++) {
+        var r = results[i];
+        html += '<li style="padding:8px 0; border-bottom:1px solid #eee;">';
+        html += '<a href="' + r.url + '" style="color:#4078c0; text-decoration:none; font-weight:bold;">' + r.title + '</a>';
+        var preview = r.content.substring(0, 100).replace(new RegExp(keyword, 'gi'), '<mark>$&</mark>');
+        html += '<p style="color:#666; font-size:12px; margin:4px 0 0 0;">' + preview + '...</p>';
+        html += '</li>';
+      }
+      html += '</ul>';
+      searchResults.innerHTML = html;
+    }
+    searchResult.style.display = 'block';
+  });
+
+  // Close search
+  searchClose.addEventListener('click', function() {
+    searchResult.style.display = 'none';
+    searchInput.value = '';
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!searchInput.contains(e.target) && !searchResult.contains(e.target)) {
+      searchResult.style.display = 'none';
+    }
+  });
+})();
+</script>
+</body>
+</html>

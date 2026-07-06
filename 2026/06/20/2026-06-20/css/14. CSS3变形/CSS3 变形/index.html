@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    css3变形 | 我的博客
+  </title>
+  <meta name="description" content="个人技术博客">
+  
+  <meta name="keywords" content="
+  css
+  ">
+  
+  <meta name="author" content="Wecodejs">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="theme-color" content="#1e2327">
+  <link rel="apple-touch-icon" href="https://github.githubassets.com/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/apple-touch-icon-180x180.png">
+
+  <link rel="icon" type="image/x-icon" href="https://github.githubassets.com/favicon.ico">
+  <link rel="stylesheet" href="/blog/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/blog/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <input type="text" id="local-search-input" placeholder="搜索文章..." style="padding: 2px 5px; width: 200px; border: 1px solid #ccc; border-radius: 3px;">
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a clas="navbar-nav-archives" style="display: none" href="/blog/archives/">Archives</a></li>
+        
+        
+        <li><a clas="navbar-nav-categories" style="display: none" href="/blog/categories/">Categories</a></li>
+        
+        
+        <li style="transform:translateX(570px)"><a href="/blog/tags/">全部分类</a></li>
+        
+        
+        <li clas="navbar-nav-rss desktop-only" style="display: none"><a href="/blog/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only" style="display: none;">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://avatars.githubusercontent.com/u/1371295?v=4&amp;size=230"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar" style="display:none;">
+      <li class="clearfix">
+        <a href="/blog/" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/blog/"
+           class="header-toolbar-right"> 60 </a>
+      </li>
+      <li>
+        <a href="/blog/" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/blog/"
+           class="header-toolbar-right"> 4 </a>
+      </li>
+      <li>
+        <a href="/blog/" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/blog/"
+           class="header-toolbar-right"> 0 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/blog/">我的博客</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container" style="display: none">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    Wecodejs
+
+    <span class="post-date float-right" title="{{moment(1781884800000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      
+          <i class="fa fa-pencil-square-o"></i>
+      
+      {{moment(1781884800000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>css3变形</h1>
+    <h1 id="CSS3-变形"><a href="#CSS3-变形" class="headerlink" title="CSS3 变形"></a><em>CSS3</em> 变形</h1><h2 id="经典真题"><a href="#经典真题" class="headerlink" title="经典真题"></a>经典真题</h2><ul>
+<li>请简述一下 <em>CSS3</em> 中新增的变形如何使用？</li>
+</ul>
+<h2 id="CSS3-变形相关知识"><a href="#CSS3-变形相关知识" class="headerlink" title="CSS3 变形相关知识"></a><em>CSS3</em> 变形相关知识</h2><h3 id="变形介绍"><a href="#变形介绍" class="headerlink" title="变形介绍"></a>变形介绍</h3><p><em>CSS2.1</em> 中的页面都是静态的，多年来，<em>Web</em> 设计师依赖于图片、<em>Flash</em> 或者 <em>JavaScript</em> 才能完成修改页面的外观。<em>CSS3</em> 改变了设计师这种思维，借助 <em>CSS3</em> 可以轻松的倾斜、缩放、移动以及翻转元素。</p>
+<p><em>2012</em> 年 <em>9</em> 月，<em>W3C</em> 组织发布了 <em>CSS3</em> 变形工作草案。允许 <em>CSS</em> 把元素变成 <em>2D</em> 或者 <em>3D</em> 空间，这其实就是 <em>CSS3</em> 的 <em>2D</em> 变形和 <em>3D</em> 变形。</p>
+<p><em>CSS3</em> 变形是一些效果的集合，比如平移、旋转、缩放和倾斜效果，每个效果通过变形函数（<em>transform function</em>）来实现。在此之前，要想实现这些效果，必须依赖图片、<em>Flash</em> 或者 <em>JavaScript</em> 才能完成，而现在仅仅使用纯 <em>CSS</em> 就能够实现，大大的提高了开发效率以及页面的执行效率。</p>
+<p>变形效果要通过变形函数来实现，语法如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">transform</span>: none|transform-functions;</span><br></pre></td></tr></table></figure>
+
+<p>那么 <em>CSS3</em> 中为我们提供了哪些变形函数呢？</p>
+<p>这里我们整体可以划分出 <em>3</em> 大类：</p>
+<ul>
+<li>具有 <em>X&#x2F;Y</em> 的函数：<em>translateX、translateY、sclaeX、scaleY、skewX、skewY</em></li>
+<li><em>2D</em> 变形函数：<em>translate、sclae、rotate、skew、matrix</em></li>
+<li><em>3D</em> 变形函数：<em>rotateX、rotateY、rotate3d、translateZ、translate3d、scaleZ、scale3d、matrix3d</em></li>
+</ul>
+<p>此时，你可能已经做好了逐一击破每个变形函数的思想准备了。</p>
+<p>别急，在介绍每个变形函数之前，我们先来了解一下变形相关的属性。</p>
+<h3 id="变形属性"><a href="#变形属性" class="headerlink" title="变形属性"></a>变形属性</h3><ol>
+<li><strong><em>transform</em> 属性</strong></li>
+</ol>
+<p>第一个首当其冲的就是 <em>transform</em> 属性，该属性所对应的属性值就是一系列的变形函数，例如：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">1.5</span>)</span><br></pre></td></tr></table></figure>
+
+<p>上面的代码中，我们设置了 <em>transform</em> 属性，属性值为 <em>scale</em> 变形函数。</p>
+<ol start="2">
+<li><strong><em>transform-origin</em> 属性</strong></li>
+</ol>
+<p>接下来第二个是 <em>transform-origin</em> 属性，该属性用于设置元素的中心点位置。该属性语法如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">transform-origin</span>: x-axis y-axis z-axis;</span><br></pre></td></tr></table></figure>
+
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-19-080037.png" alt="image-20210919160036555" style="zoom:50%;" />
+
+
+
+<p>为了演示此属性的作用，我们先透支一点后面的知识。</p>
+<p>这里我们以 <em>rotate</em> 为例。<em>rotate</em> 是变形函数中的一个，作用是旋转元素，其语法如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">rotate</span>(angle)</span><br></pre></td></tr></table></figure>
+
+<p>定义 <em>2D</em> 旋转，在参数中规定角度。</p>
+<p>来看一个例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: red;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">transition</span>: all <span class="number">1s</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">45deg</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-19-080641.gif" alt="2021-09-19 16.06.26" style="zoom:50%;" />
+
+<p>在上面的示例中，我们设置 <em>div</em> 鼠标 <em>hover</em> 的时候进行变形，旋转 <em>45</em> 度，为了更加平滑，我们加入了 <em>transition</em> 过渡效果。</p>
+<p>我们观察整个元素的旋转中心点，是在元素的最中央。</p>
+<p>接下来我们可以使用 <em>transform-origin</em> 来修改这个中心点的位置。例如：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: red;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">transition</span>: all <span class="number">1s</span>;</span><br><span class="line">  <span class="attribute">transform-origin</span>: bottom left;</span><br><span class="line">  <span class="comment">/* 修改元素的中心点位置 */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">45deg</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-19-081002.gif" alt="2021-09-19 16.09.46" style="zoom:50%;" />
+
+<p>在上面的代码中，我们修改了元素的中心点位置为 <em>bottom、left</em>，也就是左下角。可以看到因为元素的中心点位置发生了变化，旋转的方式也随之发生了改变。</p>
+<p><em>transform-origin</em> 的属性值除了像上面一样设置关键词以外，也可以是百分比、<em>em、px</em> 等具体的值。</p>
+<p><em>transform-origin</em> 的第三个参数是定义 <em>Z</em> 轴的距离，这在后面介绍 <em>3D</em> 变形时再来介绍。</p>
+<ol start="3">
+<li><strong><em>transform-style</em> 属性</strong></li>
+</ol>
+<p><em>transform-style</em> 属性是 <em>3D</em> 空间一个重要属性，指定了嵌套元素如何在 <em>3D</em> 空间中呈现。语法如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">transform-style</span>: flat | preserve-<span class="number">3</span>d;</span><br></pre></td></tr></table></figure>
+
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-19-091723.png" alt="image-20210919171722656"  />
+
+<p>其中 <em>flat</em> 为默认值。</p>
+<p>需要注意的是该属性需要设置在父元素上面，使其变成一个真正的 <em>3D</em> 图形。</p>
+<p>当然光看属性说明是非常模糊的，一点都不直观，我们直接来看一个例子。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;up&quot;</span>&gt;</span>上<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;down&quot;</span>&gt;</span>下<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;left&quot;</span>&gt;</span>左<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;right&quot;</span>&gt;</span>右<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;forword&quot;</span>&gt;</span>前<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;back&quot;</span>&gt;</span>后<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">250px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">250px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> dashed red;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">100px</span> auto;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">transform-style</span>: preserve-<span class="number">3</span>d;</span><br><span class="line">  <span class="attribute">animation</span>: gun <span class="number">8s</span> linear infinite;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span>&gt;<span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">250px</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">60px</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#daa520</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.left</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.3</span>);</span><br><span class="line">  <span class="attribute">transform-origin</span>: left;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">rotateY</span>(<span class="number">90deg</span>) <span class="built_in">translateX</span>(-<span class="number">125px</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.right</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>, <span class="number">0.3</span>);</span><br><span class="line">  <span class="attribute">transform-origin</span>: right;</span><br><span class="line">  <span class="comment">/* 变换*/</span></span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">rotateY</span>(<span class="number">90deg</span>) <span class="built_in">translateX</span>(<span class="number">125px</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.forward</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">0</span>, <span class="number">0.3</span>);</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translateZ</span>(<span class="number">125px</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.back</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0.3</span>);</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translateZ</span>(-<span class="number">125px</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.up</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">0</span>, <span class="number">255</span>, <span class="number">0.3</span>);</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(<span class="number">90deg</span>) <span class="built_in">translateZ</span>(<span class="number">125px</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.down</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">99</span>, <span class="number">66</span>, <span class="number">33</span>, <span class="number">0.3</span>);</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(-<span class="number">90deg</span>) <span class="built_in">translateZ</span>(<span class="number">125px</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@keyframes</span> gun &#123;</span><br><span class="line">  <span class="number">0%</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(<span class="number">0deg</span>) <span class="built_in">rotateY</span>(<span class="number">0deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="number">100%</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(<span class="number">360deg</span>) <span class="built_in">rotateY</span>(<span class="number">360deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-19-092030.gif" alt="2021-09-19 17.20.08" style="zoom:50%;" />
+
+<p>上面的 <em>CSS</em> 代码不用具体去关心，我们只看在 <em>box</em> 元素上面添加了一句 <em>transform-style: preserve-3d</em>，表示 <em>box</em> 里面的子元素都以 <em>3D</em> 的形式呈现。如果我们把这行代码去除掉或者值修改为 <em>flat</em>，效果如下：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-19-092331.gif" alt="2021-09-19 17.23.06" style="zoom:50%;" />
+
+<p>怎么样？是不是非常直观，一下子就知道 <em>transform-style</em> 属性的作用是什么了。该属性就是指定子元素是在 <em>3D</em> 空间还是 <em>2D</em> 平面中显示。</p>
+<ol start="4">
+<li><strong><em>perspective</em> 属性</strong></li>
+</ol>
+<p><em>perspective</em> 属性用于设置查看者的位置，可以将可视内容映射到一个视锥上，继而投到一个 <em>2D</em> 视平面上。如果不指定该属性，则 <em>Z</em> 轴空间中所有点将平铺到同一个 <em>2D</em> 视平面中，并且在变换结果中将不存在景深概念。</p>
+<p>简单理解，就是视距，用来设置用户和元素 <em>3D</em> 空间 <em>Z</em> 平面之间的距离。而其效应由他的值来决定，值越小，用户与 <em>3D</em> 空间 <em>Z</em> 平面距离越近，视觉效果更令人印象深刻；反之，值越大，用户与 <em>3D</em> 空间 <em>Z</em> 平面距离越远，视觉效果就很小。</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-19-094151.png" alt="image-20210919174151244" style="zoom:50%;" />
+
+
+
+<p>注意当为元素定义 <em>perspective</em> 属性时，其子元素会获得透视效果，而不是元素本身。</p>
+<p>我们还是来看一个直观的例子来了解这个属性的作用。例如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">500px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: red;</span><br><span class="line">  <span class="attribute">animation</span>: rotateAnimation <span class="number">5s</span> infinite;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@keyframes</span> rotateAnimation &#123;</span><br><span class="line">  <span class="number">0%</span>&#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotateY</span>(<span class="number">0deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="number">100%</span>&#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotateY</span>(<span class="number">360deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-19-095136.gif" alt="2021-09-19 17.51.16" style="zoom:50%;" />
+
+<p>在上面的代码中，我们虽然设置了 <em>div.item</em> 沿着 <em>Y</em> 轴进行旋转，但是由于没有设置 <em>perspective</em> 视距，所以看上去就像是 <em>div</em> 盒子在宽度伸缩一样，<em>3D</em> 效果并不明显。</p>
+<p>此时我们可以给父元素 <em>div.container</em> 设置 <em>perspective</em> 视距，例如：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span>&#123;</span><br><span class="line">  ...</span><br><span class="line">  <span class="attribute">perspective</span>: <span class="number">1200px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-19-095428.gif" alt="2021-09-19 17.54.08" style="zoom:50%;" />
+
+<p>很明显，加入  <em>perspective</em> 视距后，<em>3D</em> 旋转效果更佳的真实。</p>
+<p>关于 <em>perspective</em> 的取值，接受一个长度单位大于 <em>0</em>，其单位不能为百分比的值。大致能够分为如下 <em>3</em> 种情况：</p>
+<ul>
+<li><em>none</em> 或者不设置：没有 <em>3D</em> 空间。</li>
+<li>取值越小：<em>3D</em> 效果越明显，也就是眼睛越靠近真 <em>3D</em>。</li>
+<li>取值无穷大或者为 <em>0</em>：与取值为 <em>none</em> 的效果一样。</li>
+</ul>
+<ol start="5">
+<li><strong><em>perspective-origin</em> 属性</strong></li>
+</ol>
+<p>如果理解了上面的 <em>perspective</em> 属性，那么这个 <em>perspective-origin</em> 就非常好理解了，该属性用来决定 <em>perspective</em> 属性的源点角度。</p>
+<p>其语法如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">perspective-origin</span>: x-axis y-axis;</span><br></pre></td></tr></table></figure>
+
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-19-124302.png" alt="image-20210919204301259"  />
+
+<p>举个例子：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span>&#123;</span><br><span class="line">  ...</span><br><span class="line">  <span class="attribute">perspective</span>: <span class="number">600px</span>;</span><br><span class="line">  <span class="attribute">perspective-origin</span>: top;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-19-124520.gif" alt="2021-09-19 20.45.00" style="zoom:50%;" />
+
+<p>由于我们设置的 <em>perspective-origin</em> 的值为 <em>top</em>，所以会呈现一种俯视的效果。如果将其值修改为 <em>bottom</em>，则会是仰视的即视感，如下：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-19-124646.gif" alt="2021-09-19 20.46.34" style="zoom:50%;" />
+
+
+
+<ol start="6">
+<li><strong><em>backface-visibility</em> 属性</strong></li>
+</ol>
+<p><em>backface-visibility</em> 属性决定元素旋转背面是否可见。对于未旋转的元素，该元素的正面面向观看者。当其旋转 <em>180</em> 度时会导致元素的背面面向观众。</p>
+<p>该属性是设置在旋转的元素上面，语法如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">backface-visibility</span>: visible|hidden;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-19-125232.png" alt="image-20210919205231265"></p>
+<p>来看一个具体的例子：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">  ...</span><br><span class="line">  <span class="attribute">backface-visibility</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-19-133845.gif" alt="2021-09-19 21.38.25" style="zoom:50%;" />
+
+<p>在上面的代码中，我们在子元素 <em>div.item</em> 上设置了 <em>backface-visibility: hidden</em>，当此元素旋转 <em>180</em> 度到背面时，我们可以发现此时是无法看到背面的。</p>
+<h3 id="2D-变形"><a href="#2D-变形" class="headerlink" title="2D 变形"></a><em>2D</em> 变形</h3><p>介绍完 <em>CSS3</em> 中变形的相关属性后，接下来我们就该来看一下具体的变形函数了。</p>
+<p>整个 CSS3 为我们提供了相当丰富的变形函数，有 <em>2D</em> 的，有 <em>3D</em> 的。这里我们先来看 <em>2D</em> 的变形函数。</p>
+<h4 id="2D-位移"><a href="#2D-位移" class="headerlink" title="2D 位移"></a><em>2D</em> 位移</h4><p><em>2D</em> 位移对应有 <em>3</em> 个变形函数，分别是 <em>translate、translateX、translateY</em></p>
+<p>用法也非常简单，<em>translate</em> 方法从其当前位置移动元素（根据为 <em>X</em> 轴和 <em>Y</em> 轴指定的参数）。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translate</span>(<span class="number">50px</span>, <span class="number">100px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的例子把 <em>div</em> 元素从其当前位置向右移动 <em>50</em> 个像素，并向下移动 <em>100</em> 个像素：效果如下：</p>
+<p><img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-19-134634.png" alt="Translate"></p>
+<h4 id="2D-缩放"><a href="#2D-缩放" class="headerlink" title="2D 缩放"></a><em>2D</em> 缩放</h4><p><em>2D</em> 缩放对应的也有 <em>3</em> 个变形函数，分别是 <em>sclae、sclaeX、sclaeY</em></p>
+<p>该方法能够按照倍数放大或缩小元素的大小（根据给定的宽度和高度参数）。默认值为 <em>1</em>，小于这个值就是缩小，大于这个值就是放大。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的例子把 <em>div</em> 元素增大为其原始宽度的两倍和其原始高度的三倍，效果如下：</p>
+<p><img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-19-135001.png" alt="Scale"></p>
+<h4 id="2D-旋转"><a href="#2D-旋转" class="headerlink" title="2D 旋转"></a><em>2D</em> 旋转</h4><p><em>2D</em> 旋转对应的只有 <em>1</em> 个变形函数 <em>rotate</em>，这个我们在前面也已经用过了。</p>
+<p>该变形函数只接受一个值代表旋转的角度值，取值可正可负，正值代表顺时针旋转，负值代表逆时针旋转。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">20deg</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的例子把 <em>div</em> 元素顺时针旋转 <em>20</em> 度，效果如下：</p>
+<p><img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-19-135300.png" alt="Rotate"></p>
+<h4 id="2D-倾斜"><a href="#2D-倾斜" class="headerlink" title="2D 倾斜"></a><em>2D</em> 倾斜</h4><p><em>2D</em> 倾斜对应的变形函数也是 <em>3</em> 个，分别是 <em>skew、skewX、skewY</em></p>
+<p>语法如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">skew(ax, ay)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><em>ax</em>：指定元素水平方向（<em>X</em> 轴方向）倾斜角度</li>
+<li><em>ay</em>：指定元素垂直方向（<em>Y</em> 轴方向）倾斜角度</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: red;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">transition</span>: all <span class="number">1s</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">skew</span>(<span class="number">20deg</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-19-140231.gif" alt="2021-09-19 22.02.15" style="zoom:50%;" />
+
+
+
+<h3 id="2D-矩阵"><a href="#2D-矩阵" class="headerlink" title="2D 矩阵"></a><em>2D</em> 矩阵</h3><p>虽然 <em>CSS3</em> 为我们提供了上述的变形函数方便我们进行元素的变形操作，但是毕竟函数个数有限，有些效果是没有提供的，例如镜像翻转的效果。此时就轮到 <em>2D</em> 矩阵函数 <em>matrix</em> 登场了。</p>
+<p><em>matrix</em> 有六个参数：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">matrix(<span class="selector-tag">a</span>,<span class="selector-tag">b</span>,c,d,e,f)</span><br></pre></td></tr></table></figure>
+
+<p>六个参数对应的矩阵：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-19-141132.png" alt="image-20210919221131755" style="zoom:50%;" />
+
+<p>这六个参数组成的矩阵与原坐标矩阵相乘计算坐标。计算方式如下：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-19-141105.png" alt="image-20210919221104828" style="zoom:50%;" />
+
+<p>什么意思呢 ？<em>x</em> 和 <em>y</em> 是元素中每一个像素的初始原点的坐标，而 <em>x’</em> 和 <em>y’</em> 是通过矩阵变化后得到的新原点坐标。通过中间 <em>3 x 3</em> 变换矩阵，对原先的坐标施加变换，从而得到新的坐标。</p>
+<p><em>x’ &#x3D; ax+cy+e</em>，表示变换后的<strong>水平</strong>坐标</p>
+<p><em>y’ &#x3D; bx+dy+f</em>，表示变换后的<strong>垂直</strong>位置</p>
+<p>在 <em>CSS3</em> 中，上面我们所介绍的所有 <em>2D</em> 变形函数都能够通过这个 <em>matrix</em> 矩阵函数来替代。</p>
+<p><strong>矩阵实现偏移</strong></p>
+<p>我们首先来看通过矩阵实现偏移效果。</p>
+<p>偏移效果前后 <em>x、y</em> 与 <em>x’、y’</em> 所对应的坐标公式为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x&#x27; = x + 偏移量</span><br><span class="line">y&#x27; = y + 偏移量</span><br></pre></td></tr></table></figure>
+
+<p>套用上面的公式那么各个参数的取值就应该是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = 1; b = 0;</span><br><span class="line">c = 0; d = 1;</span><br><span class="line">e = x 偏移量; f = y 偏移量</span><br><span class="line">x&#x27; = ax+cy+e = 1x + 0y + x 偏移量 = x + x 偏移量</span><br><span class="line">y&#x27; = bx+dy+f = 0x + 1y + y 偏移量 = y + y 偏移量</span><br></pre></td></tr></table></figure>
+
+<p>所以换成 <em>matrix</em> 函数就应该是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">matrix(1, 0, 0, 1, x 偏移量, y 偏移量)</span><br></pre></td></tr></table></figure>
+
+<p>下面来做一个测试：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: red;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">transition</span>: all <span class="number">1s</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">  <span class="comment">/* transform: translate(100px, 200px); */</span></span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">matrix</span>(<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">100</span>, <span class="number">200</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在上面的示例中，使用 <em>translate</em> 和 <em>matrix</em> 两个变形函数的效果一致。</p>
+<p><strong>矩阵实现缩放</strong></p>
+<p>缩放之后  <em>x、y</em> 与 <em>x’、y’</em> 所对应的坐标公式为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x&#x27; = x * x 缩放倍数</span><br><span class="line">y’ = y * y 缩放倍数</span><br></pre></td></tr></table></figure>
+
+<p>套用上面的公式那就是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = x缩放倍数; b = 0;</span><br><span class="line">c = 0; d = y 缩放倍数;</span><br><span class="line">e = 0; f = 0;</span><br><span class="line">x&#x27; = ax+cy+e = x缩放倍数 * x + 0y + 0 = x缩放倍数 * x</span><br><span class="line">y&#x27; = bx+dy+f = 0x + y 缩放倍数 * y + 0 = y 缩放倍数 * y</span><br></pre></td></tr></table></figure>
+
+<p>所以换成 <em>matrix</em> 函数就应该是：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">matrix(<span class="attribute">x</span> 缩放倍数, <span class="number">0</span>, <span class="number">0</span>, <span class="attribute">y</span> 缩放倍数, <span class="number">0</span>, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: red;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">transition</span>: all <span class="number">1s</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">  <span class="comment">/* transform: scale(2, 2); */</span></span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">matrix</span>(<span class="number">2</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的代码我们分别使用 <em>scale</em> 和矩阵实现了相同的缩放效果。</p>
+<p><strong>矩阵实现旋转</strong></p>
+<p>旋转需要实现</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">水平倾斜角度 =  - 垂直倾斜角度</span><br></pre></td></tr></table></figure>
+
+<p>旋转我们用到的变形函数是 <em>rotate(θ)</em>，其中 <em>θ</em> 为旋转的角度。套用上面的公式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x&#x27; = xcosθ - ysinθ + 0 = xcosθ - ysinθ;</span><br><span class="line">y&#x27; = xsinθ + ycosθ + 0 = xsinθ + ycosθ</span><br></pre></td></tr></table></figure>
+
+<p>转换为 <em>matrix</em> 的代码为：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">matrix(cos(θ), sin(θ), -sin(θ), cos(θ), <span class="number">0</span>, <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: red;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">transition</span>: all <span class="number">1s</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">  <span class="comment">/* transform: rotate(45deg); */</span></span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">matrix</span>(<span class="number">0.7</span>, <span class="number">0.7</span>, -<span class="number">0.7</span>, <span class="number">0.7</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的代码使用了 <em>rotate</em> 和 <em>matrix</em> 来实现旋转 <em>45</em> 度的效果。其中 <em>sin45</em> 和 <em>cos45</em> 的值都为 <em>0.7</em>。</p>
+<p><strong>矩阵实现倾斜</strong></p>
+<p><em>skew(θx, θy)</em> 将一个元素按指定的角度在 <em>X</em> 轴和 <em>Y</em> 轴上倾斜。</p>
+<p>倾斜对应的公式为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x&#x27; = x + ytan(θx) + 0 = x + ytan(θx)</span><br><span class="line">y&#x27; = xtan(θy) + y + 0 = xtan(θy) + y</span><br></pre></td></tr></table></figure>
+
+<p>转换为 <em>matrix</em> 的代码为：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">matrix(<span class="number">1</span>,tan(θ<span class="attribute">y</span>),tan(θ<span class="attribute">x</span>),<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: red;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">transition</span>: all <span class="number">1s</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="comment">/* transform: skew(20deg); */</span></span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">matrix</span>(<span class="number">1</span>, <span class="number">0</span>, <span class="number">0.4</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的示例中分别使用 <em>skew</em> 和矩阵 <em>matrix</em> 实现了一致的倾斜效果。</p>
+<p><strong>矩阵实现镜像变形</strong></p>
+<p>前面介绍的效果，<em>CSS3</em> 中都提供了对应的变形函数，但是矩阵真正发挥威力是在没有对应的变形函数时，例如这里要讲的镜像变形。</p>
+<p>我们先来看一下各种镜像变化 <em>x、y</em> 与 <em>x’、y’</em> 所对应的关系：</p>
+<p>水平镜像，就是 <em>y</em> 坐标不变，<em>x</em> 坐标变负</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x&#x27; = -x;</span><br><span class="line">y&#x27; = y;</span><br></pre></td></tr></table></figure>
+
+<p>所以：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = -1; b = 0; </span><br><span class="line">c = 0; d = 1; </span><br><span class="line">e = 0; f = 0;</span><br></pre></td></tr></table></figure>
+
+<p>具体示例如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">transition</span>: all <span class="number">1s</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">&#x27;./ok.png&#x27;</span>) no-repeat;</span><br><span class="line">  <span class="attribute">background-position</span>: center;</span><br><span class="line">  <span class="attribute">background-size</span>: contain;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">matrix</span>(-<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-20-011654.gif" alt="2021-09-20 09.16.38" style="zoom:50%;" />
+
+
+
+<p>垂直镜像，就是 <em>x</em> 坐标不变，<em>y</em> 坐标变负</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x&#x27; = x;</span><br><span class="line">y&#x27; = -y;</span><br></pre></td></tr></table></figure>
+
+<p>所以：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = 1; b = 0; </span><br><span class="line">c = 0; d = -1; </span><br><span class="line">e = 0; f = 0;</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">matrix</span>(<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, -<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-20-011934.gif" alt="2021-09-20 09.19.11" style="zoom:50%;" />
+
+
+
+<p>水平镜像 + 倒立就是 y 坐标变负，x 坐标变负</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x&#x27; = -x;</span><br><span class="line">y&#x27; = -y;</span><br></pre></td></tr></table></figure>
+
+<p>所以：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = -1; b = 0; </span><br><span class="line">c = 0; d = -1; </span><br><span class="line">e = 0; f = 0;</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">matrix</span>(-<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, -<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-20-013005.gif" alt="2021-09-20 09.29.45" style="zoom:50%;" />
+
+<p><em>90</em> 度旋转 + 镜像就是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x&#x27; = y;</span><br><span class="line">y&#x27; = x;</span><br></pre></td></tr></table></figure>
+
+<p>所以：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = 0; b = 1; </span><br><span class="line">c = 1; d = 0; </span><br><span class="line">e = 0; f = 0;</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">matrix</span>(<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-20-013140.gif" alt="2021-09-20 09.31.24" style="zoom:50%;" />
+
+<p><em>-90</em> 度旋转 + 镜像就是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x&#x27; = -y;</span><br><span class="line">y&#x27; = -x;</span><br></pre></td></tr></table></figure>
+
+<p>所以：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = 0; b = -1; </span><br><span class="line">c = -1; d = -0; </span><br><span class="line">e = 0; f = 0;</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">matrix</span>(<span class="number">0</span>, -<span class="number">1</span>, -<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-20-013304.gif" alt="2021-09-20 09.32.47" style="zoom:50%;" />
+
+
+
+<p>通过上面一系列的示例，我们可以发现，使用矩阵 <em>matrix</em> 函数确实更佳灵活，能够写出各种变形效果。</p>
+<h3 id="3D-变形"><a href="#3D-变形" class="headerlink" title="3D 变形"></a><em>3D</em> 变形</h3><p>使用二维变形能够改变元素在水平和垂直轴线，然而还有一个轴沿着它，可以改变元素。使用三维变形，可以改变元素在 <em>Z</em> 轴位置。</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-20-024408.png" alt="image-20210920104407743" style="zoom: 50%;" />
+
+<p>三维变换使用基于二维变换的相同属性，如果熟悉二维变换就会发现，<em>3D</em> 变形的功能和 <em>2D</em> 变换的功能类似。CSS3 中的 3D 变换只要包含以下几类：</p>
+<ul>
+<li><strong><em>3D</em> 位移</strong>：包括 <em>translateZ</em> 和 <em>translate3d</em> 两个变形函数。</li>
+<li><strong><em>3D</em> 旋转</strong>：包括 <em>rotateX、rotateY、rotateZ</em> 和 <em>rotate3d</em> 这四个变形函数。</li>
+<li><strong><em>3D</em> 缩放</strong>：包括 <em>scaleZ</em> 和 <em>sclae3d</em> 两个变形函数。</li>
+<li><strong><em>3D</em> 矩阵</strong>：和 <em>2D</em> 变形一样，也有一个 <em>3D</em> 矩阵功能函数 <em>matrix3d</em></li>
+</ul>
+<h4 id="3D-位移"><a href="#3D-位移" class="headerlink" title="3D 位移"></a><em>3D</em> 位移</h4><p>我们直接来看合成变形函数 <em>translate3d</em>，其语法如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">translate3d(tx, ty, tz)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><em>tx</em>：在 <em>X</em> 轴的位移距离。</li>
+<li><em>ty</em>：在 <em>Y</em> 轴的位移距离。</li>
+<li><em>tz</em>：在 <em>Z</em> 轴的位移距离。值越大，元素离观察者越近，值越小，元素离观察者越远</li>
+</ul>
+<p>来看一个具体的示例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">400px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="attribute">perspective</span>: <span class="number">1000px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">transition</span>: all <span class="number">1s</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">&#x27;./ok.png&#x27;</span>) no-repeat;</span><br><span class="line">  <span class="attribute">background-position</span>: center;</span><br><span class="line">  <span class="attribute">background-size</span>: contain;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.item</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translate3d</span>(<span class="number">100px</span>, <span class="number">100px</span>, -<span class="number">500px</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在上面的代码中，我们设置 <em>div.item</em> 被 <em>hover</em> 的时候进行 <em>3D</em> 位移，也就是 <em>X、Y、Z</em> 轴同时进行移动。注意这里要设置父元素的透视效果，也就是设置 <em>perspective</em> 值，否则看不出 <em>Z</em> 轴的移动效果。效果如下：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-20-024039.gif" alt="2021-09-20 10.40.24" style="zoom:50%;" />
+
+
+
+<h4 id="3D-旋转"><a href="#3D-旋转" class="headerlink" title="3D 旋转"></a><em>3D</em> 旋转</h4><p>在三维变形中，可以让元素在任何轴旋转，对应的变形函数有 <em>rotateX、rotateY、rotateZ</em> 以及 <em>rotate3d</em>。</p>
+<p>其中 <em>rotate3d</em> 就是前面 <em>3</em> 个变形函数的复合函数。不过出了 <em>x、y、z</em> 这三条轴的参数以外，还接受第四个参数 <em>a</em>，表示旋转角度。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rotate3d(<span class="attribute">x</span>, <span class="attribute">y</span>, z, <span class="selector-tag">a</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><em>x</em>：可以是 <em>0</em> 到 <em>1</em> 之间的数值，表示旋转轴 <em>X</em> 坐标方向的矢量。</li>
+<li><em>y</em>：可以是 <em>0</em> 到 <em>1</em> 之间的数值，表示旋转轴 <em>Y</em> 坐标方向的矢量。</li>
+<li><em>z</em>：可以是 <em>0</em> 到 <em>1</em> 之间的数值，表示旋转轴 <em>Z</em> 坐标方向的矢量。</li>
+<li><em>a</em>：表示旋转角度。正的角度值表示顺时针旋转，负值表示逆时针旋转。</li>
+</ul>
+<p>下面我们以 <em>rotateX</em> 变形函数为例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">400px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="attribute">perspective</span>: <span class="number">1000px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: red;</span><br><span class="line">  <span class="attribute">transition</span>: all <span class="number">1s</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.item</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(<span class="number">45deg</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-21-132328.gif" alt="2021-09-21 21.23.14" style="zoom:50%;" />
+
+
+
+<h4 id="3D-缩放"><a href="#3D-缩放" class="headerlink" title="3D 缩放"></a><em>3D</em> 缩放</h4><p><em>3D</em> 缩放主要有 <em>sclaeZ</em> 和 <em>scale3d</em>，其中 <em>scale3d</em> 就是 <em>scaleX</em>、<em>scaleY</em> 以及 <em>scaleZ</em> 的复合变形函数。其语法如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">scale</span>(sx, sy, sz)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><em>sx</em>：<em>X</em> 轴上的缩放比例</li>
+<li><em>sy</em>：<em>Y</em> 轴上的缩放比例</li>
+<li><em>sz</em>：<em>Z</em> 轴上的缩放比例</li>
+</ul>
+<p>但是 <em>scaleX</em> 和 <em>scaleY</em> 变形效果很明显，但是 <em>scaleZ</em>  却基本看不出有什么效果。原因很简单，<em>scaleZ</em> 是 <em>Z</em> 轴上面的缩放，也就是厚度上面的变化，所以如果不是立方体结构，基本上是看不出来 <em>Z</em> 轴上面的缩放效果的。</p>
+<p>一般来讲，我们不会将 <em>scaleZ</em> 和 <em>scale3d</em> 单独使用，因为 <em>scaleZ</em> 和 <em>scale3d</em> 这两个变形函数在单独使用时没有任何效果，需要配合其他的变形函数一起使用时才会有效果。</p>
+<p>这里我们以前面那个立方体为例，如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;up&quot;</span>&gt;</span>上<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;down&quot;</span>&gt;</span>下<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;left&quot;</span>&gt;</span>左<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;right&quot;</span>&gt;</span>右<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;forword&quot;</span>&gt;</span>前<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;back&quot;</span>&gt;</span>后<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">250px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">250px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> dashed red;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">100px</span> auto;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">transform-style</span>: preserve-<span class="number">3</span>d;</span><br><span class="line">  <span class="attribute">transition</span>: all <span class="number">1s</span>;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(<span class="number">45deg</span>) <span class="built_in">rotateY</span>(<span class="number">45deg</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(<span class="number">45deg</span>) <span class="built_in">rotateY</span>(<span class="number">45deg</span>) <span class="built_in">scaleZ</span>(.<span class="number">5</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span>&gt;<span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">250px</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">60px</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#daa520</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.left</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.3</span>);</span><br><span class="line">  <span class="attribute">transform-origin</span>: left;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">rotateY</span>(<span class="number">90deg</span>) <span class="built_in">translateX</span>(-<span class="number">125px</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.right</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>, <span class="number">0.3</span>);</span><br><span class="line">  <span class="attribute">transform-origin</span>: right;</span><br><span class="line">  <span class="comment">/* 变换*/</span></span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">rotateY</span>(<span class="number">90deg</span>) <span class="built_in">translateX</span>(<span class="number">125px</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.forward</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">0</span>, <span class="number">0.3</span>);</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translateZ</span>(<span class="number">125px</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.back</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0.3</span>);</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translateZ</span>(-<span class="number">125px</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.up</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">0</span>, <span class="number">255</span>, <span class="number">0.3</span>);</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(<span class="number">90deg</span>) <span class="built_in">translateZ</span>(<span class="number">125px</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.down</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">99</span>, <span class="number">66</span>, <span class="number">33</span>, <span class="number">0.3</span>);</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(-<span class="number">90deg</span>) <span class="built_in">translateZ</span>(<span class="number">125px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-21-143413.gif" alt="2021-09-21 22.33.57" style="zoom:50%;" />
+
+<h3 id="3D-矩阵"><a href="#3D-矩阵" class="headerlink" title="3D 矩阵"></a><em>3D</em> 矩阵</h3><p><em>CSS3</em> 中的 <em>3D</em> 矩阵比 <em>2D</em> 矩阵复杂，从二维到三维，在矩阵里 3*3 变成 4*4，即 <em>9</em> 到 <em>16</em>。</p>
+<p>对于 <em>3D</em> 矩阵而言，本质上很多东西与 <em>2D</em> 是一致的，只是复杂程度不一样而已。</p>
+<p>对于 <em>3D</em> 缩放效果，其矩阵如下：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-21-145039.png" alt="image-20210921225039133" style="zoom:50%;" />
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">matrix3d(sx, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, sy, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, sz, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<p>倾斜是二维变形，不能在三维空间变形。元素可能会在 <em>X</em> 轴和 <em>Y</em> 轴倾斜，然后转化为三维，但它们不能在 <em>Z</em> 轴倾斜。</p>
+<p>这里举几个 <em>3D</em> 矩阵的例子：</p>
+<p><em>translate3d(tx,ty,tz)</em> 等价于 <em>matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,tx,ty,tz,1)</em></p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-21-145544.png" alt="image-20210921225544059" style="zoom:50%;" />
+
+<p><em>scale3d(sx,sy,sz)</em> 等价于 <em>matrix3d(sx,0,0,0,0,sy,0,0,0,0,sz,0,0,0,0,1)</em></p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-21-145618.png" alt="image-20210921225617731" style="zoom:50%;" />
+
+<p><em>rotate3d(x,y,z,a)</em> 真是得搬出高中数学书好好复习一下了，第四个参数 <em>alpha</em> 用于 <em>sc</em> 和 <em>sq</em> 中</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-21-145731.png" alt="image-20210921225731310" style="zoom:50%;" />
+
+<p>等价于…你自己从上到下，从左到右依次将参数搬入 <em>matrix3d</em> 中吧。</p>
+<p>当然除非是库函数需要，否则我严重怀疑是否会有人放着 <em>rotate3d</em> 不用，偏要去挑战用 <em>matrix3d</em> 模拟 <em>rotate3d</em>。</p>
+<h2 id="真题解答"><a href="#真题解答" class="headerlink" title="真题解答"></a>真题解答</h2><ul>
+<li>请简述一下 <em>CSS3</em> 中新增的变形如何使用？</li>
+</ul>
+<blockquote>
+<p>参考答案：</p>
+<p>在 <em>CSS3</em> 中的变形分为 <em>2D</em> 变形和 <em>3D</em> 变形。</p>
+<p>整体可以划分出 <em>3</em> 大类：</p>
+<ul>
+<li>具有 <em>X&#x2F;Y</em> 的函数：<em>translateX、translateY、sclaeX、scaleY、skewX、skewY</em></li>
+<li><em>2D</em> 变形函数：<em>translate、sclae、rotate、skew、matrix</em></li>
+<li><em>3D</em> 变形函数：<em>rotateX、rotateY、rotate3d、translateZ、translate3d、scaleZ、scale3d、matrix3d</em></li>
+</ul>
+<p>另外，还有一些重要的变形属性，例如：</p>
+<ul>
+<li><strong><em>transform</em> 属性</strong></li>
+<li><strong><em>transform-origin</em> 属性</strong></li>
+<li><strong><em>transform-style</em> 属性</strong></li>
+<li><strong><em>perspective</em> 属性</strong></li>
+<li><strong><em>perspective-origin</em> 属性</strong></li>
+<li><strong><em>backface-visibility</em> 属性</strong></li>
+</ul>
+</blockquote>
+<p>-<em>EOF</em>-</p>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="clearfix">
+    <a href="https://wecodejs.github.io/blog" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2026 Wecodejs</li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Powered by Hexo
+    </div>
+    </div>
+    
+  </footer>
+</div>
+
+
+
+
+<script src="/blog/js/main.js"></script>
+
+
+<!-- Local Search -->
+<div id="local-search-result" style="display:none; position:fixed; top:60px; left:50%; transform:translateX(-50%); width:600px; max-height:400px; overflow-y:auto; background:#fff; border:1px solid #ddd; border-radius:3px; box-shadow:0 2px 10px rgba(0,0,0,0.1); z-index:9999;">
+  <div style="padding:10px; border-bottom:1px solid #eee;">
+    <strong>搜索结果</strong>
+    <span id="search-close" style="float:right; cursor:pointer; color:#999;">✕</span>
+  </div>
+  <div id="search-results" style="padding:10px;"></div>
+</div>
+
+<script>
+(function() {
+  var searchInput = document.getElementById('local-search-input');
+  var searchResult = document.getElementById('local-search-result');
+  var searchResults = document.getElementById('search-results');
+  var searchClose = document.getElementById('search-close');
+  var searchDataPath = '/blog/search.xml';
+  var searchEntries = [];
+
+  if (!searchInput) return;
+
+  // Load search data
+  fetch(searchDataPath)
+    .then(function(response) { return response.text(); })
+    .then(function(xml) {
+      var parser = new DOMParser();
+      var xmlDoc = parser.parseFromString(xml, 'text/xml');
+      var entries = xmlDoc.getElementsByTagName('entry');
+      for (var i = 0; i < entries.length; i++) {
+        var entry = entries[i];
+        searchEntries.push({
+          title: entry.getElementsByTagName('title')[0].textContent,
+          url: entry.getElementsByTagName('url')[0].textContent,
+          content: entry.getElementsByTagName('content')[0].textContent.replace(/<[^>]*>/g, '')
+        });
+      }
+    });
+
+  // Search function
+  searchInput.addEventListener('input', function() {
+    var keyword = this.value.trim().toLowerCase();
+    if (!keyword) {
+      searchResult.style.display = 'none';
+      return;
+    }
+
+    var results = [];
+    for (var i = 0; i < searchEntries.length; i++) {
+      var entry = searchEntries[i];
+      if (entry.title.toLowerCase().indexOf(keyword) !== -1 || entry.content.toLowerCase().indexOf(keyword) !== -1) {
+        results.push(entry);
+      }
+    }
+
+    if (results.length === 0) {
+      searchResults.innerHTML = '<p style="color:#999;">没有找到结果</p>';
+    } else {
+      var html = '<ul style="list-style:none; padding:0; margin:0;">';
+      for (var i = 0; i < results.length; i++) {
+        var r = results[i];
+        html += '<li style="padding:8px 0; border-bottom:1px solid #eee;">';
+        html += '<a href="' + r.url + '" style="color:#4078c0; text-decoration:none; font-weight:bold;">' + r.title + '</a>';
+        var preview = r.content.substring(0, 100).replace(new RegExp(keyword, 'gi'), '<mark>$&</mark>');
+        html += '<p style="color:#666; font-size:12px; margin:4px 0 0 0;">' + preview + '...</p>';
+        html += '</li>';
+      }
+      html += '</ul>';
+      searchResults.innerHTML = html;
+    }
+    searchResult.style.display = 'block';
+  });
+
+  // Close search
+  searchClose.addEventListener('click', function() {
+    searchResult.style.display = 'none';
+    searchInput.value = '';
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!searchInput.contains(e.target) && !searchResult.contains(e.target)) {
+      searchResult.style.display = 'none';
+    }
+  });
+})();
+</script>
+</body>
+</html>

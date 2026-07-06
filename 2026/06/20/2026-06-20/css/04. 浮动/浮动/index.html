@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    css浮动 | 我的博客
+  </title>
+  <meta name="description" content="个人技术博客">
+  
+  <meta name="keywords" content="
+  css
+  ">
+  
+  <meta name="author" content="Wecodejs">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="theme-color" content="#1e2327">
+  <link rel="apple-touch-icon" href="https://github.githubassets.com/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/apple-touch-icon-180x180.png">
+
+  <link rel="icon" type="image/x-icon" href="https://github.githubassets.com/favicon.ico">
+  <link rel="stylesheet" href="/blog/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/blog/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <input type="text" id="local-search-input" placeholder="搜索文章..." style="padding: 2px 5px; width: 200px; border: 1px solid #ccc; border-radius: 3px;">
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a clas="navbar-nav-archives" style="display: none" href="/blog/archives/">Archives</a></li>
+        
+        
+        <li><a clas="navbar-nav-categories" style="display: none" href="/blog/categories/">Categories</a></li>
+        
+        
+        <li style="transform:translateX(570px)"><a href="/blog/tags/">全部分类</a></li>
+        
+        
+        <li clas="navbar-nav-rss desktop-only" style="display: none"><a href="/blog/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only" style="display: none;">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://avatars.githubusercontent.com/u/1371295?v=4&amp;size=230"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar" style="display:none;">
+      <li class="clearfix">
+        <a href="/blog/" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/blog/"
+           class="header-toolbar-right"> 60 </a>
+      </li>
+      <li>
+        <a href="/blog/" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/blog/"
+           class="header-toolbar-right"> 4 </a>
+      </li>
+      <li>
+        <a href="/blog/" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/blog/"
+           class="header-toolbar-right"> 0 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/blog/">我的博客</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container" style="display: none">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    Wecodejs
+
+    <span class="post-date float-right" title="{{moment(1781884800000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      
+          <i class="fa fa-pencil-square-o"></i>
+      
+      {{moment(1781884800000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>css浮动</h1>
+    <h1 id="浮动"><a href="#浮动" class="headerlink" title="浮动"></a>浮动</h1><h2 id="经典真题"><a href="#经典真题" class="headerlink" title="经典真题"></a>经典真题</h2><ul>
+<li>清除浮动的方法</li>
+<li>以下选项能够清除浮动的是（ ）</li>
+</ul>
+<blockquote>
+<p>A. 空 <em>div</em></p>
+<p>B. <em>hover</em> 伪选择器</p>
+<p>C. <em>clear</em> 属性</p>
+<p>D. <em>overflow</em> 属性</p>
+</blockquote>
+<h2 id="关于浮动，你需要知道的东西"><a href="#关于浮动，你需要知道的东西" class="headerlink" title="关于浮动，你需要知道的东西"></a>关于浮动，你需要知道的东西</h2><h3 id="浮动出现的背景"><a href="#浮动出现的背景" class="headerlink" title="浮动出现的背景"></a>浮动出现的背景</h3><p>浮动属性产生之初是为了实现“文字环绕”的效果，让文字环绕图片，从而使网页实现类似 <em>word</em> 中“图文混排”的效果。来看下面的例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;./ok.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span> <span class="attr">width</span>=<span class="string">&quot;200&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus quos est rerum repellat alias maiores</span><br><span class="line">    nobis harum recusandae corrupti assumenda qui aut ipsam deserunt dolorem modi, culpa hic ex illo repellendus</span><br><span class="line">    atque. Numquam iste porro perspiciatis. Harum esse magni exercitationem, perspiciatis libero soluta quo ea</span><br><span class="line">    dolorem. Delectus tempore magnam vitae voluptatibus, non quasi laudantium, aliquam consequuntur perspiciatis</span><br><span class="line">    maiores esse neque animi voluptate. Animi pariatur debitis quam aliquam recusandae quis ut nisi totam sint</span><br><span class="line">    consectetur distinctio, quos saepe cum quo iure natus delectus! Ad, dolore. Ut temporibus ea autem fugiat</span><br><span class="line">    laboriosam quidem iste rerum laborum. Repellendus recusandae sequi id excepturi alias?<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">800px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-18-031725.png" alt="image-20210918111724895" style="zoom:50%;" />
+
+<p>由于 <em>p</em> 段落是块级元素，所以独占一行，图片和段落是分开的。</p>
+<p>接下来我们设置图片浮动：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">800px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">img</span>&#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-18-032006.png" alt="image-20210918112006064" style="zoom:50%;" />
+
+<p>当我们设置了图片浮动后，就出现了类似 “<em>word</em>” 的文字环绕效果。</p>
+<p>这实际上也是浮动最初被设计出来的目的。</p>
+<h3 id="浮动实现布局"><a href="#浮动实现布局" class="headerlink" title="浮动实现布局"></a>浮动实现布局</h3><p>到了后面，浮动渐渐被应用到了页面布局上。因为 <em>HTML</em> 里面的元素，要么是行内元素，要么是块级元素，这种方式是没办法做页面布局的，例如我想实现两个块级元素在一行。此时开发人员就想到了浮动，因为任何东西都可以浮动，而不仅仅是图像，所以浮动的使用范围扩大了，能够用来进行布局。</p>
+<h4 id="两列布局"><a href="#两列布局" class="headerlink" title="两列布局"></a>两列布局</h4><p>下面我们来看一下使用浮动实现的两列布局：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>2 column layout example<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h2</span>&gt;</span>First column<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam dolor, eu lacinia lorem</span><br><span class="line">    placerat vulputate. Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet</span><br><span class="line">    nunc, at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta. Integer ligula ipsum,</span><br><span class="line">    tristique sit amet orci vel, viverra egestas ligula. Curabitur vehicula tellus neque, ac ornare ex malesuada</span><br><span class="line">    et. In vitae convallis lacus. Aliquam erat volutpat. Suspendisse ac imperdiet turpis. Aenean finibus</span><br><span class="line">    sollicitudin eros pharetra congue. Duis ornare egestas augue ut luctus. Proin blandit quam nec lacus varius</span><br><span class="line">    commodo et a urna. Ut id ornare felis, eget fermentum sapien.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h2</span>&gt;</span>Second column<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada ultrices. Phasellus turpis est,</span><br><span class="line">    posuere sit amet dapibus ut, facilisis sed est. Nam id risus quis ante semper consectetur eget aliquam</span><br><span class="line">    lorem. Vivamus tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies lectus sed lobortis</span><br><span class="line">    finibus. Vivamus eu urna eget velit cursus viverra quis vestibulum sem. Aliquam tincidunt eget purus in</span><br><span class="line">    interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">90%</span>;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="number">900px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:nth-of-type</span>(<span class="number">1</span>) &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">48%</span>;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:nth-of-type</span>(<span class="number">2</span>) &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">48%</span>;</span><br><span class="line">  <span class="attribute">float</span>: right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-18-050209.png" alt="image-20210918130208288" style="zoom:50%;" />
+
+<p>在上面的代码中，我们让两个 <em>div</em> 一个左浮动一个右浮动，从而实现了两列布局的效果。</p>
+<h4 id="三列布局"><a href="#三列布局" class="headerlink" title="三列布局"></a>三列布局</h4><p>现在我们已经有了一个两列布局工作，添加一个第三列（或更多）并不是太难。</p>
+<p>下面是一个使用浮动实现的三列布局。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>3 column layout example<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h2</span>&gt;</span>First column<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam dolor, eu lacinia lorem</span><br><span class="line">    placerat vulputate. Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet</span><br><span class="line">    nunc, at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta. Integer ligula ipsum,</span><br><span class="line">    tristique sit amet orci vel, viverra egestas ligula. Curabitur vehicula tellus neque, ac ornare ex malesuada</span><br><span class="line">    et. In vitae convallis lacus. Aliquam erat volutpat. Suspendisse ac imperdiet turpis. Aenean finibus</span><br><span class="line">    sollicitudin eros pharetra congue. Duis ornare egestas augue ut luctus. Proin blandit quam nec lacus varius</span><br><span class="line">    commodo et a urna. Ut id ornare felis, eget fermentum sapien.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h2</span>&gt;</span>Second column<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada ultrices. Phasellus turpis est,</span><br><span class="line">    posuere sit amet dapibus ut, facilisis sed est. Nam id risus quis ante semper consectetur eget aliquam</span><br><span class="line">    lorem. Vivamus tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies lectus sed lobortis</span><br><span class="line">    finibus. Vivamus eu urna eget velit cursus viverra quis vestibulum sem. Aliquam tincidunt eget purus in</span><br><span class="line">    interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h2</span>&gt;</span>Third column<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Nam consequat scelerisque mattis. Duis pulvinar dapibus magna, eget congue purus mollis sit amet. Sed euismod</span><br><span class="line">    lacus sit amet ex tempus, a semper felis ultrices. Maecenas a efficitur metus. Nullam tempus pharetra</span><br><span class="line">    pharetra. Morbi in leo mauris. Nullam gravida ligula eros, lacinia sagittis lorem fermentum ut. Praesent</span><br><span class="line">    dapibus eros vel mi pretium, nec convallis nibh blandit. Sed scelerisque justo ac ligula mollis laoreet. In</span><br><span class="line">    mattis, risus et porta scelerisque, augue neque hendrerit orci, sit amet imperdiet risus neque vitae lectus.</span><br><span class="line">    In tempus lectus a quam posuere vestibulum. Duis quis finibus mi. Nullam commodo mi in enim maximus</span><br><span class="line">    fermentum. Mauris finibus at lorem vel sollicitudin.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">90%</span>;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="number">900px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:nth-of-type</span>(<span class="number">1</span>) &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">36%</span>;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:nth-of-type</span>(<span class="number">2</span>) &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">30%</span>;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">  <span class="attribute">margin-left</span>: <span class="number">4%</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:nth-of-type</span>(<span class="number">3</span>) &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">26%</span>;</span><br><span class="line">  <span class="attribute">float</span>: right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-18-050610.png" alt="image-20210918130610163" style="zoom:50%;" />
+
+
+
+<h3 id="浮动的特性"><a href="#浮动的特性" class="headerlink" title="浮动的特性"></a>浮动的特性</h3><p>在上面，我们已经实现了两列布局和三列布局，可以看出，浮动确实能够拿来布局。</p>
+<p>接下来我们就需要具体研究一下浮动有哪些特性了。</p>
+<ol>
+<li><strong>脱离标准流</strong></li>
+</ol>
+<p>浮动的第一个特点就是脱离标准流，例如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;one&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;two&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.one</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">80px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">80px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: red;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.two</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-18-051127.png" alt="image-20210918131127272" style="zoom:50%;" />
+
+
+
+<p>由于红色的 <em>div</em> 浮动脱离了标准流，所以蓝色的 <em>div</em> 自然而然就往上走了。</p>
+<ol start="2">
+<li><strong>浮动的元素互相贴靠</strong></li>
+</ol>
+<p>如果有多个浮动的元素，那么会相互贴靠，如果宽度不够，会重启一行。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.two</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: blue;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>还是上面的 <em>DOM</em> 结构，我们让 <em>two</em> 这个盒子也浮动，效果如下：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-18-051424.png" alt="image-20210918131424633" style="zoom:50%;" />
+
+<p>如果宽度不足以让后面的盒子贴靠，那么后面浮动的元素会被排列到下一行：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.two</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">850px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: blue;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-18-051627.png" alt="image-20210918131627324" style="zoom:50%;" />
+
+<p>在上面的示例中，我们将蓝色盒子的宽度修改为了 <em>850px</em>，当我们缩小浏览器时，由于宽度不够蓝色盒子重新排列到了第二排。</p>
+<ol start="3">
+<li><strong>宽度收缩</strong></li>
+</ol>
+<p>在没有设置宽度的情况下，块级元素在标准流时很多时独占一行，宽度也会占满整个容器，但是一旦被设置为浮动后，宽度就会收缩。</p>
+<p>例如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>this is a test<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">background-color</span>: red;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>本来 <em>div</em> 是占满整行的，但是当我们设置了浮动后，由于 <em>div</em> 又没有设置宽度，所以宽度就收缩了。</p>
+<h3 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h3><p>有些时候，浮动会带来副作用，所以我们需要清除浮动带来的副作用。</p>
+<p>例如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>导航1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>导航2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>导航3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>游戏<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>动漫<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>音乐<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: pink;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-18-052700.png" alt="image-20210918132700157" style="zoom:50%;" />
+
+<p>在上面的示例中，我们本来是打算做两个导航栏的，但是由于浮动的贴靠性质，导致所有的 <em>li</em> 都在一行了。</p>
+<p>这个时候我们就需要一些方式来清除浮动。</p>
+<ol>
+<li><strong>给父元素设置高度</strong></li>
+</ol>
+<p>在上面的示例中，由于 <em>li</em> 的父元素 <em>ul</em> 没有高度，所以导致明明不是同一个父元素下的浮动子元素，也会相互贴靠。</p>
+<p>此时我们就给 <em>li</em> 的父元素 <em>ul</em> 设置一个高度即可。例如：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ul</span>&#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: pink;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-18-053639.png" alt="image-20210918133638708" style="zoom:50%;" />
+
+
+
+<p>需要注意给父元素设置高度时，这个高度值一定要大于浮动子元素的高度，这样才能关注浮动。例如：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ul</span>&#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">30px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">70px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: pink;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-18-053929.png" alt="image-20210918133928678" style="zoom:50%;" />
+
+<p>在上面的示例中，虽然我们给父元素 <em>ul</em> 设置了高度，但是这个高度值是小于浮动元素 <em>li</em> 的高度的，此时我们会发现仍然有贴靠的现象。</p>
+<p>因此，<strong>如果一个元素要浮动，那么它的祖先元素一定要有高度。有高度的盒子，才能关住浮动</strong>。</p>
+<p>只要浮动在一个有高度的盒子中，那么这个浮动就不会影响后面的浮动元素。所以就是清除浮动带来的影响了。</p>
+<ol start="2">
+<li><strong><em>clear</em> 属性</strong></li>
+</ol>
+<p>在实际开发中，由于盒子的高度能够被内容撑开，所以很多时候我们不会设置高度。</p>
+<p>那么这个时候又该如何清除浮动呢？</p>
+<p>在 <em>CSS</em> 中有一个叫做 <em>clear</em> 的属性，该属性定义了元素的哪边上不允许出现浮动元素。</p>
+<p>在 <em>CSS1</em> 和 <em>CSS2</em> 中，这是通过自动为清除元素（即设置了 <em>clear</em> 属性的元素）增加上外边距实现的。</p>
+<p>在 <em>CSS2.1</em> 中，会在元素上外边距之上增加清除空间，而外边距本身并不改变。不论哪一种改变，最终结果都一样，如果声明为左边或右边清除，会使元素的上外边框边界刚好在该边上浮动元素的下外边距边界之下。</p>
+<p><em>clear</em> 属性的取值如下：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-18-061612.png" alt="image-20210918141612213" style="zoom: 50%;" />
+
+
+
+<p>接下来我们来用 <em>clear</em> 属性清除浮动：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>导航1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>导航2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>导航3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;two&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>游戏<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>动漫<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>音乐<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.two</span>&#123;</span><br><span class="line">  <span class="attribute">clear</span>: left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: pink;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-18-063311.png" alt="image-20210918143310665" style="zoom:50%;" />
+
+
+
+<p>可以看到，浮动的副作用确实是清除了，但是这种方式有一个问题，那就是 <em>margin</em> 属性失效了。</p>
+<p>例如我们在 <em>two</em> 的样式里面添加一个 <em>margin-top</em>，会发现该 <em>margin</em> 属性的设置并不起效果。</p>
+<ol start="3">
+<li><strong>隔墙法</strong></li>
+</ol>
+<p>隔墙法的核心思想就是在两个浮动的元素之间添加一个空的 <em>div</em> 作为一堵“墙”，从而让后面的浮动元素，不去追前面的浮动元素。</p>
+<p>例如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>导航1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>导航2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>导航3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;clearfix&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;two&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>游戏<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>动漫<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>音乐<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.two</span> &#123;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.clearfix</span> &#123;</span><br><span class="line">  <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: pink;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-18-064154.png" alt="image-20210918144154274" style="zoom:50%;" />
+
+<p>通过上面的示例我们可以看到，<em>margin</em> 已经恢复正常。</p>
+<ol start="4">
+<li><strong>内墙法</strong></li>
+</ol>
+<p>通过隔墙法，后面又衍生出了内墙法。内墙法的出现，可以让浮动的元素也能撑开父元素的高。</p>
+<p>正常情况下，没有高的父元素，里面的子元素一旦浮动，高度也就没有了，例如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">background-color</span>: green;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">p</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当前效果：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-18-065913.png" alt="image-20210918145912989" style="zoom:50%;" />
+
+
+
+<p>一旦我们设置 <em>p</em> 元素为浮动，由于脱离了标准流，所以父元素的高也就消失了。</p>
+<p>此时就可以使用内墙法来给父元素撑起高，如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;clearfix&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">background-color</span>: green;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">p</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: red;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.clearfix</span>&#123;</span><br><span class="line">  <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-18-070839.png" alt="image-20210918150838625" style="zoom:50%;" />
+
+
+
+<p>下面是使用内墙法清除浮动的示例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>导航1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>导航2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>导航3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;clearfix&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;two&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>游戏<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>动漫<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>音乐<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.two</span> &#123;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.clearfix</span> &#123;</span><br><span class="line">  <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: pink;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>效果如下：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-18-071359.png" alt="image-20210918151358700" style="zoom:50%;" />
+
+<p>在上面的代码中，我们使用内墙法清除了浮动，并且父元素的高度也被撑起来了，<em>margin</em> 也是正常的。</p>
+<ol start="5">
+<li><strong><em>overflow</em> 属性</strong></li>
+</ol>
+<p><em>overflow</em> 属性本来是用作处理溢出内容的显示方式的。</p>
+<p>当给父元素添加 <em>overflow:hidden</em> 之后，父元素就会形成一个 <em>BFC</em>，一块独立的显示区域，不受外界影响，所以通过这种方式也能够去除浮动的副作用。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>导航1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>导航2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>导航3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;two&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>游戏<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>动漫<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>音乐<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.two</span> &#123;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">ul</span> &#123;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: pink;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在上面的代码中，我们设置两个父元素 <em>ul</em> 都为 <em>overflow:hidden</em> 之后，两个父元素形成了 <em>BFC</em>，我们可以看到父元素的高度也被撑开了，<em>margin</em> 也是正常的。</p>
+<ol start="6">
+<li><strong>伪类清除法</strong></li>
+</ol>
+<p>最后要介绍的，是目前最流行的浮动清除方式，伪类清除法。</p>
+<p>该方法的核心思想就是为父元素设置一个伪元素，其实就是无形的添加了一堵墙，然后在伪元素中设置一系列的属性。例如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;one&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>导航1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>导航2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>导航3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;two&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>游戏<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>动漫<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>音乐<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.two</span> &#123;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.one</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">&quot;&quot;</span>;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">clear</span>: both;</span><br><span class="line">  <span class="attribute">visibility</span>: hidden;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: pink;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在上面的代码中，我们为第一个 <em>ul</em> 设置了 <em>after</em> 伪元素，并在伪元素中设置了诸如 <em>clear:both、visibility: hidden</em> 等一系列属性，这实际上就等同于在两个 <em>ul</em> 之间添加了一堵无形的墙。</p>
+<h3 id="浮动的现状"><a href="#浮动的现状" class="headerlink" title="浮动的现状"></a>浮动的现状</h3><p>上面介绍了很多清除浮动的方法，一会儿外墙法、一会儿内墙法、一会儿 <em>overflow</em>，这些其实都是时代的眼泪。</p>
+<p>目前来讲，除非要考虑古老的 <em>IE6&#x2F;IE7</em>，否则布局压根儿就不会考虑浮动，有更好的弹性盒模型和网格布局供我们使用。</p>
+<p>浮动目前仅仅也就在要制作文字环绕效果时，能发挥一席之地的作用。</p>
+<p>然而，文字环绕这种 <em>90</em> 年代看着还不错的设计，现在又有几个设计师会这样设计网页呢？</p>
+<h2 id="真题解答"><a href="#真题解答" class="headerlink" title="真题解答"></a>真题解答</h2><ul>
+<li>清除浮动的方法</li>
+</ul>
+<blockquote>
+<p>参考答案：</p>
+<ul>
+<li><p><em>clear</em> 清除浮动（添加空 <em>div</em> 法）在浮动元素下方添加空 <em>div</em>，并给该元素写 <em>css</em> 样式 <em>{clear:both;height:0;overflow:hidden;}</em></p>
+</li>
+<li><p>给浮动元素父级设置高度</p>
+</li>
+<li><p>父级同时浮动（需要给父级同级元素添加浮动）</p>
+</li>
+<li><p>父级设置成 <em>inline-block</em>，其 <em>margin: 0 auto</em> 居中方式失效</p>
+</li>
+<li><p>给父级添加 <em>overflow:hidden</em> 清除浮动方法</p>
+</li>
+<li><p>万能清除法 <em>after</em> 伪类清浮动（现在主流方法，推荐使用）</p>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>以下选项能够清除浮动的是（ B ）</li>
+</ul>
+<blockquote>
+<p>A. 空 <em>div</em></p>
+<p>B. <em>hover</em> 伪选择器</p>
+<p>C. <em>clear</em> 属性</p>
+<p>D. <em>overflow</em> 属性</p>
+</blockquote>
+<p>-<em>EOF</em>-</p>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="clearfix">
+    <a href="https://wecodejs.github.io/blog" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2026 Wecodejs</li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Powered by Hexo
+    </div>
+    </div>
+    
+  </footer>
+</div>
+
+
+
+
+<script src="/blog/js/main.js"></script>
+
+
+<!-- Local Search -->
+<div id="local-search-result" style="display:none; position:fixed; top:60px; left:50%; transform:translateX(-50%); width:600px; max-height:400px; overflow-y:auto; background:#fff; border:1px solid #ddd; border-radius:3px; box-shadow:0 2px 10px rgba(0,0,0,0.1); z-index:9999;">
+  <div style="padding:10px; border-bottom:1px solid #eee;">
+    <strong>搜索结果</strong>
+    <span id="search-close" style="float:right; cursor:pointer; color:#999;">✕</span>
+  </div>
+  <div id="search-results" style="padding:10px;"></div>
+</div>
+
+<script>
+(function() {
+  var searchInput = document.getElementById('local-search-input');
+  var searchResult = document.getElementById('local-search-result');
+  var searchResults = document.getElementById('search-results');
+  var searchClose = document.getElementById('search-close');
+  var searchDataPath = '/blog/search.xml';
+  var searchEntries = [];
+
+  if (!searchInput) return;
+
+  // Load search data
+  fetch(searchDataPath)
+    .then(function(response) { return response.text(); })
+    .then(function(xml) {
+      var parser = new DOMParser();
+      var xmlDoc = parser.parseFromString(xml, 'text/xml');
+      var entries = xmlDoc.getElementsByTagName('entry');
+      for (var i = 0; i < entries.length; i++) {
+        var entry = entries[i];
+        searchEntries.push({
+          title: entry.getElementsByTagName('title')[0].textContent,
+          url: entry.getElementsByTagName('url')[0].textContent,
+          content: entry.getElementsByTagName('content')[0].textContent.replace(/<[^>]*>/g, '')
+        });
+      }
+    });
+
+  // Search function
+  searchInput.addEventListener('input', function() {
+    var keyword = this.value.trim().toLowerCase();
+    if (!keyword) {
+      searchResult.style.display = 'none';
+      return;
+    }
+
+    var results = [];
+    for (var i = 0; i < searchEntries.length; i++) {
+      var entry = searchEntries[i];
+      if (entry.title.toLowerCase().indexOf(keyword) !== -1 || entry.content.toLowerCase().indexOf(keyword) !== -1) {
+        results.push(entry);
+      }
+    }
+
+    if (results.length === 0) {
+      searchResults.innerHTML = '<p style="color:#999;">没有找到结果</p>';
+    } else {
+      var html = '<ul style="list-style:none; padding:0; margin:0;">';
+      for (var i = 0; i < results.length; i++) {
+        var r = results[i];
+        html += '<li style="padding:8px 0; border-bottom:1px solid #eee;">';
+        html += '<a href="' + r.url + '" style="color:#4078c0; text-decoration:none; font-weight:bold;">' + r.title + '</a>';
+        var preview = r.content.substring(0, 100).replace(new RegExp(keyword, 'gi'), '<mark>$&</mark>');
+        html += '<p style="color:#666; font-size:12px; margin:4px 0 0 0;">' + preview + '...</p>';
+        html += '</li>';
+      }
+      html += '</ul>';
+      searchResults.innerHTML = html;
+    }
+    searchResult.style.display = 'block';
+  });
+
+  // Close search
+  searchClose.addEventListener('click', function() {
+    searchResult.style.display = 'none';
+    searchInput.value = '';
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!searchInput.contains(e.target) && !searchResult.contains(e.target)) {
+      searchResult.style.display = 'none';
+    }
+  });
+})();
+</script>
+</body>
+</html>

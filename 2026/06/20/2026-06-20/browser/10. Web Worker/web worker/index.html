@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    浏览器的web worker | 我的博客
+  </title>
+  <meta name="description" content="个人技术博客">
+  
+  <meta name="keywords" content="
+  浏览器
+  ">
+  
+  <meta name="author" content="Wecodejs">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="theme-color" content="#1e2327">
+  <link rel="apple-touch-icon" href="https://github.githubassets.com/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/apple-touch-icon-180x180.png">
+
+  <link rel="icon" type="image/x-icon" href="https://github.githubassets.com/favicon.ico">
+  <link rel="stylesheet" href="/blog/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/blog/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <input type="text" id="local-search-input" placeholder="搜索文章..." style="padding: 2px 5px; width: 200px; border: 1px solid #ccc; border-radius: 3px;">
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a clas="navbar-nav-archives" style="display: none" href="/blog/archives/">Archives</a></li>
+        
+        
+        <li><a clas="navbar-nav-categories" style="display: none" href="/blog/categories/">Categories</a></li>
+        
+        
+        <li style="transform:translateX(570px)"><a href="/blog/tags/">全部分类</a></li>
+        
+        
+        <li clas="navbar-nav-rss desktop-only" style="display: none"><a href="/blog/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only" style="display: none;">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://avatars.githubusercontent.com/u/1371295?v=4&amp;size=230"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar" style="display:none;">
+      <li class="clearfix">
+        <a href="/blog/" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/blog/"
+           class="header-toolbar-right"> 60 </a>
+      </li>
+      <li>
+        <a href="/blog/" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/blog/"
+           class="header-toolbar-right"> 4 </a>
+      </li>
+      <li>
+        <a href="/blog/" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/blog/"
+           class="header-toolbar-right"> 0 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/blog/">我的博客</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container" style="display: none">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    Wecodejs
+
+    <span class="post-date float-right" title="{{moment(1781884800000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      
+          <i class="fa fa-pencil-square-o"></i>
+      
+      {{moment(1781884800000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>浏览器的web worker</h1>
+    <h1 id="web-worker"><a href="#web-worker" class="headerlink" title="web worker"></a><em>web worker</em></h1><p>在运行大型或者复杂的 <em>JavaScript</em> 脚本的时候经常会出现浏览器假死的现象，这是由于 <em>JavaScript</em> 这个语言在执行的时候是采用单线程来执行而导致的。采用同步执行的方式进行运行，如果出现阻塞，那么后面的代码将不会执行。例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(<span class="literal">true</span>)&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>那么能不能让这些代码在后台运行，或者让 <em>JavaScript</em> 函数在多个进程中同时运行呢？</p>
+<p><em>HTML5</em> 所提出的 <em>Web Worker</em> 正是为了解决这个问题而出现的。</p>
+<p><em>HTML5</em> 的 <em>Web Worker</em> 可以让 <em>Web</em> 应用程序具备后台的处理能力。它支持多线程处理功能，因此可以充分利用多核 <em>CPU</em> 带来的优势，将耗时长的任务分配给 <em>HTML5</em> 的 <em>Web Worker</em> 运行，从而避免了有时页面反应迟缓，甚至假死的现象。</p>
+<p>本文将分为以下几个部分来介绍 <em>web worker</em>：</p>
+<ul>
+<li><em>web worker</em> 概述</li>
+<li><em>web Worker</em> 使用示例</li>
+<li>使用 <em>web Worker</em> 实现跨标签页通信</li>
+</ul>
+<h2 id="web-worker-概述"><a href="#web-worker-概述" class="headerlink" title="web worker 概述"></a><em>web worker</em> 概述</h2><p>在 <em>Web</em> 应用程序中，<em>web Worker</em> 是一项后台处理技术。</p>
+<p>在此之前，<em>JavaScript</em> 创建的 <em>Web</em> 应用程序中，因为所有的处理都是在单线程内执行的，所以如果脚本所需运行时间太长，程序界面就会长时间处于停止状态，甚至当等待时间超出一定的限度，浏览器就会进入假死的状态。</p>
+<p>为了解决这个问题，<em>HTML5</em> 新增加了一个 <em>web Worker API</em>。</p>
+<p>使用这个 <em>API</em>，用户可以很容易的创建在后台运行的线程，这个线程被称之为 <em>Worker</em>。如果将可能耗费较长时间的处理交给后台来执行，则对用户在前台页面中执行的操作没有影响。</p>
+<p><em>web Worker</em> 的特点如下：</p>
+<ul>
+<li><p>通过加载一个 <em>JS</em> 文件来进行大量复杂的计算，而不挂起主进程。通过 <em>postMessage</em> 和 <em>onMessage</em> 进行通信。</p>
+</li>
+<li><p>可以在 <em>Worker</em> 中通过 <em>importScripts(url)</em> 方法来加载 <em>JavaScript</em> 脚本文件。</p>
+</li>
+<li><p>可以使用 <em>setTimeout( )，clearTimeout( )，setInterval( ) 和 clearInterval( )</em> 等方法。</p>
+</li>
+<li><p>可以使用 <em>XMLHttpRequest</em> 进行异步请求。</p>
+</li>
+<li><p>可以访问 <em>navigator</em> 的部分属性。</p>
+</li>
+<li><p>可以使用 <em>JavaScript</em> 核心对象。</p>
+</li>
+</ul>
+<p>除了上述的优点，<em>web Worker</em> 本身也具有一定局限性的，具体如下：</p>
+<ul>
+<li><p>不能跨域加载 <em>JavaScript</em></p>
+</li>
+<li><p><em>Worker</em> 内代码不能访问 <em>DOM</em></p>
+</li>
+<li><p>使用 <em>Web Worker</em> 加载数据没有 <em>JSONP</em> 和 <em>Ajax</em> 加载数据高效。</p>
+</li>
+</ul>
+<p>目前来看，<em>web Worker</em> 的浏览器兼容性还是很不错的，基本得到了主流浏览器的一致支持。</p>
+<p><img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-12-06-074024.png" alt="image-20211206154023963"></p>
+<p>在开始使用 <em>web Worker</em> 之前，我们先来看一下使用 <em>Worker</em> 时会遇到的属性和方法，如下：</p>
+<ul>
+<li><p><em>self</em>：<em>self</em> 关键值用来表示本线程范围内的作用域。</p>
+</li>
+<li><p><em>postMessage( )</em>：向创建线程的源窗口发送信息。</p>
+</li>
+<li><p><em>onMessage</em>：获取接收消息的事件句柄。</p>
+</li>
+<li><p><em>importScripts(urls)</em>：<em>Worker</em> 内部如果要加载其他脚本，可以使用该方法来导入其它 <em>JavaScript</em> 脚本文件。参数为该脚本文件的 <em>URL</em> 地址，导入的脚本文件必须与使用该线程文件的页面在同一个域中，并在同一个端口中。</p>
+</li>
+</ul>
+<p>例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导入了 3 个 JavaScript 脚本</span></span><br><span class="line"><span class="title function_">importScripts</span>(<span class="string">&quot;worker1.js&quot;</span>,<span class="string">&quot;worker2.js&quot;</span>,<span class="string">&quot;worker3.js&quot;</span>); </span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="web-Worker-使用示例"><a href="#web-Worker-使用示例" class="headerlink" title="web Worker 使用示例"></a><em>web Worker</em> 使用示例</h2><p>接下来我们来看一下 <em>web Worker</em> 的具体使用方式。</p>
+<p><em>web Worker</em> 的使用方法非常简单，只需要创建一个 <em>web Worker</em> 对象，并传入希望执行的 <em>JavaScript</em> 文件即可。</p>
+<p>之后在页面中设置一个事件监听器，用来监听由 <em>web Worker</em> 对象发来的消息。</p>
+<p>如果想要在页面与 <em>web Worker</em> 之间建立通信，数据需要通过 <em>postMessage( )</em> 方法来进行传递。</p>
+<p>创建 <em>web Worker</em>。步骤十分简单，只要在 <em>Worker</em> 类的构造器中，将需要在后台线程中执行的脚本文件的 <em>URL</em> 地址作为参数传入，就可以创建 <em>Worker</em> 对象，如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> worker = <span class="keyword">new</span> <span class="title class_">Worker</span>(<span class="string">&quot;./worker.js&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：在后台线程中是不能访问页面或者窗口对象的，此时如果在后台线程的脚本文件中使用 <em>window</em> 或者 <em>document</em> 对象，则会引发错误。</p>
+</blockquote>
+<p>这里传入的 <em>JavaScript</em> 的 <em>URL</em> 可以是相对或者绝对路径，只要是相同的协议，主机和端口即可。</p>
+<p>如果想获取 <em>Worker</em> 进程的返回值，可以通过 <em>onmessage</em> 属性来绑定一个事件处理程序。如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> worker = <span class="keyword">new</span> <span class="title class_">Worker</span>(<span class="string">&quot;./worker.js&quot;</span>);</span><br><span class="line">worker.<span class="property">onmessage</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;the message is back!&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里第一行代码用来创建和运行 <em>Worker</em> 进程，第 <em>2</em> 行设置了 <em>Worker</em> 的 <em>message</em> 事件，当后台 Worker 的 <em>postMessage( )</em> 方法被调用时，该事件就会被触发。</p>
+<p>使用 <em>Worker</em> 对象的 <em>postMessage( )</em> 方法可以给后台线程发送消息。发送的消息需要为文本数据，如果要发送任何 <em>JavaScript</em> 对象，需要通过 <em>JSON.stringify( )</em> 方法将其转换成文本数据。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">worker.<span class="title function_">postMessage</span>(message);</span><br></pre></td></tr></table></figure>
+
+<p>通过获取 <em>Worker</em> 对象的 <em>onmessage</em> 事件以及 <em>Worker</em> 对象的 <em>postMessage( )</em> 方法就可以实现线程之间的消息接收和发送。</p>
+<p><em>Web Worker</em> 不能自行终止，但是能够被启用它们的页面所终止。</p>
+<p>调用 <em>terminate( )</em> 函数可以终止后台进程。被终止的 <em>Web Workers</em> 将不再响应任何消息或者执行任何其他运算。</p>
+<p>终止之后，<em>Worker</em> 不能被重新启动，但是可以使用同样的 <em>URL</em> 创建一个新的 <em>Worker</em>。</p>
+<p>下面是 <em>web Worker</em> 的一个具体使用示例。</p>
+<p><em>index.html</em></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>计数：<span class="tag">&lt;<span class="name">output</span> <span class="attr">id</span>=<span class="string">&quot;result&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">output</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;startBtn&quot;</span>&gt;</span>开始工作<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;stopBtn&quot;</span>&gt;</span>停止工作<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> startBtn = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;startBtn&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> stopBtn = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;stopBtn&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> worker; <span class="comment">// 用于存储 Worker 进程</span></span><br><span class="line"><span class="comment">// 开始 Worker 的代码</span></span><br><span class="line">startBtn.<span class="property">onclick</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// 第一次进来没有 Worker 进程 , 创建一个新的 Worker 进程</span></span><br><span class="line">    worker = <span class="keyword">new</span> <span class="title class_">Worker</span>(<span class="string">&quot;worker.js&quot;</span>);</span><br><span class="line">    <span class="comment">// 接收来自于后台的数据</span></span><br><span class="line">    worker.<span class="property">onmessage</span> = <span class="keyword">function</span> (<span class="params">event</span>) &#123;</span><br><span class="line">        <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;result&quot;</span>).<span class="property">innerHTML</span> = event.<span class="property">data</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 停止 Worker 的代码</span></span><br><span class="line">stopBtn.<span class="property">onclick</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    worker.<span class="title function_">terminate</span>();</span><br><span class="line">    worker = <span class="literal">undefined</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><em>worker.js</em></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">timedCount</span>(<span class="params"></span>) &#123;</span><br><span class="line">    i++;</span><br><span class="line">    <span class="comment">// 每次得到的结果都通过 postMessage 方法返回给前台</span></span><br><span class="line">    <span class="title function_">postMessage</span>(i);</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="string">&quot;timedCount()&quot;</span>, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">timedCount</span>();</span><br></pre></td></tr></table></figure>
+
+<p>在上面的代码中，当用户点击”开始工作”时，会创建一个 <em>Web Worker</em> 在后台进行计数。每次计的数都会通过 <em>postMessage( )</em> 方法返回给前台。</p>
+<p>当用户点击”停止工作”时，则会调用 <em>terminate( )</em> 方法来终止 <em>Web Worker</em> 的运行。</p>
+<h2 id="使用-web-Worker-实现跨标签页通信"><a href="#使用-web-Worker-实现跨标签页通信" class="headerlink" title="使用 web Worker 实现跨标签页通信"></a>使用 <em>web Worker</em> 实现跨标签页通信</h2><p><em>web Worker</em> 可分为两种类型：</p>
+<ul>
+<li><p>专用线程 <em>dedicated web worker</em></p>
+</li>
+<li><p>共享线程 <em>shared web worker</em></p>
+</li>
+</ul>
+<p><em>Dedicated web worker</em> 随当前页面的关闭而结束，这意味着 <em>Dedicated web worker</em> 只能被创建它的页面访问。</p>
+<p>与之相对应的 <em>Shared web worker</em> 共享线程可以同时有多个页面的线程链接。</p>
+<p>前面我们示例 <em>web Worker</em> 时，实例化的是一个 Worker 类，这就代表是一个 <em>Dedicated web worker</em>，而要创建 <em>SharedWorker</em> 则需要实例化 <em>SharedWorker</em> 类。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> worker = <span class="keyword">new</span> <span class="title class_">SharedWorker</span>(<span class="string">&quot;sharedworker.js&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>下面我们就使用 <em>Shared web worker</em> 共享线程来实现跨标签页通信。</p>
+<p><em>index.html</em></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;&quot;</span> <span class="attr">id</span>=<span class="string">&quot;content&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;请输入要发送的信息&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;btn&quot;</span>&gt;</span>发送<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> content = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;#content&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> btn = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;#btn&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> worker = <span class="keyword">new</span> <span class="title class_">SharedWorker</span>(<span class="string">&#x27;worker.js&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">        btn.<span class="property">onclick</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            worker.<span class="property">port</span>.<span class="title function_">postMessage</span>(content.<span class="property">value</span>);</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><em>index2.html</em></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> btn = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;#btn&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> worker = <span class="keyword">new</span> <span class="title class_">SharedWorker</span>(<span class="string">&#x27;worker.js&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">        worker.<span class="property">port</span>.<span class="title function_">start</span>()</span></span><br><span class="line"><span class="language-javascript">        worker.<span class="property">port</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;message&#x27;</span>, <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span>(e.<span class="property">data</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;来自worker的数据：&#x27;</span>, e.<span class="property">data</span>)</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;, <span class="literal">false</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="built_in">setInterval</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 获取和发送消息都是调用 postMessage 方法，我这里约定的是传递&#x27;get&#x27;表示获取数据。</span></span></span><br><span class="line"><span class="language-javascript">            worker.<span class="property">port</span>.<span class="title function_">postMessage</span>(<span class="string">&#x27;get&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">        &#125;,<span class="number">1000</span>);</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><em>worker.js</em></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">onconnect = <span class="keyword">function</span> (<span class="params">e</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> port = e.<span class="property">ports</span>[<span class="number">0</span>]</span><br><span class="line">    port.<span class="property">onmessage</span> = <span class="keyword">function</span> (<span class="params">e</span>) &#123;</span><br><span class="line">        <span class="comment">// 如果是 get 则返回数据给客户端</span></span><br><span class="line">        <span class="keyword">if</span> (e.<span class="property">data</span> === <span class="string">&#x27;get&#x27;</span>) &#123;       </span><br><span class="line">            port.<span class="title function_">postMessage</span>(data);</span><br><span class="line">            data = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;    </span><br><span class="line">            <span class="comment">// 否则把数据保存                  </span></span><br><span class="line">            data = e.<span class="property">data</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>-<em>EOF</em>-</p>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="clearfix">
+    <a href="https://wecodejs.github.io/blog" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2026 Wecodejs</li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Powered by Hexo
+    </div>
+    </div>
+    
+  </footer>
+</div>
+
+
+
+
+<script src="/blog/js/main.js"></script>
+
+
+<!-- Local Search -->
+<div id="local-search-result" style="display:none; position:fixed; top:60px; left:50%; transform:translateX(-50%); width:600px; max-height:400px; overflow-y:auto; background:#fff; border:1px solid #ddd; border-radius:3px; box-shadow:0 2px 10px rgba(0,0,0,0.1); z-index:9999;">
+  <div style="padding:10px; border-bottom:1px solid #eee;">
+    <strong>搜索结果</strong>
+    <span id="search-close" style="float:right; cursor:pointer; color:#999;">✕</span>
+  </div>
+  <div id="search-results" style="padding:10px;"></div>
+</div>
+
+<script>
+(function() {
+  var searchInput = document.getElementById('local-search-input');
+  var searchResult = document.getElementById('local-search-result');
+  var searchResults = document.getElementById('search-results');
+  var searchClose = document.getElementById('search-close');
+  var searchDataPath = '/blog/search.xml';
+  var searchEntries = [];
+
+  if (!searchInput) return;
+
+  // Load search data
+  fetch(searchDataPath)
+    .then(function(response) { return response.text(); })
+    .then(function(xml) {
+      var parser = new DOMParser();
+      var xmlDoc = parser.parseFromString(xml, 'text/xml');
+      var entries = xmlDoc.getElementsByTagName('entry');
+      for (var i = 0; i < entries.length; i++) {
+        var entry = entries[i];
+        searchEntries.push({
+          title: entry.getElementsByTagName('title')[0].textContent,
+          url: entry.getElementsByTagName('url')[0].textContent,
+          content: entry.getElementsByTagName('content')[0].textContent.replace(/<[^>]*>/g, '')
+        });
+      }
+    });
+
+  // Search function
+  searchInput.addEventListener('input', function() {
+    var keyword = this.value.trim().toLowerCase();
+    if (!keyword) {
+      searchResult.style.display = 'none';
+      return;
+    }
+
+    var results = [];
+    for (var i = 0; i < searchEntries.length; i++) {
+      var entry = searchEntries[i];
+      if (entry.title.toLowerCase().indexOf(keyword) !== -1 || entry.content.toLowerCase().indexOf(keyword) !== -1) {
+        results.push(entry);
+      }
+    }
+
+    if (results.length === 0) {
+      searchResults.innerHTML = '<p style="color:#999;">没有找到结果</p>';
+    } else {
+      var html = '<ul style="list-style:none; padding:0; margin:0;">';
+      for (var i = 0; i < results.length; i++) {
+        var r = results[i];
+        html += '<li style="padding:8px 0; border-bottom:1px solid #eee;">';
+        html += '<a href="' + r.url + '" style="color:#4078c0; text-decoration:none; font-weight:bold;">' + r.title + '</a>';
+        var preview = r.content.substring(0, 100).replace(new RegExp(keyword, 'gi'), '<mark>$&</mark>');
+        html += '<p style="color:#666; font-size:12px; margin:4px 0 0 0;">' + preview + '...</p>';
+        html += '</li>';
+      }
+      html += '</ul>';
+      searchResults.innerHTML = html;
+    }
+    searchResult.style.display = 'block';
+  });
+
+  // Close search
+  searchClose.addEventListener('click', function() {
+    searchResult.style.display = 'none';
+    searchInput.value = '';
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!searchInput.contains(e.target) && !searchResult.contains(e.target)) {
+      searchResult.style.display = 'none';
+    }
+  });
+})();
+</script>
+</body>
+</html>

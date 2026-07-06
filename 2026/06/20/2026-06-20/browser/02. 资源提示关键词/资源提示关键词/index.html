@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    浏览器的资源提示关键词 | 我的博客
+  </title>
+  <meta name="description" content="个人技术博客">
+  
+  <meta name="keywords" content="
+  浏览器
+  ">
+  
+  <meta name="author" content="Wecodejs">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="theme-color" content="#1e2327">
+  <link rel="apple-touch-icon" href="https://github.githubassets.com/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/apple-touch-icon-180x180.png">
+
+  <link rel="icon" type="image/x-icon" href="https://github.githubassets.com/favicon.ico">
+  <link rel="stylesheet" href="/blog/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/blog/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <input type="text" id="local-search-input" placeholder="搜索文章..." style="padding: 2px 5px; width: 200px; border: 1px solid #ccc; border-radius: 3px;">
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a clas="navbar-nav-archives" style="display: none" href="/blog/archives/">Archives</a></li>
+        
+        
+        <li><a clas="navbar-nav-categories" style="display: none" href="/blog/categories/">Categories</a></li>
+        
+        
+        <li style="transform:translateX(570px)"><a href="/blog/tags/">全部分类</a></li>
+        
+        
+        <li clas="navbar-nav-rss desktop-only" style="display: none"><a href="/blog/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only" style="display: none;">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://avatars.githubusercontent.com/u/1371295?v=4&amp;size=230"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar" style="display:none;">
+      <li class="clearfix">
+        <a href="/blog/" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/blog/"
+           class="header-toolbar-right"> 60 </a>
+      </li>
+      <li>
+        <a href="/blog/" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/blog/"
+           class="header-toolbar-right"> 4 </a>
+      </li>
+      <li>
+        <a href="/blog/" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/blog/"
+           class="header-toolbar-right"> 0 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/blog/">我的博客</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container" style="display: none">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    Wecodejs
+
+    <span class="post-date float-right" title="{{moment(1781884800000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      
+          <i class="fa fa-pencil-square-o"></i>
+      
+      {{moment(1781884800000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>浏览器的资源提示关键词</h1>
+    <h1 id="资源提示关键词"><a href="#资源提示关键词" class="headerlink" title="资源提示关键词"></a>资源提示关键词</h1><p>在上一篇文章中，我们介绍了浏览器的渲染流程，这篇文章中，我们将重点聚焦在渲染阻塞上，来详细看一下渲染阻塞以及一些常见的解决方法。</p>
+<p>本文主要包含以下内容：</p>
+<ul>
+<li>渲染阻塞回顾</li>
+<li><em>defer</em> 和 <em>async</em></li>
+<li><em>preload</em></li>
+<li><em>prefetch</em></li>
+<li><em>prerender</em></li>
+<li><em>preconnect</em></li>
+</ul>
+<h2 id="渲染阻塞回顾"><a href="#渲染阻塞回顾" class="headerlink" title="渲染阻塞回顾"></a>渲染阻塞回顾</h2><p>我们都知道，<em>HTML</em> 用于描述网页的整体结构。为了理解 <em>HTML</em>，浏览器必须将它转为自己能够理解的格式，也就是 <em>DOM</em>（文档对象模型）</p>
+<p>浏览器引擎有一段特殊的代码，称为解析器，用于将数据从一种格式转换为另一种格式。</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-12-06-081458.png" alt="image-20211206161457653" style="zoom:50%;" />
+
+<p>浏览器一点一点地构建 <em>DOM</em>。一旦第一块代码进来，它就会开始解析 <em>HTML</em>，将节点添加到树结构中。</p>
+<p><img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-12-06-081522.gif" alt="ezgif-2-2688553063"></p>
+<p>构建出来的 <em>DOM</em> 对象，实际上有 <em>2</em> 个作用：</p>
+<ul>
+<li><p><em>HTML</em> 文档的结构以对象的方式体现出来，形成我们常说的 <em>DOM</em> 树</p>
+</li>
+<li><p>作为外界的接口供外界使用，例如 <em>JavaScript</em>。当我们调用诸如 <em>document.getElementById</em> 的方法时，返回的元素是一个 <em>DOM</em> 节点。每个 <em>DOM</em> 节点都有许多可以用来访问和更改它的函数，用户看到的内容也会相应地发生变化。</p>
+</li>
+</ul>
+<p><img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-12-06-081639.gif" alt="ezgif-2-01a1ded8c4"></p>
+<p><em>CSS</em> 样式会被映射为 <em>CSSOM</em>（ <em>CSS</em> 对象模型），它和 <em>DOM</em> 很相似，但是针对的是 <em>CSS</em> 而不是 <em>HTML</em>。</p>
+<p>在构建 <em>CSSOM</em> 的时候，无法进行增量构建（不像构建 <em>DOM</em> 一样，解析到一个 <em>DOM</em> 节点就扔到 <em>DOM</em> 树结构里面），因为 <em>CSS</em> 规则是可以相互覆盖的，浏览器引擎需要经过复杂的计算才能弄清楚 <em>CSS</em> 代码如何应用于 <em>DOM</em>。</p>
+<p><img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-12-06-081700.png" alt="image-20211206161700033"></p>
+<p>当浏览器正在构建 <em>DOM</em> 时，如果它遇到 <em>HTML</em> 中的 <code>&lt;script&gt;...&lt;/script&gt;</code> 标记，它必须立即执行它。如果脚本是外部的，则必须先下载脚本。</p>
+<p>过去，为了执行脚本，必须暂停解析。解析会在 <em>JavaScript</em> 引擎执行完脚本中的代码后再次启动。</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-12-06-081717.png" alt="image-20211206161717368" style="zoom:50%;" />
+
+
+
+<p>为什么解析必须停止呢？</p>
+<p>原因很简单，这是因为 <em>Javascript</em> 脚本可以改变 <em>HTML</em> 以及根据 <em>HTML</em> 生成的 <em>DOM</em> 树结构。例如，脚本可以通过使用 <em>document.createElement( )</em> 来添加节点从而更改 <em>DOM</em> 结构。</p>
+<p><img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-12-06-081740.gif" alt="image"></p>
+<p>这也是为什么我们建议将 <em>script</em> 标签写在 <em>body</em> 元素结束标签前面的原因。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- HTML Code --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-handlebars"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars">        JS Code...</span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars">    <span class="tag">&lt;/<span class="name">scirpt</span>&gt;</span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span></span><br></pre></td></tr></table></figure>
+
+<p>接下来我们回头来看一下 <em>CSS</em> 是否会阻塞渲染。</p>
+<p>看上去 <em>JavaScript</em> 会阻止解析，是因为它可以修改文档。那么 <em>CSS</em> 不能修改文档，所以它似乎没有理由阻止解析，对吧？</p>
+<p>但是，如果脚本中需要获取一些尚未解析的样式信息怎么办？在 <em>JavaScript</em> 中完全可以访问到 <em>DOM</em> 节点的某些样式，或者使用 <em>JavaScript</em> 直接访问 <em>CSSOM</em>。</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-12-06-081801.png" alt="image-20211206161801072" style="zoom:50%;" />
+
+<p>因此，<em>CSS</em> 可能会根据文档中外部样式表和脚本的顺序阻止解析。如果在文档中的脚本之前放置了外部样式表，则 <em>DOM</em> 和 <em>CSSOM</em> 对象的构建可能会相互干扰。</p>
+<p>当解析器到达一个脚本标签时，在 <em>JavaScript</em> 执行完成之前无法继续构建 <em>DOM</em>，然而如果这一段 <em>JavaScript</em> 中涉及到访问和使用 <em>CSSOM</em>，那么必须等待 <em>CSS</em> 文件被下载、解析并且 <em>CSSOM</em> 可用。如果 <em>CSSOM</em> 处于未可用状态，则会阻塞 <em>JavaScript</em> 的执行。</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-12-06-081819.png" alt="image-20211206161819188" style="zoom:50%;" />
+
+<p>（上图中 <em>JavaScript</em> 的执行被 <em>CSS</em> 构建 <em>CSSOM</em> 的过程阻塞了）</p>
+<p>另外，虽然 <em>CSS</em> 不会阻塞 <em>DOM</em> 的构建，但是也会阻塞渲染。</p>
+<p>还记得我们前面有讲过要 <em>DOM</em> 树和 <em>CSSOM</em> 树都准备好，才会生成渲染树（ <em>Render Tree</em> ）么，浏览器在拥有 <em>DOM</em> 和 <em>CSSOM</em> 之前是不会显示任何内容。</p>
+<p>这是因为没有 <em>CSS</em> 的页面通常无法使用。如果浏览器向你展示了一个没有 <em>CSS</em> 的凌乱页面，那么片刻之后就会进入一个有样式的页面，不断变化的内容和突然的视觉变化会给用户带来混乱的用户体验。</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-12-06-081854.gif" alt="2021-11-22 15.59.41" style="zoom:50%;" />
+
+
+
+<p>（这种糟糕的用户体验有一个名字，叫做“无样式内容闪现”，<em>Flash of Unstyled Content</em>，或者简称 <em>FOUC</em> ）</p>
+<p>为了解决这些问题，所以我们需要尽快的交付 <em>CSS</em>。</p>
+<p>这也解释了为什么“顶部样式，底部脚本”被称之为“最佳实践”。</p>
+<p>随着现代浏览器的普及，浏览器为我们提供了更多强大的武器（资源提示关键词），合理利用，方可大幅提高页面加载速度。</p>
+<h2 id="defer-和-async"><a href="#defer-和-async" class="headerlink" title="defer 和 async"></a><em>defer</em> 和 <em>async</em></h2><p>现代浏览器引入了 <em>defer</em> 和 <em>async</em>。</p>
+<p><em>async</em> 表示加载和渲染后续文档元素的过程将和 <em>script.js</em> 的加载与执行并行进行（异步）。也就是说下载 <em>JS</em> 文件的时候不会阻塞 <em>DOM</em> 树的构建，但是执行该 <em>JS</em> 代码会阻塞 <em>DOM</em> 树的构建。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">async</span> <span class="attr">src</span>=<span class="string">&quot;script.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><em>defer</em> 表示加载后续文档元素的过程将和 <em>script.js</em> 的加载并行进行（异步），但是 <em>script.js</em> 的执行要在所有元素解析完成之后，<em>DOMContentLoaded</em> 事件触发之前完成。也就是说，下载 <em>JS</em> 文件的时候不会阻塞 <em>DOM</em> 树的构建，然后等待 <em>DOM</em> 树构建完毕后再执行此 <em>JS</em> 文件。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">defer</span> <span class="attr">src</span>=<span class="string">&quot;myscript.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>具体加载瀑布图如下图所示：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-12-08-032125.png" alt="image-20211208112125053" style="zoom:90%;" />
+
+
+
+<h2 id="preload"><a href="#preload" class="headerlink" title="preload"></a><em>preload</em></h2><p><em>preload</em> 顾名思义就是一种预加载的方式，它通过声明向浏览器声明一个需要提前加载的资源，当资源真正被使用的时候立即执行，就无需等待网络的消耗。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;style2.css&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;main2.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;preload&quot;</span> <span class="attr">href</span>=<span class="string">&quot;style1.css&quot;</span> <span class="attr">as</span>=<span class="string">&quot;style&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;preload&quot;</span> <span class="attr">href</span>=<span class="string">&quot;main1.js&quot;</span> <span class="attr">as</span>=<span class="string">&quot;script&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在上面的代码中，会先加载 <em>style1.css</em> 和 <em>main1.js</em> 文件（但不会生效），在随后的页面渲染中，一旦需要使用它们，它们就会立即可用。</p>
+<p>可以使用 <em>as</em> 来指定将要预加载的内容类型。</p>
+<p><img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-12-08-032151.png" alt="image-20211208112151152"></p>
+<p><em>preload</em> 指令的一些优点如下：</p>
+<ul>
+<li><p>允许浏览器设置资源优先级，从而允许 <em>Web</em> 开发人员优化某些资源的交付。</p>
+</li>
+<li><p>使浏览器能够确定资源类型，因此它可以判断将来是否可以重用相同的资源。</p>
+</li>
+<li><p>浏览器可以通过引用 <em>as</em> 属性中定义的内容来确定请求是否符合内容安全策略。</p>
+</li>
+<li><p>浏览器可以根据资源类型发送合适的 <em>Accept</em> 头（例如：<em>image&#x2F;webp</em> ）</p>
+</li>
+</ul>
+<h2 id="prefetch"><a href="#prefetch" class="headerlink" title="prefetch"></a><em>prefetch</em></h2><p><em>prefetch</em> 是一种利用浏览器的空闲时间加载页面将来可能用到的资源的一种机制，通常可以用于加载非首页的其他页面所需要的资源，以便加快后续页面的首屏速度。</p>
+<p><em>prefetch</em> 加载的资源可以获取非当前页面所需要的资源，并且将其放入缓存至少 <em>5</em> 分钟（无论资源是否可以缓存）。并且，当页面跳转时，未完成的 <em>prefetch</em> 请求不会被中断；</p>
+<p>它的用法跟 <em>preload</em> 是一样的：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;prefetch&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/path/to/style.css&quot;</span> <span class="attr">as</span>=<span class="string">&quot;style&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><em><strong>DNS prefetching</strong></em></p>
+<p><em>DNS prefetching</em> 允许浏览器在用户浏览时在后台对页面执行 <em>DNS</em> 查找。这最大限度地减少了延迟，因为一旦用户单击链接就已经进行了 <em>DNS</em> 查找。 </p>
+<p>通过将 <em>rel&#x3D;”dns-prefetch”</em> 标记添加到链接属性，可以将 <em>DNS prefetching</em> 添加到特定 <em>URL</em>。建议在诸如 <em>Web</em> 字体、<em>CDN</em> 之类的东西上使用它。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Prefetch DNS for external assets --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;dns-prefetch&quot;</span> <span class="attr">href</span>=<span class="string">&quot;//fonts.googleapis.com&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;dns-prefetch&quot;</span> <span class="attr">href</span>=<span class="string">&quot;//www.google-analytics.com&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;dns-prefetch&quot;</span> <span class="attr">href</span>=<span class="string">&quot;//cdn.domain.com&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="prerender"><a href="#prerender" class="headerlink" title="prerender"></a><em>prerender</em></h2><p><em>prerender</em> 与 <em>prefetch</em> 非常相似，<em>prerender</em> 同样也是会收集用户接下来可能会用到的资源。</p>
+<p>不同之处在于 <em>prerender</em> 实际上是在后台渲染整个页面。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;prerender&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://www.keycdn.com&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="preconnect"><a href="#preconnect" class="headerlink" title="preconnect"></a><em>preconnect</em></h2><p>我们要讨论的最后一个资源提示是 <em>preconnect</em>。 </p>
+<p><em>preconnect</em> 指令允许浏览器在 <em>HTTP</em> 请求实际发送到服务器之前设置早期连接。</p>
+<p>我们知道，浏览器要建立一个连接，一般需要经过 <em>DNS</em> 查找，<em>TCP</em> 三次握手和 <em>TLS</em> 协商（如果是 <em>https</em> 的话），这些过程都是需要相当的耗时的。所以 <em>preconnet</em>，就是一项使浏览器能够预先建立一个连接，等真正需要加载资源的时候就能够直接请求了。</p>
+<p><img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-12-08-032217.png" alt="image-20211208112216614"></p>
+<p>以下是为 <em>CDN URL</em> 启用 <em>preconnect</em> 的示例。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">&quot;https://cdn.domain.com&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;preconnect&quot;</span> <span class="attr">crossorigin</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在上面的代码中，浏览器会进行以下步骤：</p>
+<ul>
+<li>解释 <em>href</em> 的属性值，判断是否是合法的 <em>URL</em>。如果是合法的 <em>URL</em>，然后继续判断 <em>URL</em> 的协议是否是 <em>http</em> 或者 <em>https</em>，如果不是合法的 <em>URL</em>，则结束处理。</li>
+<li>如果当前页面 <em>host</em> 不同于 <em>href</em> 属性中的 <em>host</em>，那么将不会带上 <em>cookie</em>，如果希望带上 <em>cookie</em> 等信息，可以加上 <em>crossorign</em> 属性。</li>
+</ul>
+<hr>
+<p>-<em>EOF</em>-</p>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="clearfix">
+    <a href="https://wecodejs.github.io/blog" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2026 Wecodejs</li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Powered by Hexo
+    </div>
+    </div>
+    
+  </footer>
+</div>
+
+
+
+
+<script src="/blog/js/main.js"></script>
+
+
+<!-- Local Search -->
+<div id="local-search-result" style="display:none; position:fixed; top:60px; left:50%; transform:translateX(-50%); width:600px; max-height:400px; overflow-y:auto; background:#fff; border:1px solid #ddd; border-radius:3px; box-shadow:0 2px 10px rgba(0,0,0,0.1); z-index:9999;">
+  <div style="padding:10px; border-bottom:1px solid #eee;">
+    <strong>搜索结果</strong>
+    <span id="search-close" style="float:right; cursor:pointer; color:#999;">✕</span>
+  </div>
+  <div id="search-results" style="padding:10px;"></div>
+</div>
+
+<script>
+(function() {
+  var searchInput = document.getElementById('local-search-input');
+  var searchResult = document.getElementById('local-search-result');
+  var searchResults = document.getElementById('search-results');
+  var searchClose = document.getElementById('search-close');
+  var searchDataPath = '/blog/search.xml';
+  var searchEntries = [];
+
+  if (!searchInput) return;
+
+  // Load search data
+  fetch(searchDataPath)
+    .then(function(response) { return response.text(); })
+    .then(function(xml) {
+      var parser = new DOMParser();
+      var xmlDoc = parser.parseFromString(xml, 'text/xml');
+      var entries = xmlDoc.getElementsByTagName('entry');
+      for (var i = 0; i < entries.length; i++) {
+        var entry = entries[i];
+        searchEntries.push({
+          title: entry.getElementsByTagName('title')[0].textContent,
+          url: entry.getElementsByTagName('url')[0].textContent,
+          content: entry.getElementsByTagName('content')[0].textContent.replace(/<[^>]*>/g, '')
+        });
+      }
+    });
+
+  // Search function
+  searchInput.addEventListener('input', function() {
+    var keyword = this.value.trim().toLowerCase();
+    if (!keyword) {
+      searchResult.style.display = 'none';
+      return;
+    }
+
+    var results = [];
+    for (var i = 0; i < searchEntries.length; i++) {
+      var entry = searchEntries[i];
+      if (entry.title.toLowerCase().indexOf(keyword) !== -1 || entry.content.toLowerCase().indexOf(keyword) !== -1) {
+        results.push(entry);
+      }
+    }
+
+    if (results.length === 0) {
+      searchResults.innerHTML = '<p style="color:#999;">没有找到结果</p>';
+    } else {
+      var html = '<ul style="list-style:none; padding:0; margin:0;">';
+      for (var i = 0; i < results.length; i++) {
+        var r = results[i];
+        html += '<li style="padding:8px 0; border-bottom:1px solid #eee;">';
+        html += '<a href="' + r.url + '" style="color:#4078c0; text-decoration:none; font-weight:bold;">' + r.title + '</a>';
+        var preview = r.content.substring(0, 100).replace(new RegExp(keyword, 'gi'), '<mark>$&</mark>');
+        html += '<p style="color:#666; font-size:12px; margin:4px 0 0 0;">' + preview + '...</p>';
+        html += '</li>';
+      }
+      html += '</ul>';
+      searchResults.innerHTML = html;
+    }
+    searchResult.style.display = 'block';
+  });
+
+  // Close search
+  searchClose.addEventListener('click', function() {
+    searchResult.style.display = 'none';
+    searchInput.value = '';
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!searchInput.contains(e.target) && !searchResult.contains(e.target)) {
+      searchResult.style.display = 'none';
+    }
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    css隐藏元素方式总结 | 我的博客
+  </title>
+  <meta name="description" content="个人技术博客">
+  
+  <meta name="keywords" content="
+  css
+  ">
+  
+  <meta name="author" content="Wecodejs">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="theme-color" content="#1e2327">
+  <link rel="apple-touch-icon" href="https://github.githubassets.com/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/apple-touch-icon-180x180.png">
+
+  <link rel="icon" type="image/x-icon" href="https://github.githubassets.com/favicon.ico">
+  <link rel="stylesheet" href="/blog/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/blog/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <input type="text" id="local-search-input" placeholder="搜索文章..." style="padding: 2px 5px; width: 200px; border: 1px solid #ccc; border-radius: 3px;">
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a clas="navbar-nav-archives" style="display: none" href="/blog/archives/">Archives</a></li>
+        
+        
+        <li><a clas="navbar-nav-categories" style="display: none" href="/blog/categories/">Categories</a></li>
+        
+        
+        <li style="transform:translateX(570px)"><a href="/blog/tags/">全部分类</a></li>
+        
+        
+        <li clas="navbar-nav-rss desktop-only" style="display: none"><a href="/blog/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only" style="display: none;">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://avatars.githubusercontent.com/u/1371295?v=4&amp;size=230"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar" style="display:none;">
+      <li class="clearfix">
+        <a href="/blog/" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/blog/"
+           class="header-toolbar-right"> 60 </a>
+      </li>
+      <li>
+        <a href="/blog/" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/blog/"
+           class="header-toolbar-right"> 4 </a>
+      </li>
+      <li>
+        <a href="/blog/" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/blog/"
+           class="header-toolbar-right"> 0 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/blog/">我的博客</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container" style="display: none">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    Wecodejs
+
+    <span class="post-date float-right" title="{{moment(1781884800000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      
+          <i class="fa fa-pencil-square-o"></i>
+      
+      {{moment(1781884800000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>css隐藏元素方式总结</h1>
+    <h1 id="隐藏元素方式总结"><a href="#隐藏元素方式总结" class="headerlink" title="隐藏元素方式总结"></a>隐藏元素方式总结</h1><h2 id="经典真题"><a href="#经典真题" class="headerlink" title="经典真题"></a>经典真题</h2><ul>
+<li>隐藏页面中的某个元素的方法有哪些？</li>
+</ul>
+<h2 id="隐藏元素方案汇总"><a href="#隐藏元素方案汇总" class="headerlink" title="隐藏元素方案汇总"></a>隐藏元素方案汇总</h2><p>首先什么叫隐藏元素，大家第一反应就是 <em>display:none</em>，元素就被隐藏了。</p>
+<p>没错，这确实是隐藏元素的一种，但是太过于片面。我们隐藏元素实际上可以分为 <em>3</em> 大类：</p>
+<ul>
+<li>完全隐藏：元素从渲染树中消失，不占据空间。</li>
+<li>视觉上的隐藏：屏幕中不可见，占据空间。</li>
+<li>语义上的隐藏：读屏软件不可读，但正常占据空间。</li>
+</ul>
+<h3 id="完全隐藏"><a href="#完全隐藏" class="headerlink" title="完全隐藏"></a>完全隐藏</h3><p><strong><em>display</em> 属性</strong></p>
+<p>首先就是设置 <em>display</em> 为 <em>none</em>，这样元素就被隐藏了，并且是不占据空间的。</p>
+<p><strong><em>hidden</em> 属性</strong></p>
+<p>这是 <em>HTML5</em> 新增属性，相当于 <em>display: none</em>，直接写在元素上面，例如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">hidden</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="视觉上隐藏"><a href="#视觉上隐藏" class="headerlink" title="视觉上隐藏"></a>视觉上隐藏</h3><p>视觉上的隐藏，就是说元素还占据着位置，只是视觉上不可见而已。</p>
+<p><strong><em>opacity</em> 属性</strong></p>
+<p>这是大家比较熟知的一种方式，将透明度设置为 <em>0</em>，视觉上就会变得不可见。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">opacity</span>:<span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p><em><strong>visibility:hidden</strong></em></p>
+<p>这也是大家比较熟知的一种方式，通过 <em>CSS</em> 中的 <em>visibility</em> 属性来隐藏元素，使其不可见，但是仍然会占位</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">visibility</span>:hidden</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>绝对定位</strong></p>
+<p>这种方式以前用的比较多，设置 <em>posoition</em> 为 <em>absolute</em> 或 <em>fixed</em>，通过设置 <em>top、left</em> 等值，将其移出可视区域。例如：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">position</span>: absolute;</span><br><span class="line"><span class="attribute">left</span>: -<span class="number">999px</span>;</span><br><span class="line"><span class="attribute">top</span>: -<span class="number">999px</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>设置 <em>margin</em></strong></p>
+<p>通过设置 <em>margin</em> 值，将其移出可视区域范围（可视区域占位）。例如：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">margin-left</span>: -<span class="number">99999px</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>设置宽高为 <em>0</em></strong></p>
+<p>这也是比较常见的一种方式，简单说就是将元素的 <em>margin、border、padding、height</em> 和 <em>width</em> 等影响元素盒模型的属性设置成 <em>0</em>，如果元素内有子元素或内容，还应该设置其 <em>overflow:hidden</em> 来隐藏其子元素</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">width</span>: <span class="number">0px</span>;</span><br><span class="line"><span class="attribute">height</span>: <span class="number">0px</span>;</span><br><span class="line"><span class="attribute">overflow</span>: hidden</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>裁剪元素</strong></p>
+<p>隐藏元素的另一种方法是通过剪裁它们实现，具体是通过 <em>clip-path</em> 属性，这个属性比较新，浏览器兼容性也会比较差，但是了解一下还是非常有必要的。例如：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">clip-path</span>: <span class="built_in">polygon</span>(<span class="number">0px</span> <span class="number">0px</span>,<span class="number">0px</span> <span class="number">0px</span>,<span class="number">0px</span> <span class="number">0px</span>,<span class="number">0px</span> <span class="number">0px</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="语义上隐藏"><a href="#语义上隐藏" class="headerlink" title="语义上隐藏"></a>语义上隐藏</h3><p><strong><em>aria-hidden</em> 属性</strong></p>
+<p>通过设置 <em>aria-hidden</em> 属性为 <em>true</em> 使读屏软件不可读，但是元素仍然占据空间并且可见。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">div</span> aria-hidden=&quot;true&quot;&gt;&lt;/<span class="selector-tag">div</span>&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="真题解答"><a href="#真题解答" class="headerlink" title="真题解答"></a>真题解答</h2><ul>
+<li>隐藏页面中的某个元素的方法有哪些？</li>
+</ul>
+<blockquote>
+<p>参考答案：</p>
+<p>隐藏元素可以分为 <em>3</em> 大类：</p>
+<ul>
+<li>完全隐藏：元素从渲染树中消失，不占据空间。</li>
+<li>视觉上的隐藏：屏幕中不可见，占据空间。</li>
+<li>语义上的隐藏：读屏软件不可读，但正常占据空。</li>
+</ul>
+<p>完全隐藏的方式有：设置 <em>display:none</em>、为元素设置 <em>hidden</em> 属性。</p>
+<p>视觉上隐藏的方式有：设置 <em>opacity</em> 属性为 <em>0</em>、绝对定位的 <em>left</em> 和 <em>top</em> 值设置为 <em>-999px</em>、设置 <em>margin-left</em> 值为 <em>-999px</em>、设置宽高为 <em>0</em>、裁剪元素。</p>
+<p>语义上的隐藏方式为将 <em>aria-hidden</em> 属性设置为 <em>true</em> 使读屏软件不可读。</p>
+</blockquote>
+<p>-<em>EOF</em>-</p>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="clearfix">
+    <a href="https://wecodejs.github.io/blog" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2026 Wecodejs</li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Powered by Hexo
+    </div>
+    </div>
+    
+  </footer>
+</div>
+
+
+
+
+<script src="/blog/js/main.js"></script>
+
+
+<!-- Local Search -->
+<div id="local-search-result" style="display:none; position:fixed; top:60px; left:50%; transform:translateX(-50%); width:600px; max-height:400px; overflow-y:auto; background:#fff; border:1px solid #ddd; border-radius:3px; box-shadow:0 2px 10px rgba(0,0,0,0.1); z-index:9999;">
+  <div style="padding:10px; border-bottom:1px solid #eee;">
+    <strong>搜索结果</strong>
+    <span id="search-close" style="float:right; cursor:pointer; color:#999;">✕</span>
+  </div>
+  <div id="search-results" style="padding:10px;"></div>
+</div>
+
+<script>
+(function() {
+  var searchInput = document.getElementById('local-search-input');
+  var searchResult = document.getElementById('local-search-result');
+  var searchResults = document.getElementById('search-results');
+  var searchClose = document.getElementById('search-close');
+  var searchDataPath = '/blog/search.xml';
+  var searchEntries = [];
+
+  if (!searchInput) return;
+
+  // Load search data
+  fetch(searchDataPath)
+    .then(function(response) { return response.text(); })
+    .then(function(xml) {
+      var parser = new DOMParser();
+      var xmlDoc = parser.parseFromString(xml, 'text/xml');
+      var entries = xmlDoc.getElementsByTagName('entry');
+      for (var i = 0; i < entries.length; i++) {
+        var entry = entries[i];
+        searchEntries.push({
+          title: entry.getElementsByTagName('title')[0].textContent,
+          url: entry.getElementsByTagName('url')[0].textContent,
+          content: entry.getElementsByTagName('content')[0].textContent.replace(/<[^>]*>/g, '')
+        });
+      }
+    });
+
+  // Search function
+  searchInput.addEventListener('input', function() {
+    var keyword = this.value.trim().toLowerCase();
+    if (!keyword) {
+      searchResult.style.display = 'none';
+      return;
+    }
+
+    var results = [];
+    for (var i = 0; i < searchEntries.length; i++) {
+      var entry = searchEntries[i];
+      if (entry.title.toLowerCase().indexOf(keyword) !== -1 || entry.content.toLowerCase().indexOf(keyword) !== -1) {
+        results.push(entry);
+      }
+    }
+
+    if (results.length === 0) {
+      searchResults.innerHTML = '<p style="color:#999;">没有找到结果</p>';
+    } else {
+      var html = '<ul style="list-style:none; padding:0; margin:0;">';
+      for (var i = 0; i < results.length; i++) {
+        var r = results[i];
+        html += '<li style="padding:8px 0; border-bottom:1px solid #eee;">';
+        html += '<a href="' + r.url + '" style="color:#4078c0; text-decoration:none; font-weight:bold;">' + r.title + '</a>';
+        var preview = r.content.substring(0, 100).replace(new RegExp(keyword, 'gi'), '<mark>$&</mark>');
+        html += '<p style="color:#666; font-size:12px; margin:4px 0 0 0;">' + preview + '...</p>';
+        html += '</li>';
+      }
+      html += '</ul>';
+      searchResults.innerHTML = html;
+    }
+    searchResult.style.display = 'block';
+  });
+
+  // Close search
+  searchClose.addEventListener('click', function() {
+    searchResult.style.display = 'none';
+    searchInput.value = '';
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!searchInput.contains(e.target) && !searchResult.contains(e.target)) {
+      searchResult.style.display = 'none';
+    }
+  });
+})();
+</script>
+</body>
+</html>

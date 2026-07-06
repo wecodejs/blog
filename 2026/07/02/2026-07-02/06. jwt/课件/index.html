@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    jwt | 我的博客
+  </title>
+  <meta name="description" content="个人技术博客">
+  
+  <meta name="keywords" content="
+  网络
+  ">
+  
+  <meta name="author" content="Wecodejs">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="theme-color" content="#1e2327">
+  <link rel="apple-touch-icon" href="https://github.githubassets.com/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/apple-touch-icon-180x180.png">
+
+  <link rel="icon" type="image/x-icon" href="https://github.githubassets.com/favicon.ico">
+  <link rel="stylesheet" href="/blog/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/blog/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <input type="text" id="local-search-input" placeholder="搜索文章..." style="padding: 2px 5px; width: 200px; border: 1px solid #ccc; border-radius: 3px;">
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a clas="navbar-nav-archives" style="display: none" href="/blog/archives/">Archives</a></li>
+        
+        
+        <li><a clas="navbar-nav-categories" style="display: none" href="/blog/categories/">Categories</a></li>
+        
+        
+        <li style="transform:translateX(570px)"><a href="/blog/tags/">全部分类</a></li>
+        
+        
+        <li clas="navbar-nav-rss desktop-only" style="display: none"><a href="/blog/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only" style="display: none;">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://avatars.githubusercontent.com/u/1371295?v=4&amp;size=230"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar" style="display:none;">
+      <li class="clearfix">
+        <a href="/blog/" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/blog/"
+           class="header-toolbar-right"> 60 </a>
+      </li>
+      <li>
+        <a href="/blog/" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/blog/"
+           class="header-toolbar-right"> 4 </a>
+      </li>
+      <li>
+        <a href="/blog/" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/blog/"
+           class="header-toolbar-right"> 0 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/blog/">我的博客</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container" style="display: none">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    Wecodejs
+
+    <span class="post-date float-right" title="{{moment(1782921600000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      
+          <i class="fa fa-pencil-square-o"></i>
+      
+      {{moment(1782921600000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>jwt</h1>
+    <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>回顾登录的流程：</p>
+<img src="http://mdrs.yuanjin.tech/img/image-20200417161950450.png" alt="img"  align="left"/>
+
+<p>接下来的问题是：这个出入证（令牌）里面到底存啥？</p>
+<p>一种比较简单的办法就是直接存储用户信息的JSON串，这会造成下面的几个问题：</p>
+<ul>
+<li>非浏览器环境，如何在令牌中记录过期时间</li>
+<li>如何防止令牌被伪造</li>
+</ul>
+<p>JWT就是为了解决这些问题出现的。</p>
+<p>JWT全称<code>Json Web Token</code>，本质就是一个字符串</p>
+<p>它要解决的问题，就是在互联网环境中，提供<strong>统一的、安全的</strong>令牌格式</p>
+<p>因此，jwt只是一个令牌格式而已，你可以把它存储到cookie，也可以存储到localstorage，没有任何限制！</p>
+<p>同样的，对于传输，你可以使用任何传输方式来传输jwt，一般来说，我们会使用消息头来传输它</p>
+<p>比如，当登录成功后，服务器可以给客户端响应一个jwt：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">...</span><br><span class="line">set-cookie:token=jwt令牌</span><br><span class="line">authentication:jwt令牌</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">&#123;..., token:jwt令牌&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，jwt令牌可以出现在响应的任何一个地方，客户端和服务器自行约定即可。</p>
+<blockquote>
+<p>当然，它也可以出现在响应的多个地方，比如为了充分利用浏览器的cookie，同时为了照顾其他设备，也可以让jwt出现在<code>set-cookie</code>和<code>authorization或body</code>中，尽管这会增加额外的传输量。</p>
+</blockquote>
+<p>当客户端拿到令牌后，它要做的只有一件事：存储它。</p>
+<p>你可以存储到任何位置，比如手机文件、PC文件、localstorage、cookie</p>
+<p>当后续请求发生时，你只需要将它作为请求的一部分发送到服务器即可。</p>
+<p>虽然jwt没有明确要求应该如何附带到请求中，但通常我们会使用如下的格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GET /api/resources HTTP/1.1</span><br><span class="line">...</span><br><span class="line">authorization: bearer jwt令牌</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>这样一来，服务器就能够收到这个令牌了，通过对令牌的验证，即可知道该令牌是否有效。</p>
+<p>它们的完整交互流程是非常简单清晰的</p>
+<p><img src="http://mdrs.yuanjin.tech/img/image-20200422172837190.png" alt="image-20200422172837190"></p>
+<h1 id="令牌的组成"><a href="#令牌的组成" class="headerlink" title="令牌的组成"></a>令牌的组成</h1><p>为了保证令牌的安全性，jwt令牌由三个部分组成，分别是：</p>
+<ol>
+<li>header：令牌头部，记录了整个令牌的类型和签名算法</li>
+<li>payload：令牌负荷，记录了保存的主体信息，比如你要保存的用户信息就可以放到这里</li>
+<li>signature：令牌签名，按照头部固定的签名算法对整个令牌进行签名，该签名的作用是：保证令牌不被伪造和篡改</li>
+</ol>
+<p>它们组合而成的完整格式是：<code>header.payload.signature</code></p>
+<p>比如，一个完整的jwt令牌如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmb28iOiJiYXIiLCJpYXQiOjE1ODc1NDgyMTV9.BCwUy3jnUQ_E6TqCayc7rCHkx-vxxdagUwPOWqwYCFc</span><br></pre></td></tr></table></figure>
+
+<p>它各个部分的值分别是：</p>
+<ul>
+<li><code>header：eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</code></li>
+<li><code>payload：eyJmb28iOiJiYXIiLCJpYXQiOjE1ODc1NDgyMTV9</code></li>
+<li><code>signature: BCwUy3jnUQ_E6TqCayc7rCHkx-vxxdagUwPOWqwYCFc</code></li>
+</ul>
+<p>下面分别对每个部分进行说明</p>
+<h2 id="header"><a href="#header" class="headerlink" title="header"></a>header</h2><p>它是令牌头部，记录了整个令牌的类型和签名算法</p>
+<p>它的格式是一个<code>json</code>对象，如下：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;alg&quot;</span><span class="punctuation">:</span><span class="string">&quot;HS256&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;typ&quot;</span><span class="punctuation">:</span><span class="string">&quot;JWT&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>该对象记录了：</p>
+<ul>
+<li>alg：signature部分使用的签名算法，通常可以取两个值<ul>
+<li>HS256：一种对称加密算法，使用同一个秘钥对signature加密解密</li>
+<li>RS256：一种非对称加密算法，使用私钥签名，公钥验证</li>
+</ul>
+</li>
+<li>typ：整个令牌的类型，固定写<code>JWT</code>即可</li>
+</ul>
+<p>设置好了<code>header</code>之后，就可以生成<code>header</code>部分了</p>
+<p>具体的生成方式及其简单，就是把<code>header</code>部分使用<code>base64 url</code>编码即可</p>
+<blockquote>
+<p><code>base64 url</code>不是一个加密算法，而是一种编码方式，它是在<code>base64</code>算法的基础上对<code>+</code>、<code>=</code>、<code>/</code>三个字符做出特殊处理的算法</p>
+<p>而<code>base64</code>是使用64个可打印字符来表示一个二进制数据，具体的做法参考<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/base64/8545775?fr=aladdin">百度百科</a></p>
+</blockquote>
+<p>浏览器提供了<code>btoa</code>函数，可以完成这个操作：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="title function_">btoa</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(&#123;</span><br><span class="line">  <span class="string">&quot;alg&quot;</span>:<span class="string">&quot;HS256&quot;</span>,</span><br><span class="line">  <span class="string">&quot;typ&quot;</span>:<span class="string">&quot;JWT&quot;</span></span><br><span class="line">&#125;))</span><br><span class="line"><span class="comment">// 得到字符串：eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span></span><br></pre></td></tr></table></figure>
+
+<p>同样的，浏览器也提供了<code>atob</code>函数，可以对其进行解码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="title function_">atob</span>(<span class="string">&quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9&quot;</span>)</span><br><span class="line"><span class="comment">// 得到字符串：&#123;&quot;alg&quot;:&quot;HS256&quot;,&quot;typ&quot;:&quot;JWT&quot;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>nodejs中没有提供这两个函数，可以安装第三方库<code>atob</code>和<code>bota</code>搞定</p>
+<p>或者，手动搞定</p>
+</blockquote>
+<h2 id="payload"><a href="#payload" class="headerlink" title="payload"></a>payload</h2><p>这部分是jwt的主体信息，它仍然是一个JSON对象，它可以包含以下内容：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="string">&quot;ss&quot;</span>：<span class="string">&quot;发行者&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;iat&quot;</span>：<span class="string">&quot;发布时间&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;exp&quot;</span>：<span class="string">&quot;到期时间&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;sub&quot;</span>：<span class="string">&quot;主题&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;aud&quot;</span>：<span class="string">&quot;听众&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;nbf&quot;</span>：<span class="string">&quot;在此之前不可用&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;jti&quot;</span>：<span class="string">&quot;JWT ID&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>以上属性可以全写，也可以一个都不写，它只是一个规范，就算写了，也需要你在将来验证这个jwt令牌时手动处理才能发挥作用</p>
+<p>上述属性表达的含义分别是：</p>
+<ul>
+<li>ss：发行该jwt的是谁，可以写公司名字，也可以写服务名称</li>
+<li>iat：该jwt的发放时间，通常写当前时间的时间戳</li>
+<li>exp：该jwt的到期时间，通常写时间戳</li>
+<li>sub：该jwt是用于干嘛的</li>
+<li>aud：该jwt是发放给哪个终端的，可以是终端类型，也可以是用户名称，随意一点</li>
+<li>nbf：一个时间点，在该时间点到达之前，这个令牌是不可用的</li>
+<li>jti：jwt的唯一编号，设置此项的目的，主要是为了防止重放攻击（重放攻击是在某些场景下，用户使用之前的令牌发送到服务器，被服务器正确的识别，从而导致不可预期的行为发生）</li>
+</ul>
+<p>可是到现在，看了半天，没有出现我想要写入的数据啊😂</p>
+<p>当用户登陆成功之后，我可能需要把用户的一些信息写入到jwt令牌中，比如用户id、账号等等（密码就算了😳）</p>
+<p>其实很简单，payload这一部分只是一个json对象而已，你可以向对象中加入任何想要加入的信息</p>
+<p>比如，下面的json对象仍然是一个有效的payload</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;foo&quot;</span><span class="punctuation">:</span><span class="string">&quot;bar&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;iat&quot;</span><span class="punctuation">:</span><span class="number">1587548215</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>foo: bar</code>是我们自定义的信息，<code>iat: 1587548215</code>是jwt规范中的信息</p>
+<p>最终，payload部分和header一样，需要通过<code>base64 url</code>编码得到：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="title function_">btoa</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(&#123;</span><br><span class="line">  <span class="string">&quot;foo&quot;</span>:<span class="string">&quot;bar&quot;</span>,</span><br><span class="line">  <span class="string">&quot;iat&quot;</span>:<span class="number">1587548215</span></span><br><span class="line">&#125;))</span><br><span class="line"><span class="comment">// 得到字符串：eyJmb28iOiJiYXIiLCJpYXQiOjE1ODc1NDgyMTV9</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="signature"><a href="#signature" class="headerlink" title="signature"></a>signature</h2><p>这一部分是jwt的签名，正是它的存在，保证了整个jwt不被篡改</p>
+<p>这部分的生成，是对前面两个部分的编码结果，按照头部指定的方式进行加密</p>
+<p>比如：头部指定的加密方法是<code>HS256</code>，前面两部分的编码结果是<code>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmb28iOiJiYXIiLCJpYXQiOjE1ODc1NDgyMTV9</code></p>
+<p>则第三部分就是用对称加密算法<code>HS256</code>对字符串<code>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmb28iOiJiYXIiLCJpYXQiOjE1ODc1NDgyMTV9</code>进行加密，当然你得指定一个秘钥，比如<code>shhhhh</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">HS256</span>(<span class="string">`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmb28iOiJiYXIiLCJpYXQiOjE1ODc1NDgyMTV9`</span>, <span class="string">&quot;shhhhh&quot;</span>)</span><br><span class="line"><span class="comment">// 得到：BCwUy3jnUQ_E6TqCayc7rCHkx-vxxdagUwPOWqwYCFc</span></span><br></pre></td></tr></table></figure>
+
+<p>最终，将三部分组合在一起，就得到了完整的jwt</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmb28iOiJiYXIiLCJpYXQiOjE1ODc1NDgyMTV9.BCwUy3jnUQ_E6TqCayc7rCHkx-vxxdagUwPOWqwYCFc</span><br></pre></td></tr></table></figure>
+
+<p>由于签名使用的秘钥保存在服务器，这样一来，客户端就无法伪造出签名，因为它拿不到秘钥。</p>
+<p>换句话说，之所以说无法伪造jwt，就是因为第三部分的存在。</p>
+<p>而前面两部分并没有加密，只是一个编码结果而已，可以认为几乎是明文传输</p>
+<blockquote>
+<p>这不会造成太大的问题，因为既然用户登陆成功了，它当然有权力查看自己的用户信息</p>
+<p>甚至在某些网站，用户的基本信息可以被任何人查看</p>
+<p>你要保证的，是不要把敏感的信息存放到jwt中，比如密码</p>
+</blockquote>
+<p>jwt的<code>signature</code>可以保证令牌不被伪造，那如何保证令牌不被篡改呢？</p>
+<p>比如，某个用户登陆成功了，获得了jwt，但他人为的篡改了<code>payload</code>，比如把自己的账户余额修改为原来的两倍，然后重新编码出<code>payload</code>发送到服务器，服务器如何得知这些信息被篡改过了呢？</p>
+<p>这就要说到令牌的验证了</p>
+<h1 id="令牌的验证"><a href="#令牌的验证" class="headerlink" title="令牌的验证"></a>令牌的验证</h1><p><img src="http://mdrs.yuanjin.tech/img/image-20200422172837190.png" alt="image-20200422172837190"></p>
+<p>令牌在服务器组装完成后，会以任意的方式发送到客户端</p>
+<p>客户端会把令牌保存起来，后续的请求会将令牌发送给服务器</p>
+<p>而服务器需要验证令牌是否正确，如何验证呢？</p>
+<p>首先，服务器要验证这个令牌是否被篡改过，验证方式非常简单，就是对<code>header+payload</code>用同样的秘钥和加密算法进行重新加密</p>
+<p>然后把加密的结果和传入jwt的<code>signature</code>进行对比，如果完全相同，则表示前面两部分没有动过，就是自己颁发的，如果不同，肯定是被篡改过了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">传入的header.传入的payload.传入的signature</span><br><span class="line">新的signature = header中的加密算法(传入的header.传入的payload, 秘钥)</span><br><span class="line">验证：新的signature == 传入的signature</span><br></pre></td></tr></table></figure>
+
+<p>当令牌验证为没有被篡改后，服务器可以进行其他验证：比如是否过期、听众是否满足要求等等，这些就视情况而定了</p>
+<p>注意：这些验证都需要服务器手动完成，没有哪个服务器会给你进行自动验证，当然，你可以借助第三方库来完成这些操作</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>最后，总结一下jwt的特点：</p>
+<ul>
+<li>jwt本质上是一种令牌格式。它和终端设备无关，同样和服务器无关，甚至与如何传输无关，它只是规范了令牌的格式而已</li>
+<li>jwt由三部分组成：header、payload、signature。主体信息在payload</li>
+<li>jwt难以被篡改和伪造。这是因为有第三部分的签名存在。</li>
+</ul>
+<h1 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h1><p>请阐述JWT的令牌格式</p>
+<blockquote>
+<p>参考答案：</p>
+<p>token 分为三段，分别是 header、payload、signature</p>
+<p>其中，header 标识签名算法和令牌类型；payload 标识主体信息，包含令牌过期时间、发布时间、发行者、主体内容等；signature 是使用特定的算法对前面两部分进行加密，得到的加密结果。</p>
+<p>token 有防篡改的特点，如果攻击者改动了前面两个部分，就会导致和第三部分对应不上，使得 token 失效。而攻击者不知道加密秘钥，因此又无法修改第三部分的值。</p>
+<p>所以，在秘钥不被泄露的前提下，一个验证通过的 token 是值得被信任的。</p>
+</blockquote>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="clearfix">
+    <a href="https://wecodejs.github.io/blog" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2026 Wecodejs</li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Powered by Hexo
+    </div>
+    </div>
+    
+  </footer>
+</div>
+
+
+
+
+<script src="/blog/js/main.js"></script>
+
+
+<!-- Local Search -->
+<div id="local-search-result" style="display:none; position:fixed; top:60px; left:50%; transform:translateX(-50%); width:600px; max-height:400px; overflow-y:auto; background:#fff; border:1px solid #ddd; border-radius:3px; box-shadow:0 2px 10px rgba(0,0,0,0.1); z-index:9999;">
+  <div style="padding:10px; border-bottom:1px solid #eee;">
+    <strong>搜索结果</strong>
+    <span id="search-close" style="float:right; cursor:pointer; color:#999;">✕</span>
+  </div>
+  <div id="search-results" style="padding:10px;"></div>
+</div>
+
+<script>
+(function() {
+  var searchInput = document.getElementById('local-search-input');
+  var searchResult = document.getElementById('local-search-result');
+  var searchResults = document.getElementById('search-results');
+  var searchClose = document.getElementById('search-close');
+  var searchDataPath = '/blog/search.xml';
+  var searchEntries = [];
+
+  if (!searchInput) return;
+
+  // Load search data
+  fetch(searchDataPath)
+    .then(function(response) { return response.text(); })
+    .then(function(xml) {
+      var parser = new DOMParser();
+      var xmlDoc = parser.parseFromString(xml, 'text/xml');
+      var entries = xmlDoc.getElementsByTagName('entry');
+      for (var i = 0; i < entries.length; i++) {
+        var entry = entries[i];
+        searchEntries.push({
+          title: entry.getElementsByTagName('title')[0].textContent,
+          url: entry.getElementsByTagName('url')[0].textContent,
+          content: entry.getElementsByTagName('content')[0].textContent.replace(/<[^>]*>/g, '')
+        });
+      }
+    });
+
+  // Search function
+  searchInput.addEventListener('input', function() {
+    var keyword = this.value.trim().toLowerCase();
+    if (!keyword) {
+      searchResult.style.display = 'none';
+      return;
+    }
+
+    var results = [];
+    for (var i = 0; i < searchEntries.length; i++) {
+      var entry = searchEntries[i];
+      if (entry.title.toLowerCase().indexOf(keyword) !== -1 || entry.content.toLowerCase().indexOf(keyword) !== -1) {
+        results.push(entry);
+      }
+    }
+
+    if (results.length === 0) {
+      searchResults.innerHTML = '<p style="color:#999;">没有找到结果</p>';
+    } else {
+      var html = '<ul style="list-style:none; padding:0; margin:0;">';
+      for (var i = 0; i < results.length; i++) {
+        var r = results[i];
+        html += '<li style="padding:8px 0; border-bottom:1px solid #eee;">';
+        html += '<a href="' + r.url + '" style="color:#4078c0; text-decoration:none; font-weight:bold;">' + r.title + '</a>';
+        var preview = r.content.substring(0, 100).replace(new RegExp(keyword, 'gi'), '<mark>$&</mark>');
+        html += '<p style="color:#666; font-size:12px; margin:4px 0 0 0;">' + preview + '...</p>';
+        html += '</li>';
+      }
+      html += '</ul>';
+      searchResults.innerHTML = html;
+    }
+    searchResult.style.display = 'block';
+  });
+
+  // Close search
+  searchClose.addEventListener('click', function() {
+    searchResult.style.display = 'none';
+    searchInput.value = '';
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!searchInput.contains(e.target) && !searchResult.contains(e.target)) {
+      searchResult.style.display = 'none';
+    }
+  });
+})();
+</script>
+</body>
+</html>

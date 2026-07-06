@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    css渲染性能优化 | 我的博客
+  </title>
+  <meta name="description" content="个人技术博客">
+  
+  <meta name="keywords" content="
+  css
+  ">
+  
+  <meta name="author" content="Wecodejs">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="theme-color" content="#1e2327">
+  <link rel="apple-touch-icon" href="https://github.githubassets.com/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/apple-touch-icon-180x180.png">
+
+  <link rel="icon" type="image/x-icon" href="https://github.githubassets.com/favicon.ico">
+  <link rel="stylesheet" href="/blog/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/blog/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <input type="text" id="local-search-input" placeholder="搜索文章..." style="padding: 2px 5px; width: 200px; border: 1px solid #ccc; border-radius: 3px;">
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a clas="navbar-nav-archives" style="display: none" href="/blog/archives/">Archives</a></li>
+        
+        
+        <li><a clas="navbar-nav-categories" style="display: none" href="/blog/categories/">Categories</a></li>
+        
+        
+        <li style="transform:translateX(570px)"><a href="/blog/tags/">全部分类</a></li>
+        
+        
+        <li clas="navbar-nav-rss desktop-only" style="display: none"><a href="/blog/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only" style="display: none;">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://avatars.githubusercontent.com/u/1371295?v=4&amp;size=230"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar" style="display:none;">
+      <li class="clearfix">
+        <a href="/blog/" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/blog/"
+           class="header-toolbar-right"> 60 </a>
+      </li>
+      <li>
+        <a href="/blog/" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/blog/"
+           class="header-toolbar-right"> 4 </a>
+      </li>
+      <li>
+        <a href="/blog/" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/blog/"
+           class="header-toolbar-right"> 0 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/blog/">我的博客</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container" style="display: none">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    Wecodejs
+
+    <span class="post-date float-right" title="{{moment(1781884800000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      
+          <i class="fa fa-pencil-square-o"></i>
+      
+      {{moment(1781884800000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>css渲染性能优化</h1>
+    <h1 id="CSS-渲染性能优化"><a href="#CSS-渲染性能优化" class="headerlink" title="CSS 渲染性能优化"></a><em>CSS</em> 渲染性能优化</h1><h2 id="经典真题"><a href="#经典真题" class="headerlink" title="经典真题"></a>经典真题</h2><ul>
+<li>总结一下如何提升或者优化 <em>CSS</em> 的渲染性能</li>
+</ul>
+<h2 id="CSS-渲染性能优化-1"><a href="#CSS-渲染性能优化-1" class="headerlink" title="CSS 渲染性能优化"></a><em>CSS</em> 渲染性能优化</h2><p>很多人往往不重视性能优化这一块，觉得功能做出来就行了。</p>
+<p>诚然，在软件开发过程中，功能确实是优先要考虑的，但是当功能完善后，接下来就需要考虑性能问题了。</p>
+<p>我们可以从两个方面来看性能优化的意义：</p>
+<ol>
+<li>用户角度<br>网站优化能够让页面加载得更快，响应更加及时，极大提升用户体验。</li>
+<li>服务商角度<br>优化会减少页面资源请求数，减小请求资源所占带宽大小，从而节省可观的带宽资源。</li>
+</ol>
+<p>网站优化的目标就是减少网站加载时间，提高响应速度。</p>
+<p>那么网站加载速度和用户体验又有着怎样的关系呢？我们来看下面这张图：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-16-041118.png" alt="image-20210916121117684" style="zoom:50%;" />
+
+
+
+<p><em>Google</em> 和亚马逊的研究表明，<em>Google</em> 页面加载的时间从 <em>0.4</em> 秒提升到 <em>0.9</em> 秒导致丢失了 <em>20%</em> 流量和广告收入，对于亚马逊，页面加载时间每增加 <em>100ms</em> 就意味着 <em>1%</em> 的销售额损失。</p>
+<p>可见，页面的加载速度对于用户有着至关重要的影响。</p>
+<p>一个好的交互效果可能是这样的：</p>
+<img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-09-16-041314.png" alt="image-20210916121313325" style="zoom:50%;" />
+
+
+
+<p>当然，性能优化是来自方方面面的。</p>
+<p>这里我们主要来看 <em>CSS</em> 方面能够进行哪些性能优化。</p>
+<p>1.使用 <code>id selector</code> 非常的高效。在使用 <code>id selector</code> 的时候需要注意一点：因为 <code>id</code> 是唯一的，所以不需要既指定 <code>id</code> 又指定 <code>tagName</code>：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Bad  */</span></span><br><span class="line"><span class="selector-tag">p</span><span class="selector-id">#id1</span> &#123;<span class="attribute">color</span>:red;&#125;  </span><br><span class="line"></span><br><span class="line"><span class="comment">/* Good  */</span></span><br><span class="line"><span class="selector-id">#id1</span> &#123;<span class="attribute">color</span>:red;&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>2.避免深层次的 <code>node</code> ，譬如：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Bad  */</span></span><br><span class="line"><span class="selector-tag">div</span> &gt; <span class="selector-tag">div</span> &gt; <span class="selector-tag">div</span> &gt; <span class="selector-tag">p</span> &#123;<span class="attribute">color</span>:red;&#125; </span><br><span class="line"><span class="comment">/* Good  */</span></span><br><span class="line"><span class="selector-tag">p</span>-class&#123;<span class="attribute">color</span>:red;&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>3.不要使用 <code>attribute selector</code>，如：p[att1&#x3D;”val1”]。这样的匹配非常慢。更不要这样写：<code>p[id=&quot;id1&quot;]</code>。这样将 <code>id selector</code> 退化成 <code>attribute selector</code>。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Bad  */</span></span><br><span class="line"><span class="selector-tag">p</span><span class="selector-attr">[id=<span class="string">&quot;jartto&quot;</span>]</span>&#123;<span class="attribute">color</span>:red;&#125;  </span><br><span class="line"><span class="selector-tag">p</span><span class="selector-attr">[class=<span class="string">&quot;blog&quot;</span>]</span>&#123;<span class="attribute">color</span>:red;&#125;  </span><br><span class="line"><span class="comment">/* Good  */</span></span><br><span class="line"><span class="selector-id">#jartto</span>&#123;<span class="attribute">color</span>:red;&#125;  </span><br><span class="line"><span class="selector-class">.blog</span>&#123;<span class="attribute">color</span>:red;&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>4.通常将浏览器前缀置于前面，将标准样式属性置于最后，类似：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.foo</span> &#123;</span><br><span class="line">  -moz-<span class="attribute">border-radius</span>: <span class="number">5px</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">5px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>这里推荐参阅 <em>CSS</em> 规范-优化方案：<em><a target="_blank" rel="noopener" href="http://nec.netease.com/standard/css-optimize.html">http://nec.netease.com/standard/css-optimize.html</a></em></p>
+<p>5.遵守 <em>CSSLint</em> 规则</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">font</span>-faces        　　　　  　　　不能使用超过<span class="number">5</span>个web字体</span><br><span class="line">import        　　　　　　　 　　  禁止使用<span class="keyword">@import</span></span><br><span class="line">regex-selectors        　　　　  禁止使用属性选择器中的正则表达式选择器</span><br><span class="line">universal-selector    　　 　　  禁止使用通用选择器*</span><br><span class="line">unqualified-attributes    　　　禁止使用不规范的属性选择器</span><br><span class="line">zero-units            　　 　　　<span class="number">0</span>后面不要加单位</span><br><span class="line">overqualified-elements    　　　使用相邻选择器时，不要使用不必要的选择器</span><br><span class="line">shorthand        　　　　　　　　 简写样式属性</span><br><span class="line">duplicate-background-images    相同的url在样式表中不超过一次</span><br></pre></td></tr></table></figure>
+
+
+
+<p>更多的 <em>CSSLint</em> 规则可以参阅：<em><a target="_blank" rel="noopener" href="https://github.com/CSSLint/csslint">https://github.com/CSSLint/csslint</a></em></p>
+<p>6.不要使用 <code>@import</code></p>
+<p>使用 <code>@import</code> 引入 <code>CSS</code> 会影响浏览器的并行下载。使用 <code>@import</code> 引用的 <code>CSS</code> 文件只有在引用它的那个 <code>CSS</code> 文件被下载、解析之后，浏览器才会知道还有另外一个 <code>CSS</code> 需要下载，这时才去下载，然后下载后开始解析、构建 <code>Render Tree</code> 等一系列操作。</p>
+<p>多个 <code>@import</code> 会导致下载顺序紊乱。在 <code>IE</code> 中，<code>@import</code> 会引发资源文件的下载顺序被打乱，即排列在 <code>@import</code> 后面的 <code>JS</code> 文件先于 <code>@import</code> 下载，并且打乱甚至破坏 <code>@import</code> 自身的并行下载。</p>
+<p>7.避免过分重排（<em>Reflow</em>）<br>所谓重排就是浏览器重新计算布局位置与大小。常见的重排元素：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">width</span> </span><br><span class="line"><span class="attribute">height</span> </span><br><span class="line"><span class="attribute">padding</span> </span><br><span class="line"><span class="attribute">margin</span> </span><br><span class="line"><span class="attribute">display</span> </span><br><span class="line"><span class="attribute">border-width</span> </span><br><span class="line"><span class="attribute">border</span> </span><br><span class="line"><span class="attribute">top</span> </span><br><span class="line"><span class="attribute">position</span> </span><br><span class="line"><span class="attribute">font-size</span> </span><br><span class="line"><span class="attribute">float</span> </span><br><span class="line"><span class="attribute">text-align</span> </span><br><span class="line"><span class="attribute">overflow-y</span> </span><br><span class="line"><span class="attribute">font-weight</span> </span><br><span class="line"><span class="attribute">overflow</span> </span><br><span class="line"><span class="attribute">left</span> </span><br><span class="line"><span class="attribute">font-family</span> </span><br><span class="line"><span class="attribute">line-height</span> </span><br><span class="line"><span class="attribute">vertical-align</span> </span><br><span class="line"><span class="attribute">right</span> </span><br><span class="line"><span class="attribute">clear</span> </span><br><span class="line"><span class="attribute">white-space</span> </span><br><span class="line"><span class="attribute">bottom</span> </span><br><span class="line"><span class="attribute">min-height</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>8.依赖继承。如果某些属性可以继承，那么自然没有必要在写一遍。</p>
+<h2 id="真题解答"><a href="#真题解答" class="headerlink" title="真题解答"></a>真题解答</h2><ul>
+<li>总结一下如何提升或者优化 <em>CSS</em> 的渲染性能</li>
+</ul>
+<blockquote>
+<p>参考答案：</p>
+<p><em>CSS</em> 渲染性能的优化来自方方面面，这里列举一些常见的方式：</p>
+<ol>
+<li>使用 <em>id</em> 选择器非常高效，因为 <em>id</em> 是唯一的</li>
+<li>避免深层次的选择器嵌套</li>
+<li>尽量避免使用属性选择器，因为匹配速度慢</li>
+<li>使用渐进增强的方案</li>
+<li>遵守 <em>CSSLint</em> 规则</li>
+<li>不要使用 <code>@import</code></li>
+<li>避免过分重排（<em>Reflow</em>）</li>
+<li>依赖继承</li>
+<li>值缩写</li>
+<li>避免耗性能的属性</li>
+<li>背景图优化合并</li>
+<li>文件压缩</li>
+</ol>
+</blockquote>
+<p>-<em>EOF</em>-</p>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="clearfix">
+    <a href="https://wecodejs.github.io/blog" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2026 Wecodejs</li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Powered by Hexo
+    </div>
+    </div>
+    
+  </footer>
+</div>
+
+
+
+
+<script src="/blog/js/main.js"></script>
+
+
+<!-- Local Search -->
+<div id="local-search-result" style="display:none; position:fixed; top:60px; left:50%; transform:translateX(-50%); width:600px; max-height:400px; overflow-y:auto; background:#fff; border:1px solid #ddd; border-radius:3px; box-shadow:0 2px 10px rgba(0,0,0,0.1); z-index:9999;">
+  <div style="padding:10px; border-bottom:1px solid #eee;">
+    <strong>搜索结果</strong>
+    <span id="search-close" style="float:right; cursor:pointer; color:#999;">✕</span>
+  </div>
+  <div id="search-results" style="padding:10px;"></div>
+</div>
+
+<script>
+(function() {
+  var searchInput = document.getElementById('local-search-input');
+  var searchResult = document.getElementById('local-search-result');
+  var searchResults = document.getElementById('search-results');
+  var searchClose = document.getElementById('search-close');
+  var searchDataPath = '/blog/search.xml';
+  var searchEntries = [];
+
+  if (!searchInput) return;
+
+  // Load search data
+  fetch(searchDataPath)
+    .then(function(response) { return response.text(); })
+    .then(function(xml) {
+      var parser = new DOMParser();
+      var xmlDoc = parser.parseFromString(xml, 'text/xml');
+      var entries = xmlDoc.getElementsByTagName('entry');
+      for (var i = 0; i < entries.length; i++) {
+        var entry = entries[i];
+        searchEntries.push({
+          title: entry.getElementsByTagName('title')[0].textContent,
+          url: entry.getElementsByTagName('url')[0].textContent,
+          content: entry.getElementsByTagName('content')[0].textContent.replace(/<[^>]*>/g, '')
+        });
+      }
+    });
+
+  // Search function
+  searchInput.addEventListener('input', function() {
+    var keyword = this.value.trim().toLowerCase();
+    if (!keyword) {
+      searchResult.style.display = 'none';
+      return;
+    }
+
+    var results = [];
+    for (var i = 0; i < searchEntries.length; i++) {
+      var entry = searchEntries[i];
+      if (entry.title.toLowerCase().indexOf(keyword) !== -1 || entry.content.toLowerCase().indexOf(keyword) !== -1) {
+        results.push(entry);
+      }
+    }
+
+    if (results.length === 0) {
+      searchResults.innerHTML = '<p style="color:#999;">没有找到结果</p>';
+    } else {
+      var html = '<ul style="list-style:none; padding:0; margin:0;">';
+      for (var i = 0; i < results.length; i++) {
+        var r = results[i];
+        html += '<li style="padding:8px 0; border-bottom:1px solid #eee;">';
+        html += '<a href="' + r.url + '" style="color:#4078c0; text-decoration:none; font-weight:bold;">' + r.title + '</a>';
+        var preview = r.content.substring(0, 100).replace(new RegExp(keyword, 'gi'), '<mark>$&</mark>');
+        html += '<p style="color:#666; font-size:12px; margin:4px 0 0 0;">' + preview + '...</p>';
+        html += '</li>';
+      }
+      html += '</ul>';
+      searchResults.innerHTML = html;
+    }
+    searchResult.style.display = 'block';
+  });
+
+  // Close search
+  searchClose.addEventListener('click', function() {
+    searchResult.style.display = 'none';
+    searchInput.value = '';
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!searchInput.contains(e.target) && !searchResult.contains(e.target)) {
+      searchResult.style.display = 'none';
+    }
+  });
+})();
+</script>
+</body>
+</html>

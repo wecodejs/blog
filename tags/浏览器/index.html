@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    我的博客
+  </title>
+  <meta name="description" content="个人技术博客">
+  
+  <meta name="author" content="Wecodejs">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="theme-color" content="#1e2327">
+  <link rel="apple-touch-icon" href="https://github.githubassets.com/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/apple-touch-icon-180x180.png">
+
+  <link rel="icon" type="image/x-icon" href="https://github.githubassets.com/favicon.ico">
+  <link rel="stylesheet" href="/blog/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/blog/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <input type="text" id="local-search-input" placeholder="搜索文章..." style="padding: 2px 5px; width: 200px; border: 1px solid #ccc; border-radius: 3px;">
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a clas="navbar-nav-archives" style="display: none" href="/blog/archives/">Archives</a></li>
+        
+        
+        <li><a clas="navbar-nav-categories" style="display: none" href="/blog/categories/">Categories</a></li>
+        
+        
+        <li style="transform:translateX(570px)"><a href="/blog/tags/">全部分类</a></li>
+        
+        
+        <li clas="navbar-nav-rss desktop-only" style="display: none"><a href="/blog/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only" style="display: none;">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://avatars.githubusercontent.com/u/1371295?v=4&amp;size=230"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  
+
+<div class="container-lg">
+  
+
+<div class="blog-intro">
+  <div class="blog-intro-user">
+    <img class="avatar" src="https://avatars.githubusercontent.com/u/1371295?v=4&amp;size=230" style="border-radius:50%">
+    <div class="user-name">
+      <div class="blog-title"></div>
+      <div class="blog-author"></div>
+        <ul class="user-detail mobile-only">
+    
+    <li>
+      <i class="fa fa-map-marker"></i>
+      China
+    </li>
+    
+    <li>
+      <i class="fa fa-link"></i>
+      <a href="https://wecodejs.github.io/blog">https://wecodejs.github.io/blog</a>
+    </li>
+  </ul>
+    </div>
+    <div class="blog-description">
+      
+    </div>
+  </div>
+
+  <ul class="user-detail desktop-only">
+    
+    <li>
+      <i class="fa fa-map-marker"></i>
+      China
+    </li>
+    
+    <li>
+      <i class="fa fa-link"></i>
+      <a href="https://wecodejs.github.io/blog">https://wecodejs.github.io/blog</a>
+    </li>
+  </ul>
+
+  <div class="social-media desktop-only" style="display: none;">
+    <h4>Social Media</h4>
+    <ul>
+      
+    </ul>
+  </div>
+</div>
+
+
+  <div class="blog-detail">
+    
+<nav class="blog-detail-nav desktop-only" style="display: none;">
+  <ul class="clearfix">
+    <li class="selected">
+      <a href="/blog/">分类 <span class="counter">4</span></a></li>
+  </ul>
+</nav>
+
+    <div class="body-secondary">
+      <ul class="archive-list">
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2026/06/20/2026-06-20/browser/01.%20%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%B8%B2%E6%9F%93%E6%B5%81%E7%A8%8B/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%B8%B2%E6%9F%93%E6%B5%81%E7%A8%8B/">浏览器的渲染流程</a></h2>
+          <p>
+               浏览器的渲染流程  本文主要包含以下内容： 
+ 
+ 浏览器渲染整体流程 
+ 解析  HTML  
+ 样式计算 
+ 布局 
+ 分层 
+ 生成绘制指令 
+ 分块 
+ 光栅化 
+ 绘制 
+ 常见面试题 
+ 
+   浏览器渲染整体流程  浏览器，作为用户浏览网页最基本的一个入口，我们似乎认为在地址栏输...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 18px">浏览器</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <i class="fa fa-folder-open"></i> Uncategorized
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1781884800000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2026/06/20/2026-06-20/browser/02.%20%E8%B5%84%E6%BA%90%E6%8F%90%E7%A4%BA%E5%85%B3%E9%94%AE%E8%AF%8D/%E8%B5%84%E6%BA%90%E6%8F%90%E7%A4%BA%E5%85%B3%E9%94%AE%E8%AF%8D/">浏览器的资源提示关键词</a></h2>
+          <p>
+               资源提示关键词  在上一篇文章中，我们介绍了浏览器的渲染流程，这篇文章中，我们将重点聚焦在渲染阻塞上，来详细看一下渲染阻塞以及一些常见的解决方法。 
+ 本文主要包含以下内容： 
+ 
+ 渲染阻塞回顾 
+  defer  和  async  
+  preload  
+  prefetch  
+  ...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 18px">浏览器</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <i class="fa fa-folder-open"></i> Uncategorized
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1781884800000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2026/06/20/2026-06-20/browser/03.%20%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86/">浏览器的组成部分</a></h2>
+          <p>
+               浏览器的组成部分  什么是浏览器？ 
+  Web  浏览器简称为浏览器，是一种用于访问互联网上信息的应用软件。浏览器的主要功能是从服务器检索  Web  资源并将其显示在  Web  浏览器窗口中。  
+  Web  资源通常是  HTML  文档，但也可能是  PDF 、图像、音频、视频或其...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 18px">浏览器</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <i class="fa fa-folder-open"></i> Uncategorized
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1781884800000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2026/06/20/2026-06-20/browser/06.%20IndexedDB/IndexedDB/">浏览器的IndexedDB</a></h2>
+          <p>
+                IndexedDB   本文主要包含以下内容： 
+ 
+  IndexedDB  简介 
+  IndexedDB  重要概念 
+  IndexedDB  实操 
+ 操作数据库 
+ 插入数据 
+ 读取数据 
+ 更新数据 
+ 删除数据 
+ 
+ 
+ 
+    IndexedDB  简介  随着浏览器...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 18px">浏览器</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <i class="fa fa-folder-open"></i> Uncategorized
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1781884800000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2026/06/20/2026-06-20/browser/05.%20WebSQL/WebSQL/">浏览器的WebSQL</a></h2>
+          <p>
+                WebSQL    WebSQL  数据库  API  并不是  HTML5  规范的一部分，但是它是一个独立的规范，引入了一组使用  SQL  操作客户端数据库的  APIs 。 
+ 如果你之前接触过诸如像  MySQL  这样的关系型数据库，学习过  SQL  语言，那么  WebSQL...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 18px">浏览器</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <i class="fa fa-folder-open"></i> Uncategorized
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1781884800000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2026/06/20/2026-06-20/browser/04.%20%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E7%A6%BB%E7%BA%BF%E5%AD%98%E5%82%A8%E6%A6%82%E8%BF%B0/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%A6%BB%E7%BA%BF%E5%AD%98%E5%82%A8%E6%A6%82%E8%BF%B0/">浏览器的离线存储概述</a></h2>
+          <p>
+               浏览器离线存储概述  在前面的章节中，我们已经为大家介绍了整个浏览器的组成部分： 
+ 
+
+
+
+ 大致分为： 
+ 
+  用户界面（ user interface ） 
+ 
+  浏览器引擎（ browser engine ） 
+ 
+  渲染引擎（ rendering engine ） 
+ 
+  网...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 18px">浏览器</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <i class="fa fa-folder-open"></i> Uncategorized
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1781884800000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2026/06/20/2026-06-20/browser/07.%20File%20API/File%20API/">浏览器的File API</a></h2>
+          <p>
+                File API   本文主要包含以下内容： 
+ 
+  File API  介绍 
+  File  对象 
+ 构造函数 
+ 实例属性和实例方法 
+ 
+ 
+  FileList  对象 
+  FileReader  对象 
+ 综合实例 
+ 
+    File API  介绍  我们知道， HT...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 18px">浏览器</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <i class="fa fa-folder-open"></i> Uncategorized
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1781884800000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2026/06/20/2026-06-20/browser/08.%20%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E7%BC%93%E5%AD%98/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/">浏览器的缓存</a></h2>
+          <p>
+               浏览器缓存  本文主要包含以下内容： 
+ 
+ 什么是浏览器缓存 
+ 按照缓存位置分类 
+  Service Worker  
+  Memory Cache  
+  Disk Cache  
+  Push Cache  
+ 
+ 
+ 按照缓存类型分类 
+ 强制缓存 
+ 协商缓存 
+ 
+ 
+ 缓存读...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 18px">浏览器</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <i class="fa fa-folder-open"></i> Uncategorized
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1781884800000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2026/06/20/2026-06-20/browser/09.%20%E8%B7%A8%E6%A0%87%E7%AD%BE%E9%A1%B5%E9%80%9A%E4%BF%A1%E6%A6%82%E8%BF%B0/%E8%B7%A8%E6%A0%87%E7%AD%BE%E9%A1%B5%E9%80%9A%E4%BF%A1/">浏览器的跨标签页通信</a></h2>
+          <p>
+               跨标签页通信  本文主要包含以下内容： 
+ 
+ 什么是跨标签页通信 
+ 跨标签页通信常见方案 
+  BroadCast Channel  
+  Service Worker  
+  LocalStorage window.onstorage  监听 
+  Shared Worker  定时器轮...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 18px">浏览器</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <i class="fa fa-folder-open"></i> Uncategorized
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1781884800000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2026/06/20/2026-06-20/browser/10.%20Web%20Worker/web%20worker/">浏览器的web worker</a></h2>
+          <p>
+                web worker   在运行大型或者复杂的  JavaScript  脚本的时候经常会出现浏览器假死的现象，这是由于  JavaScript  这个语言在执行的时候是采用单线程来执行而导致的。采用同步执行的方式进行运行，如果出现阻塞，那么后面的代码将不会执行。例如： 
+      1  ...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 18px">浏览器</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <i class="fa fa-folder-open"></i> Uncategorized
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1781884800000).fromNow()}}</span>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="clearfix">
+    <a href="https://wecodejs.github.io/blog" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2026 Wecodejs</li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Powered by Hexo
+    </div>
+    </div>
+    
+  </footer>
+</div>
+
+
+
+
+<script src="/blog/js/main.js"></script>
+
+
+<!-- Local Search -->
+<div id="local-search-result" style="display:none; position:fixed; top:60px; left:50%; transform:translateX(-50%); width:600px; max-height:400px; overflow-y:auto; background:#fff; border:1px solid #ddd; border-radius:3px; box-shadow:0 2px 10px rgba(0,0,0,0.1); z-index:9999;">
+  <div style="padding:10px; border-bottom:1px solid #eee;">
+    <strong>搜索结果</strong>
+    <span id="search-close" style="float:right; cursor:pointer; color:#999;">✕</span>
+  </div>
+  <div id="search-results" style="padding:10px;"></div>
+</div>
+
+<script>
+(function() {
+  var searchInput = document.getElementById('local-search-input');
+  var searchResult = document.getElementById('local-search-result');
+  var searchResults = document.getElementById('search-results');
+  var searchClose = document.getElementById('search-close');
+  var searchDataPath = '/blog/search.xml';
+  var searchEntries = [];
+
+  if (!searchInput) return;
+
+  // Load search data
+  fetch(searchDataPath)
+    .then(function(response) { return response.text(); })
+    .then(function(xml) {
+      var parser = new DOMParser();
+      var xmlDoc = parser.parseFromString(xml, 'text/xml');
+      var entries = xmlDoc.getElementsByTagName('entry');
+      for (var i = 0; i < entries.length; i++) {
+        var entry = entries[i];
+        searchEntries.push({
+          title: entry.getElementsByTagName('title')[0].textContent,
+          url: entry.getElementsByTagName('url')[0].textContent,
+          content: entry.getElementsByTagName('content')[0].textContent.replace(/<[^>]*>/g, '')
+        });
+      }
+    });
+
+  // Search function
+  searchInput.addEventListener('input', function() {
+    var keyword = this.value.trim().toLowerCase();
+    if (!keyword) {
+      searchResult.style.display = 'none';
+      return;
+    }
+
+    var results = [];
+    for (var i = 0; i < searchEntries.length; i++) {
+      var entry = searchEntries[i];
+      if (entry.title.toLowerCase().indexOf(keyword) !== -1 || entry.content.toLowerCase().indexOf(keyword) !== -1) {
+        results.push(entry);
+      }
+    }
+
+    if (results.length === 0) {
+      searchResults.innerHTML = '<p style="color:#999;">没有找到结果</p>';
+    } else {
+      var html = '<ul style="list-style:none; padding:0; margin:0;">';
+      for (var i = 0; i < results.length; i++) {
+        var r = results[i];
+        html += '<li style="padding:8px 0; border-bottom:1px solid #eee;">';
+        html += '<a href="' + r.url + '" style="color:#4078c0; text-decoration:none; font-weight:bold;">' + r.title + '</a>';
+        var preview = r.content.substring(0, 100).replace(new RegExp(keyword, 'gi'), '<mark>$&</mark>');
+        html += '<p style="color:#666; font-size:12px; margin:4px 0 0 0;">' + preview + '...</p>';
+        html += '</li>';
+      }
+      html += '</ul>';
+      searchResults.innerHTML = html;
+    }
+    searchResult.style.display = 'block';
+  });
+
+  // Close search
+  searchClose.addEventListener('click', function() {
+    searchResult.style.display = 'none';
+    searchInput.value = '';
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!searchInput.contains(e.target) && !searchResult.contains(e.target)) {
+      searchResult.style.display = 'none';
+    }
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    浏览器的组成部分 | 我的博客
+  </title>
+  <meta name="description" content="个人技术博客">
+  
+  <meta name="keywords" content="
+  浏览器
+  ">
+  
+  <meta name="author" content="Wecodejs">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="theme-color" content="#1e2327">
+  <link rel="apple-touch-icon" href="https://github.githubassets.com/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/apple-touch-icon-180x180.png">
+
+  <link rel="icon" type="image/x-icon" href="https://github.githubassets.com/favicon.ico">
+  <link rel="stylesheet" href="/blog/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/blog/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <input type="text" id="local-search-input" placeholder="搜索文章..." style="padding: 2px 5px; width: 200px; border: 1px solid #ccc; border-radius: 3px;">
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a clas="navbar-nav-archives" style="display: none" href="/blog/archives/">Archives</a></li>
+        
+        
+        <li><a clas="navbar-nav-categories" style="display: none" href="/blog/categories/">Categories</a></li>
+        
+        
+        <li style="transform:translateX(570px)"><a href="/blog/tags/">全部分类</a></li>
+        
+        
+        <li clas="navbar-nav-rss desktop-only" style="display: none"><a href="/blog/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only" style="display: none;">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://avatars.githubusercontent.com/u/1371295?v=4&amp;size=230"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar" style="display:none;">
+      <li class="clearfix">
+        <a href="/blog/" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/blog/"
+           class="header-toolbar-right"> 60 </a>
+      </li>
+      <li>
+        <a href="/blog/" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/blog/"
+           class="header-toolbar-right"> 4 </a>
+      </li>
+      <li>
+        <a href="/blog/" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/blog/"
+           class="header-toolbar-right"> 0 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/blog/">我的博客</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container" style="display: none">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    Wecodejs
+
+    <span class="post-date float-right" title="{{moment(1781884800000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      
+          <i class="fa fa-pencil-square-o"></i>
+      
+      {{moment(1781884800000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>浏览器的组成部分</h1>
+    <h1 id="浏览器的组成部分"><a href="#浏览器的组成部分" class="headerlink" title="浏览器的组成部分"></a>浏览器的组成部分</h1><p>什么是浏览器？</p>
+<p><em>Web</em> 浏览器简称为浏览器，是一种用于访问互联网上信息的应用软件。浏览器的主要功能是从服务器检索 <em>Web</em> 资源并将其显示在 <em>Web</em> 浏览器窗口中。 </p>
+<p><em>Web</em> 资源通常是 <em>HTML</em> 文档，但也可能是 <em>PDF</em>、图像、音频、视频或其他类型的内容。资源的位置是通过使用 <em>URI</em>（统一资源标识符）指定的。</p>
+<p>浏览器包含结构良好的组件，这些组件执行一系列任务让浏览器窗口能显示 <em>Web</em> 资源。</p>
+<p>本文我们就来聊一聊关于浏览器的组成部分。</p>
+<p>下图是关于浏览器的架构图：</p>
+<p><img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-11-26-051413.png" alt="image-20211126131413497"></p>
+<p>一个 <em>Web</em> 浏览器中，主要组件有：</p>
+<ul>
+<li><p>用户界面（<em>user interface</em>）</p>
+</li>
+<li><p>浏览器引擎（<em>browser engine</em>）</p>
+</li>
+<li><p>渲染引擎（<em>rendering engine</em>）</p>
+</li>
+<li><p>网络（<em>networking</em>）</p>
+</li>
+<li><p><em>JS</em> 解释器（<em>JavaScript interpreter</em>）</p>
+</li>
+<li><p>用户界面后端（<em>UI backend</em>）</p>
+</li>
+<li><p>数据存储（<em>data storage</em>）</p>
+</li>
+</ul>
+<p>下面我们来具体看一下每一个部分的作用。</p>
+<h2 id="用户界面（user-interface）"><a href="#用户界面（user-interface）" class="headerlink" title="用户界面（user interface）"></a>用户界面（<em>user interface</em>）</h2><p>用户界面用于呈现浏览器窗口部件，比如地址栏、前进后退按钮、书签、顶部菜单等。</p>
+<p>如下图所示：</p>
+<p><img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-11-26-051451.png" alt="image-20211126131451095"></p>
+<h2 id="浏览器引擎（browser-engine）"><a href="#浏览器引擎（browser-engine）" class="headerlink" title="浏览器引擎（browser engine）"></a>浏览器引擎（<em>browser engine</em>）</h2><p>它是 <em>UI</em> 和渲染引擎之间的桥梁。接收来自 <em>UI</em> 的输入，然后通过操纵渲染引擎将网页或者其他资源显示在浏览器中。</p>
+<h2 id="渲染引擎（rendering-engine）"><a href="#渲染引擎（rendering-engine）" class="headerlink" title="渲染引擎（rendering engine）"></a>渲染引擎（<em>rendering engine</em>）</h2><p>负责在浏览器窗口上显示请求的内容。例如，用户请求一个 <em>HTML</em> 页面，则它负责解析 <em>HTML</em> 文档和 <em>CSS</em>，并将解析和格式化的内容显示在屏幕上。我们平时说的浏览器内核就是指这部分。</p>
+<p>现代网络浏览器的渲染引擎：</p>
+<ul>
+<li><p><em>Firefox：Gecko Software</em></p>
+</li>
+<li><p><em>Safari：WebKit</em></p>
+</li>
+<li><p><em>Chrome、Opera</em> (<em>15</em> 版本之后)：<em>Blink</em></p>
+</li>
+<li><p><em>Internet Explorer：Trident</em></p>
+</li>
+</ul>
+<p>在第一小节我们已经介绍过渲染引擎渲染页面的整体流程了，这里做一个简单的复习。</p>
+<p>为了在屏幕上绘制像素（第一次渲染），浏览器在从网络接收数据（<em>HTML、CSS、JavaScript</em>）后必须经过一系列称为关键渲染路径的过程&#x2F;技术。这包括 <em>DOM</em>、<em>CSSOM</em>、渲染树、布局和绘画。</p>
+<h3 id="从数据到-DOM"><a href="#从数据到-DOM" class="headerlink" title="从数据到 DOM"></a>从数据到 <em>DOM</em></h3><p>来自网络层的请求内容以二进制流格式在渲染引擎中接收（通常为 <em>8kb</em> 块）。然后将原始字节转换为 <em>HTML</em> 文件的字符（基于字符编码）。</p>
+<p>然后将字符转换为标记。词法分析器执行词法分析，将输入分解为标记。在标记化期间，文件中的每个开始和结束标记都被考虑在内。它知道如何去除不相关的字符，如空格和换行符。然后解析器进行语法分析，通过分析文档结构，应用语言语法规则来构建解析树。</p>
+<p>解析过程是迭代的。它将向词法分析器询问新的标记，如果语言语法规则匹配，则该标记将被添加到解析树中。然后解析器将要求另一个令牌。如果没有规则匹配，解析器将在内部存储令牌并不断询问令牌，直到找到与所有内部存储的令牌匹配的规则。如果未找到规则，则解析器将引发异常。这意味着该文档无效并且包含语法错误。</p>
+<p>这些节点在称为 <em>DOM</em>（文档对象模型）的树数据结构中链接，该结构建立了父子关系、相邻兄弟关系。</p>
+<p><img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-11-26-051513.png" alt="image-20211126131513877"></p>
+<h3 id="CSS-数据到-CSSOM"><a href="#CSS-数据到-CSSOM" class="headerlink" title="CSS 数据到 CSSOM"></a><em>CSS</em> 数据到 <em>CSSOM</em></h3><p><em>CSS</em> 数据的原始字节被转换成字符、标记、节点，最后在 <em>CSSOM</em>（<em>CSS</em> 对象模型）中。 因为 <em>CSS</em> 存在层叠机制，该机制决定了将什么样式应用于元素，也就是说，元素的样式数据可以来自父项（通过继承）或设置为元素本身。因此浏览器必须递归遍历 <em>CSS</em> 树结构并确定特定元素的样式。</p>
+<p><img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-11-26-051535.png" alt="image-20211126131534063"></p>
+<h3 id="DOM-和-CSSOM-渲染树"><a href="#DOM-和-CSSOM-渲染树" class="headerlink" title="DOM 和 CSSOM 渲染树"></a><em>DOM</em> 和 <em>CSSOM</em> 渲染树</h3><p><em>DOM</em> 树包含有关 <em>HTML</em> 元素关系的信息，而 <em>CSSOM</em> 树包含有关如何设置这些元素样式的信息。</p>
+<p>渲染引擎会将样式信息和 <em>HTML</em> 元素关系信息进行汇总，用于创建另一棵树，称为“渲染树”。</p>
+<p>渲染树包含具有视觉属性（如颜色和尺寸）的矩形。矩形按正确的顺序显示在屏幕上。</p>
+<p><img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-11-26-051553.png" alt="image-20211126131552411"></p>
+<h3 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h3><p>在构建渲染树之后，它会经历一个“布局”过程。布局过程的输出是一个“盒子模型”，它精确地捕获视口内每个元素的确切位置和大小：所有相对测量值都转换为屏幕上的绝对像素。</p>
+<p>在下面的屏幕截图中，您可以看到为 <em>body</em> 元素计算的“框模型”（边距、边框、填充、宽度和高度）信息。</p>
+<p><img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-11-26-051611.png" alt="image-20211126131610965"></p>
+<h3 id="绘制"><a href="#绘制" class="headerlink" title="绘制"></a>绘制</h3><p>在这一阶段渲染树会被遍历，并且会只用 <em>UI</em> 后端层绘制每个节点。这个过程也被称为“光栅化”。在这个阶段，渲染树中每个节点的计算布局信息被转换为屏幕上的实际像素。</p>
+<p>绘画是一个渐进的过程，其中一些部分被解析和渲染，而该过程继续处理来自网络的项目的其余部分。</p>
+<p><img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-11-26-051631.png" alt="image-20211126131631548"></p>
+<h3 id="整体流程图"><a href="#整体流程图" class="headerlink" title="整体流程图"></a>整体流程图</h3><p>渲染整体流程如下图所示：</p>
+<p><img src="https://xiejie-typora.oss-cn-chengdu.aliyuncs.com/2021-11-26-051710.png" alt="image-20211126131710384"></p>
+<h2 id="网络（networking）"><a href="#网络（networking）" class="headerlink" title="网络（networking）"></a>网络（<em>networking</em>）</h2><p>该模块处理浏览器内的各种网络通信。它使用一组通信协议，如 <em>HTTP、HTTPs、FTP</em>，同时通过 <em>URL</em> 获取请求的资源。</p>
+<h2 id="JS-解释器（JavaScript-interpreter）"><a href="#JS-解释器（JavaScript-interpreter）" class="headerlink" title="JS 解释器（JavaScript interpreter）"></a><em>JS</em> 解释器（<em>JavaScript interpreter</em>）</h2><p><em>JavaScript</em> 是一种脚本语言，允许我们动态更新 <em>Web</em> 内容、控制由浏览器的 <em>JS</em> 引擎执行的多媒体和动画图像。 </p>
+<p><em>DOM</em> 和 <em>CSSOM</em> 为 <em>JS</em> 提供了一个接口，可以改变 <em>DOM</em> 和 <em>CSSOM</em>。由于浏览器不确定特定的 <em>JS</em> 会做什么，它会在遇到 <em>script</em> 标签后立即暂停 <em>DOM</em> 树的构建。</p>
+<p>每个脚本都是一个解析拦截器，会让 <em>DOM</em> 树的构建停止。</p>
+<p><em>JS</em> 引擎在从服务器获取并输入 <em>JS</em> 解析器后立即开始解析代码。它将它们转换为机器理解的代表性对象。在抽象句法结构的树表示中存储所有解析器信息的对象称为对象语法树（AST）。这些对象被送入一个解释器，该解释器将这些对象翻译成字节码。</p>
+<p>这些是即时 (<em>JIT</em>) 编译器，这意味着从服务器下载的 <em>JavaScript</em> 文件在客户端的计算机上实时编译。解释器和编译器是结合在一起的。解释器几乎立即执行源代码；编译器生成客户端系统直接执行的机器代码。</p>
+<p>不同的浏览器使用不同的 <em>JS</em> 引擎：</p>
+<ul>
+<li><p><em>Chrome</em>： <em>V8</em> (<em>JavaScript</em> 引擎) (<em>Node JS</em> 建立在此之上)</p>
+</li>
+<li><p><em>Mozilla</em>： <em>SpiderMonkey</em> (旧称“松鼠鱼”)</p>
+</li>
+<li><p><em>Microsoft Edge</em>：<em>Chakra</em></p>
+</li>
+<li><p><em>Safari</em>：<em>JavaScriptCore &#x2F; Nitro WebKit</em></p>
+</li>
+</ul>
+<h2 id="用户界面后端（UI-backend）"><a href="#用户界面后端（UI-backend）" class="headerlink" title="用户界面后端（UI backend）"></a>用户界面后端（<em>UI backend</em>）</h2><p>用于绘制基本的窗口小部件，比如下拉列表、文本框、按钮等，向上提供公开的接口，向下调用操作系统的用户界面。</p>
+<h2 id="数据存储（data-storage）"><a href="#数据存储（data-storage）" class="headerlink" title="数据存储（data storage）"></a>数据存储（<em>data storage</em>）</h2><p>这是一个持久层。浏览器可能需要在本地保存各种数据，例如 <em>cookie</em>。浏览器还支持 <em>localStorage、IndexedDB、WebSQL</em> 和 <em>FileSystem</em> 等存储机制。</p>
+<p>我们将在下一篇文章讨论浏览器的离线存储。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>最后，我们对浏览器的组成部分进行一个总结。</p>
+<p>浏览器由以下几个部分组成：</p>
+<ol>
+<li><p>用户界面（<em>user interface</em>）</p>
+<p>用于呈现浏览器窗口部件，比如地址栏、前进后退按钮、书签、顶部菜单等</p>
+</li>
+<li><p>浏览器引擎（<em>browser engine</em>）</p>
+<p>用户在用户界面和渲染引擎中传递指令</p>
+</li>
+<li><p>渲染引擎（<em>rendering engine</em>）</p>
+<p>负责解析 <em>HTML</em>、<em>CSS</em>，并将解析的内容显示到屏幕上。我们平时说的浏览器内核就是指这部分。</p>
+</li>
+<li><p>网络（<em>networking</em>）</p>
+<p>用户网络调用，比如发送 <em>http</em> 请求</p>
+</li>
+<li><p>用户界面后端（<em>UI backend</em>）</p>
+<p>用于绘制基本的窗口小部件，比如下拉列表、文本框、按钮等，向上提供公开的接口，向下调用操作系统的用户界面。</p>
+</li>
+<li><p><em>JS</em> 解释器（<em>JavaScript interpreter</em>）</p>
+<p>解释执行 <em>JS</em> 代码。我们平时说的 <em>JS</em> 引擎就是指这部分。</p>
+</li>
+<li><p>数据存储（<em>data storage</em>）</p>
+<p>用户保存数据到磁盘中。比如 <em>cookie、localstorage</em> 等都是使用的这部分功能。</p>
+</li>
+</ol>
+<hr>
+<p>-<em>EOF</em>-</p>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="clearfix">
+    <a href="https://wecodejs.github.io/blog" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2026 Wecodejs</li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Powered by Hexo
+    </div>
+    </div>
+    
+  </footer>
+</div>
+
+
+
+
+<script src="/blog/js/main.js"></script>
+
+
+<!-- Local Search -->
+<div id="local-search-result" style="display:none; position:fixed; top:60px; left:50%; transform:translateX(-50%); width:600px; max-height:400px; overflow-y:auto; background:#fff; border:1px solid #ddd; border-radius:3px; box-shadow:0 2px 10px rgba(0,0,0,0.1); z-index:9999;">
+  <div style="padding:10px; border-bottom:1px solid #eee;">
+    <strong>搜索结果</strong>
+    <span id="search-close" style="float:right; cursor:pointer; color:#999;">✕</span>
+  </div>
+  <div id="search-results" style="padding:10px;"></div>
+</div>
+
+<script>
+(function() {
+  var searchInput = document.getElementById('local-search-input');
+  var searchResult = document.getElementById('local-search-result');
+  var searchResults = document.getElementById('search-results');
+  var searchClose = document.getElementById('search-close');
+  var searchDataPath = '/blog/search.xml';
+  var searchEntries = [];
+
+  if (!searchInput) return;
+
+  // Load search data
+  fetch(searchDataPath)
+    .then(function(response) { return response.text(); })
+    .then(function(xml) {
+      var parser = new DOMParser();
+      var xmlDoc = parser.parseFromString(xml, 'text/xml');
+      var entries = xmlDoc.getElementsByTagName('entry');
+      for (var i = 0; i < entries.length; i++) {
+        var entry = entries[i];
+        searchEntries.push({
+          title: entry.getElementsByTagName('title')[0].textContent,
+          url: entry.getElementsByTagName('url')[0].textContent,
+          content: entry.getElementsByTagName('content')[0].textContent.replace(/<[^>]*>/g, '')
+        });
+      }
+    });
+
+  // Search function
+  searchInput.addEventListener('input', function() {
+    var keyword = this.value.trim().toLowerCase();
+    if (!keyword) {
+      searchResult.style.display = 'none';
+      return;
+    }
+
+    var results = [];
+    for (var i = 0; i < searchEntries.length; i++) {
+      var entry = searchEntries[i];
+      if (entry.title.toLowerCase().indexOf(keyword) !== -1 || entry.content.toLowerCase().indexOf(keyword) !== -1) {
+        results.push(entry);
+      }
+    }
+
+    if (results.length === 0) {
+      searchResults.innerHTML = '<p style="color:#999;">没有找到结果</p>';
+    } else {
+      var html = '<ul style="list-style:none; padding:0; margin:0;">';
+      for (var i = 0; i < results.length; i++) {
+        var r = results[i];
+        html += '<li style="padding:8px 0; border-bottom:1px solid #eee;">';
+        html += '<a href="' + r.url + '" style="color:#4078c0; text-decoration:none; font-weight:bold;">' + r.title + '</a>';
+        var preview = r.content.substring(0, 100).replace(new RegExp(keyword, 'gi'), '<mark>$&</mark>');
+        html += '<p style="color:#666; font-size:12px; margin:4px 0 0 0;">' + preview + '...</p>';
+        html += '</li>';
+      }
+      html += '</ul>';
+      searchResults.innerHTML = html;
+    }
+    searchResult.style.display = 'block';
+  });
+
+  // Close search
+  searchClose.addEventListener('click', function() {
+    searchResult.style.display = 'none';
+    searchInput.value = '';
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!searchInput.contains(e.target) && !searchResult.contains(e.target)) {
+      searchResult.style.display = 'none';
+    }
+  });
+})();
+</script>
+</body>
+</html>

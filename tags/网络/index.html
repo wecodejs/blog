@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    我的博客
+  </title>
+  <meta name="description" content="个人技术博客">
+  
+  <meta name="author" content="Wecodejs">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="theme-color" content="#1e2327">
+  <link rel="apple-touch-icon" href="https://github.githubassets.com/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/apple-touch-icon-180x180.png">
+
+  <link rel="icon" type="image/x-icon" href="https://github.githubassets.com/favicon.ico">
+  <link rel="stylesheet" href="/blog/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/blog/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <input type="text" id="local-search-input" placeholder="搜索文章..." style="padding: 2px 5px; width: 200px; border: 1px solid #ccc; border-radius: 3px;">
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a clas="navbar-nav-archives" style="display: none" href="/blog/archives/">Archives</a></li>
+        
+        
+        <li><a clas="navbar-nav-categories" style="display: none" href="/blog/categories/">Categories</a></li>
+        
+        
+        <li style="transform:translateX(570px)"><a href="/blog/tags/">全部分类</a></li>
+        
+        
+        <li clas="navbar-nav-rss desktop-only" style="display: none"><a href="/blog/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only" style="display: none;">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://avatars.githubusercontent.com/u/1371295?v=4&amp;size=230"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  
+
+<div class="container-lg">
+  
+
+<div class="blog-intro">
+  <div class="blog-intro-user">
+    <img class="avatar" src="https://avatars.githubusercontent.com/u/1371295?v=4&amp;size=230" style="border-radius:50%">
+    <div class="user-name">
+      <div class="blog-title"></div>
+      <div class="blog-author"></div>
+        <ul class="user-detail mobile-only">
+    
+    <li>
+      <i class="fa fa-map-marker"></i>
+      China
+    </li>
+    
+    <li>
+      <i class="fa fa-link"></i>
+      <a href="https://wecodejs.github.io/blog">https://wecodejs.github.io/blog</a>
+    </li>
+  </ul>
+    </div>
+    <div class="blog-description">
+      
+    </div>
+  </div>
+
+  <ul class="user-detail desktop-only">
+    
+    <li>
+      <i class="fa fa-map-marker"></i>
+      China
+    </li>
+    
+    <li>
+      <i class="fa fa-link"></i>
+      <a href="https://wecodejs.github.io/blog">https://wecodejs.github.io/blog</a>
+    </li>
+  </ul>
+
+  <div class="social-media desktop-only" style="display: none;">
+    <h4>Social Media</h4>
+    <ul>
+      
+    </ul>
+  </div>
+</div>
+
+
+  <div class="blog-detail">
+    
+<nav class="blog-detail-nav desktop-only" style="display: none;">
+  <ul class="clearfix">
+    <li class="selected">
+      <a href="/blog/">分类 <span class="counter">4</span></a></li>
+  </ul>
+</nav>
+
+    <div class="body-secondary">
+      <ul class="archive-list">
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2026/07/02/2026-07-02/01.%20%E4%BA%94%E5%B1%82%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/%E8%AF%BE%E4%BB%B6/">五层网络模型</a></h2>
+          <p>
+               分层的意义  当遇到一个复杂问题的时候，可以使用分层的思想把问题简单化 
+ 比如，你有半杯82年的可乐，想分享给你的朋友王富贵，但你们已经10年没有联系了。要完成这件事，你可能要考虑： 
+ 
+  我用什么装可乐？ 
+ 可能的方案：塑料瓶、玻璃瓶、煤气罐 
+ 
+  怎么保证可乐始终处于低温？ 
+...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 18px">网络</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <i class="fa fa-folder-open"></i> Uncategorized
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1782921600000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2026/07/02/2026-07-02/04.%20cookie%E5%92%8Cstrorage/%E8%AF%BE%E4%BB%B6/">cookie和storage</a></h2>
+          <p>
+               面试题  cookie&amp;#x2F;sessionStorage&amp;#x2F;localStorage 的区别 
+ 
+ 参考答案： 
+ cookie、sessionStorage、localStorage 都是保存本地数据的方式 
+ 其中，cookie 兼容性较好，所有浏览器均支持。浏览器针对 c...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 18px">网络</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <i class="fa fa-folder-open"></i> Uncategorized
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1782921600000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2026/07/02/2026-07-02/03.%20cookie/%E8%AF%BE%E4%BB%B6/">cookie</a></h2>
+          <p>
+               一个不大不小的问题  假设服务器有一个接口，通过请求这个接口，可以添加一个管理员 
+ 但是，不是任何人都有权力做这种操作的 
+ 那么服务器如何知道请求接口的人是有权力的呢？ 
+ 答案是：只有登录过的管理员才能做这种操作 
+ 可问题是，客户端和服务器的传输使用的是http协议，http协议是无状...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 18px">网络</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <i class="fa fa-folder-open"></i> Uncategorized
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1782921600000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2026/07/02/2026-07-02/02.%20%E5%B8%B8%E8%A7%81%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95/%E8%AF%BE%E4%BB%B6/">常见请求方法</a></h2>
+          <p>
+               请求方法的本质   请求方法是请求行中的第一个单词，它向服务器描述了客户端发出请求的动作类型。在 HTTP 协议中，不同的请求方法只是包含了不同的语义，但服务器和浏览器的一些约定俗成的行为造成了它们具体的区别  
+   
+      1   2   3        fetch ( &amp;#x27...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 18px">网络</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <i class="fa fa-folder-open"></i> Uncategorized
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1782921600000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2026/07/02/2026-07-02/05.%20%E5%8A%A0%E5%AF%86/%E8%AF%BE%E4%BB%B6/">加密</a></h2>
+          <p>
+               加密算法的分类    对称加密  
+
+ 常见算法：DES、3DES、TDEA、Blowfish、RC5、IDEA 
+ 优点：加密、解密速度快，适合对大数据量进行加密 
+ 缺点：在网络中需要分发密钥，增加了密钥被窃取的风险 
+   非对称加密  
+
+ 常见算法：RSA、Rabin、DSA、ECC...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 18px">网络</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <i class="fa fa-folder-open"></i> Uncategorized
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1782921600000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2026/07/02/2026-07-02/06.%20jwt/%E8%AF%BE%E4%BB%B6/">jwt</a></h2>
+          <p>
+               概述  回顾登录的流程： 
+ 
+
+ 接下来的问题是：这个出入证（令牌）里面到底存啥？ 
+ 一种比较简单的办法就是直接存储用户信息的JSON串，这会造成下面的几个问题： 
+ 
+ 非浏览器环境，如何在令牌中记录过期时间 
+ 如何防止令牌被伪造 
+ 
+ JWT就是为了解决这些问题出现的。 
+ JWT...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 18px">网络</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <i class="fa fa-folder-open"></i> Uncategorized
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1782921600000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2026/07/02/2026-07-02/07.%20%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/%E8%AF%BE%E4%BB%B6/">同源策略</a></h2>
+          <p>
+             浏览器有一个重要的安全策略，称之为「同源策略」 
+ 其中，$源&amp;#x3D;协议+主机+端口$，两个源相同，称之为同源，两个源不同，称之为跨源或跨域 
+ 比如： 
+ 
+ 
+ 
+ 源 1 
+ 源 2 
+ 是否同源 
+ 
+ 
+  
+  http://www.baidu.com  
+  http://ww...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 18px">网络</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <i class="fa fa-folder-open"></i> Uncategorized
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1782921600000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2026/07/02/2026-07-02/08.%20%E8%B7%A8%E5%9F%9F-%E4%BB%A3%E7%90%86/%E8%AF%BE%E4%BB%B6/">跨域-代理</a></h2>
+          <p>
+              对于前端开发而言 ，大部分的跨域问题，都是通过代理解决的 
+  代理适用的场景是：生产环境不发生跨域，但开发环境发生跨域  
+ 因此，只需要在开发环境使用代理解决跨域即可，这种代理又称之为开发代理 
+   
+ 在实际开发中，只需要对开发服务器稍加配置即可完成 
+      1   2   3  ...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 18px">网络</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <i class="fa fa-folder-open"></i> Uncategorized
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1782921600000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2026/07/02/2026-07-02/09.%20%E8%B7%A8%E5%9F%9F-CORS/%E8%AF%BE%E4%BB%B6/">跨域-CORS</a></h2>
+          <p>
+               概述   CORS 是基于 http1.1 的一种跨域解决方案，它的全称是 C ross- O rigin  R esource  S haring，跨域资源共享。 
+ 它的总体思路是： 如果浏览器要跨域访问服务器的资源，需要获得服务器的允许  
+   
+ 而要知道，一个请求可以附带很多信息，...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 18px">网络</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <i class="fa fa-folder-open"></i> Uncategorized
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1782921600000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2026/07/02/2026-07-02/10.%20%E8%B7%A8%E5%9F%9F-JSONP/%E8%AF%BE%E4%BB%B6/">跨域-JSONP</a></h2>
+          <p>
+             在CORS出现之前，人们想了一种奇妙的办法来实现跨域，这就是JSONP。 
+ 要实现JSONP，需要浏览器和服务器来一个天衣无缝的绝妙配合。 
+ JSONP的做法是： 当需要跨域请求时，不使用AJAX，转而生成一个script元素去请求服务器，由于浏览器并不阻止script元素的请求，这样请求可以...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 18px">网络</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <i class="fa fa-folder-open"></i> Uncategorized
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1782921600000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2026/07/02/2026-07-02/11.%20%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/%E8%AF%BE%E4%BB%B6/">文件上传</a></h2>
+          <p>
+               文件上传的消息格式  文件上传的本质仍然是一个数据提交，无非就是数据量大一些而已 
+ 在实践中，人们逐渐的形成了一种共识，我们自行规定，文件上传默认使用下面的请求格式 
+      1   2   3   4   5   6   7   8   9   10   11   12   13   ...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 18px">网络</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <i class="fa fa-folder-open"></i> Uncategorized
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1782921600000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2026/07/02/2026-07-02/12.%20%E8%BE%93%E5%85%A5url%E5%9C%B0%E5%9D%80%E5%90%8E/%E8%AF%BE%E4%BB%B6/">输入url地址后</a></h2>
+          <p>
+               面试题  在浏览器地址栏输入地址，并按下回车键后，发生了哪些事情？ 
+ 
+ 参考答案： 
+ 
+ 浏览器自动补全协议、端口 
+ 浏览器自动完成url编码 
+ 浏览器根据url地址查找本地缓存，根据缓存规则看是否命中缓存，若命中缓存则直接使用缓存，不再发出请求 
+ 通过DNS解析找到服务器的IP地...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 18px">网络</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <i class="fa fa-folder-open"></i> Uncategorized
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1782921600000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2026/07/02/2026-07-02/14.%20session/%E8%AF%BE%E4%BB%B6/">session</a></h2>
+          <p>
+               cookie 的缺陷  cookie 是保存在客户端的，虽然为服务器减少了很多压力，但某些情况下，会出现麻烦。 
+ 比如，验证码 
+   
+ 如果这样做，客户端可以随便填写一个别人的手机号，然后从 cookie 中获取到验证码，从而绕开整个验证。 
+ 因此，有些敏感数据是万万不能发送给客户端的...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 18px">网络</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <i class="fa fa-folder-open"></i> Uncategorized
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1782921600000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2026/07/02/2026-07-02/13.%20%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/%E8%AF%BE%E4%BB%B6/">文件下载</a></h2>
+          <p>
+               文件下载的消息格式  服务器只要在响应头中加入 Content-Disposition: attachment; filename=&amp;quot;xxx&amp;quot; 即可触发浏览器的下载功能 
+ 其中： 
+ 
+ attachment 表示附件，浏览器看到此字段，触发下载行为（不同的浏览器下载行为...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 18px">网络</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <i class="fa fa-folder-open"></i> Uncategorized
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1782921600000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2026/07/02/2026-07-02/15.%20HTTP%E7%BC%93%E5%AD%98%E5%8D%8F%E8%AE%AE/%E8%AF%BE%E4%BB%B6/">HTTP缓存协议</a></h2>
+          <p>
+               缓存的基本原理  在一个C&amp;#x2F;S结构中，最基本的缓存分为两种： 
+ 
+ 客户端缓存 
+ 服务器缓存 
+ 
+  本文仅讨论客户端缓存  
+ 所谓 客户端缓存 ，顾名思义，是将某一次的响应结果保存在客户端（比如浏览器）中，而后续的请求仅需要从缓存中读取即可，极大的降低了服务器的处理压力。 ...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 18px">网络</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <i class="fa fa-folder-open"></i> Uncategorized
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1782921600000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2026/07/02/2026-07-02/17.%20CSRF%E6%94%BB%E5%87%BB/%E8%AF%BE%E4%BB%B6/">CSRF攻击</a></h2>
+          <p>
+               CSRF攻击  CSRF（Cross-site request forgery，跨站请求伪造） 
+ 它是指攻击者利用了用户的身份信息，执行了用户非本意的操作 
+   
+   防御方式  
+ 
+ 
+ 防御手段 
+ 防御力 
+ 问题 
+ 
+ 
+  
+ 不使用cookie 
+ ⭐️⭐️⭐️⭐️⭐️ ...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 18px">网络</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <i class="fa fa-folder-open"></i> Uncategorized
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1782921600000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2026/07/02/2026-07-02/16.%20TCP%E5%8D%8F%E8%AE%AE/%E8%AF%BE%E4%BB%B6/">TCP协议</a></h2>
+          <p>
+               
+   
+   TCP收发数据流程  
+
+   TCP如何收发数据    分段发送  
+
+   可靠传输  在TCP协议中，任何时候、任何一方都可以主动发送数据给另一方 
+ 为了解决数据报丢失、数据报错乱等问题，TCP协议要求： 接收方收到数据报后，必须对数据报进行确认！  
+ 
+
+ 
+ se...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 18px">网络</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <i class="fa fa-folder-open"></i> Uncategorized
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1782921600000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2026/07/02/2026-07-02/18.%20XSS%E6%94%BB%E5%87%BB/%E8%AF%BE%E4%BB%B6/">XSS攻击</a></h2>
+          <p>
+               XSS攻击  XSS（Cross Site Scripting，跨站脚本攻击），是指攻击者利用站点的漏洞，在表单提交时，在表单内容中加入一些恶意脚本，当其他正常用户浏览页面，而页面中刚好出现攻击者的恶意脚本时，脚本被执行，从而使得页面遭到破坏，或者用户信息被窃取。 
+ 
+
+   防御方式  服...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 18px">网络</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <i class="fa fa-folder-open"></i> Uncategorized
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1782921600000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2026/07/02/2026-07-02/19.%20%E7%BD%91%E7%BB%9C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/%E8%AF%BE%E4%BB%B6/">网络性能优化</a></h2>
+          <p>
+             列举优化网络性能方法 
+ 
+ 参考答案： 
+ 
+  优化打包体积 
+ 利用一些工具压缩、混淆最终打包代码，减少包体积 
+ 
+  多目标打包 
+ 利用一些打包插件，针对不同的浏览器打包出不同的兼容性版本，这样一来，每个版本中的兼容性代码就会大大减少，从而减少包体积 
+ 
+  压缩 
+ 现代浏览器普遍...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 18px">网络</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <i class="fa fa-folder-open"></i> Uncategorized
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1782921600000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2026/07/02/2026-07-02/20.%20%E6%96%AD%E7%82%B9%E7%BB%AD%E4%BC%A0/%E8%AF%BE%E4%BB%B6/">断点续传</a></h2>
+          <p>
+               下载  若要实现下载时的断点续传，首先，服务器在响应时，要在头中加入下面的字段 
+      1       Accept-Ranges: bytes       
+
+ 这个字段是向客户端表明：我这个文件可以支持传输部分数据，你只需要告诉我你需要的是哪一部分的数据即可，单位是字节 
+ 此时，某...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 18px">网络</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <i class="fa fa-folder-open"></i> Uncategorized
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1782921600000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2026/07/02/2026-07-02/21.%20%E5%9F%9F%E5%90%8D%E5%92%8CDNS/%E8%AF%BE%E4%BB%B6/">域名和DNS</a></h2>
+          <p>
+               域名  域名👉  www.baidu.com  
+ 域名的作用是帮助人类记忆网站地址，有了域名，就不用去记IP地址了 
+ 域名的类型有以下几种： 
+ 
+ 根域名： .  
+ 顶级域名： .cn .com .net .us .uk .org ...   
+ 二级域名： .com .gov .o...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 18px">网络</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <i class="fa fa-folder-open"></i> Uncategorized
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1782921600000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2026/07/02/2026-07-02/22.%20SSL%E3%80%81TLS%E3%80%81HTTPS/%E8%AF%BE%E4%BB%B6/">SSL、TLS、HTTPS的关系</a></h2>
+          <p>
+               SSL、TLS、HTTPS的关系  SSL（Secure Sockets Layer），安全套接字协议 
+ TLS（Transport Layer Security），传输层安全性协议 
+  TLS是SSL的升级版，两者几乎是一样的  
+ HTTPS（Hyper Text Transfer P...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 18px">网络</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <i class="fa fa-folder-open"></i> Uncategorized
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1782921600000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2026/07/02/2026-07-02/24.%20WebSocket/%E8%AF%BE%E4%BB%B6/">WebSocket</a></h2>
+          <p>
+             
+ WebSocket协议（rfc6455）原文地址： 
+  https://datatracker.ietf.org/doc/html/rfc6455  
+ 
+   实时场景的旧处理方案  考虑网页中的以下场景： 
+ 
+ 股票K线图 
+ 聊天 
+ 警报、重要通知 
+ 余座 
+ 抢购页面的库存 
+...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 18px">网络</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <i class="fa fa-folder-open"></i> Uncategorized
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1782921600000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2026/07/02/2026-07-02/23.%20HTTP%E5%90%84%E7%89%88%E6%9C%AC%E5%B7%AE%E5%BC%82/%E8%AF%BE%E4%BB%B6/">HTTP各版本差异</a></h2>
+          <p>
+               HTTP1.0    无法复用连接  HTTP1.0为每个请求单独新开一个TCP连接 
+      1   2   3   4   5   6   7   8   9   10   11   12   13   14   15   16   17   18   19   20   21    ...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 18px">网络</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <i class="fa fa-folder-open"></i> Uncategorized
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1782921600000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2026/07/02/2026-07-02/25.%20WebSocket%E5%AE%9E%E6%88%98/%E8%AF%BE%E4%BB%B6/">WebSocket实战</a></h2>
+          <p>
+               WebSocket API   https://developer.mozilla.org/zh-CN/docs/Web/API/WebSocket/WebSocket  
+      1   2   3   4   5   6   7   8   9   10   11   12   13 ...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 18px">网络</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <i class="fa fa-folder-open"></i> Uncategorized
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1782921600000).fromNow()}}</span>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="clearfix">
+    <a href="https://wecodejs.github.io/blog" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2026 Wecodejs</li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Powered by Hexo
+    </div>
+    </div>
+    
+  </footer>
+</div>
+
+
+
+
+<script src="/blog/js/main.js"></script>
+
+
+<!-- Local Search -->
+<div id="local-search-result" style="display:none; position:fixed; top:60px; left:50%; transform:translateX(-50%); width:600px; max-height:400px; overflow-y:auto; background:#fff; border:1px solid #ddd; border-radius:3px; box-shadow:0 2px 10px rgba(0,0,0,0.1); z-index:9999;">
+  <div style="padding:10px; border-bottom:1px solid #eee;">
+    <strong>搜索结果</strong>
+    <span id="search-close" style="float:right; cursor:pointer; color:#999;">✕</span>
+  </div>
+  <div id="search-results" style="padding:10px;"></div>
+</div>
+
+<script>
+(function() {
+  var searchInput = document.getElementById('local-search-input');
+  var searchResult = document.getElementById('local-search-result');
+  var searchResults = document.getElementById('search-results');
+  var searchClose = document.getElementById('search-close');
+  var searchDataPath = '/blog/search.xml';
+  var searchEntries = [];
+
+  if (!searchInput) return;
+
+  // Load search data
+  fetch(searchDataPath)
+    .then(function(response) { return response.text(); })
+    .then(function(xml) {
+      var parser = new DOMParser();
+      var xmlDoc = parser.parseFromString(xml, 'text/xml');
+      var entries = xmlDoc.getElementsByTagName('entry');
+      for (var i = 0; i < entries.length; i++) {
+        var entry = entries[i];
+        searchEntries.push({
+          title: entry.getElementsByTagName('title')[0].textContent,
+          url: entry.getElementsByTagName('url')[0].textContent,
+          content: entry.getElementsByTagName('content')[0].textContent.replace(/<[^>]*>/g, '')
+        });
+      }
+    });
+
+  // Search function
+  searchInput.addEventListener('input', function() {
+    var keyword = this.value.trim().toLowerCase();
+    if (!keyword) {
+      searchResult.style.display = 'none';
+      return;
+    }
+
+    var results = [];
+    for (var i = 0; i < searchEntries.length; i++) {
+      var entry = searchEntries[i];
+      if (entry.title.toLowerCase().indexOf(keyword) !== -1 || entry.content.toLowerCase().indexOf(keyword) !== -1) {
+        results.push(entry);
+      }
+    }
+
+    if (results.length === 0) {
+      searchResults.innerHTML = '<p style="color:#999;">没有找到结果</p>';
+    } else {
+      var html = '<ul style="list-style:none; padding:0; margin:0;">';
+      for (var i = 0; i < results.length; i++) {
+        var r = results[i];
+        html += '<li style="padding:8px 0; border-bottom:1px solid #eee;">';
+        html += '<a href="' + r.url + '" style="color:#4078c0; text-decoration:none; font-weight:bold;">' + r.title + '</a>';
+        var preview = r.content.substring(0, 100).replace(new RegExp(keyword, 'gi'), '<mark>$&</mark>');
+        html += '<p style="color:#666; font-size:12px; margin:4px 0 0 0;">' + preview + '...</p>';
+        html += '</li>';
+      }
+      html += '</ul>';
+      searchResults.innerHTML = html;
+    }
+    searchResult.style.display = 'block';
+  });
+
+  // Close search
+  searchClose.addEventListener('click', function() {
+    searchResult.style.display = 'none';
+    searchInput.value = '';
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!searchInput.contains(e.target) && !searchResult.contains(e.target)) {
+      searchResult.style.display = 'none';
+    }
+  });
+})();
+</script>
+</body>
+</html>
